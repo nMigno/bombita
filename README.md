@@ -1,0 +1,2 @@
+# bombita
+Proyecto de Paradigmas
