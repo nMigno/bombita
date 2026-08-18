@@ -1,36 +1,39 @@
 ﻿using System;
 using System.Drawing;
+using System.Media;
 using System.Windows.Forms;
+using System.Web.Script.Serialization;
 
 
 namespace EngineGDI
 {
-    public static class Program
+
+
+    static class Program
     {
         // mostrar debug
-        private static bool showDebug = true;
-        private static string currentMsg = "";
+        public static bool showDebug = true;
+        public static string currentMsg = "";
 
-        private static int SCREEN_WIDTH = 1024;
-        private static int SCREEN_HEIGHT = 780;
+        static int SCREEN_WIDTH = 1500;
+        static int SCREEN_HEIGHT = 780;
 
-        private static DateTime startTime;
-        private static float deltaTime;
-        private static float lastFrameTime;
+        public static Player pacman;
+        public static Player pacman2;
+        public static Player pacman3;
 
-        private static Player pacman;
+        public static float deltaTime;
+        static DateTime lastFrameTime = DateTime.Now;
         
-        /// <summary>
-        /// Punto de entrada principal para la aplicación.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
-            startTime = DateTime.Now;
+            // pos x , pos y , velx , vely
 
-            pacman = new Player("test.png", 0, 0, 50, 1, 1);
+            pacman = new Player(5.0f, 5.0f);
 
             while (Engine.IsWindowOpen)
             {
@@ -38,15 +41,14 @@ namespace EngineGDI
                 Engine.UpdateWindow();
                 #endregion
 
-                var currentTime = (float)(DateTime.Now - startTime).TotalSeconds;
-                deltaTime = currentTime - lastFrameTime;
+                calcDeltatime();
 
                 Input();
                 Update();
                 Render();
 
                 #region Engine Window Control
-                Engine.Clear(Color.Black);
+                Engine.Clear(Color.Pink);
                 // mensajes de debug
                 if (showDebug)
                 {
@@ -58,23 +60,23 @@ namespace EngineGDI
                 #endregion
             }
         }
-
+        static void calcDeltatime()
+        {
+            TimeSpan deltaSpan = DateTime.Now - lastFrameTime;
+            deltaTime = (float)deltaSpan.TotalSeconds;
+            lastFrameTime = DateTime.Now;
+        }
         static void Input()
         {
-            if (Engine.IsKeyDown(Keys.D))
-            {
-                pacman.posx += pacman.speed * deltaTime;
-            }
+            pacman.Inputs(deltaTime);
         }
-
-        static void Update()
-        {
-
-        }
-
         static void Render()
         {
-                            Engine.Draw("test.png", 100, 50, 1, 1, 0, 0, 0);
+            pacman.Render();
+        }
+        static void Update()
+        {
+            
         }
     }
 }
