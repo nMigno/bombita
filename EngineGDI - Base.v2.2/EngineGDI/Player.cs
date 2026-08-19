@@ -1,8 +1,10 @@
-﻿using System;
+﻿using EngineGDI.DataFiles;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace EngineGDI
 {
@@ -10,38 +12,31 @@ namespace EngineGDI
     public class Player
     {
         string id;
-        float posx;
-        float posy;
         float vel;
-
-        public Player(int number)
-        {
-            id = "Bot" + number;
-            posx = 50;
-            posy = 50;
-        }
-
+        Transform transform;
+        
         public Player(float initialx, float initialy, float speed = 200)
-        {
+        {         
             id = "Player";
-            posx = initialx;
-            posy = initialy;
             vel = speed;
-
+            transform = new Transform();
+            transform.Position.x = initialx;
+            transform.Position.y = initialy;
         }
+
         public void Inputs(float deltaTime)
         {
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.W)) {
-                posx -= vel * deltaTime;
+                transform.Position.y -= vel * deltaTime;
             }
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.A)) {
-                posy -= vel * deltaTime;
+                transform.Position.x -= vel * deltaTime;
             }
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.S)) {
-                posx += vel * deltaTime;
+                transform.Position.y += vel * deltaTime;
             }
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.D)) {
-                posy += vel * deltaTime;
+                transform.Position.x += vel * deltaTime;
             }
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J)){
                 ChangeSpeed(1.0f);
@@ -60,8 +55,7 @@ namespace EngineGDI
             if (vel >= 500.0f) vel = 500.0f;
         }
         public void Render() {
-            Engine.Draw("Bomberman.png", posy, posx, 1, 1, 0, 0, 0);
-            
+            Engine.Draw("Bomberman.png", transform.Position.x, transform.Position.y, 1, 1, 0, 0, 0);            
         }
     }
 }

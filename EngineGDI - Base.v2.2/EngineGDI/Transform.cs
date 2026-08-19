@@ -6,8 +6,12 @@ using System.Threading.Tasks;
 
 namespace EngineGDI
 {
-    public class Enemy
+    public class Transform
     {
+        public Vector2 Position;
+        public Vector2 Scale;
+        public Vector2 Offset;
 
+        public float Angle;        
     }
 }
