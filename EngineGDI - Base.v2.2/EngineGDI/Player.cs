@@ -22,6 +22,11 @@ namespace EngineGDI
             transform = new Transform();
             transform.Position.x = initialx;
             transform.Position.y = initialy;
+            transform.Scale.x = 1;
+            transform.Scale.y = 1;
+            transform.Angle = 0;
+            transform.Offset.x = 0;
+            transform.Offset.y = 0;
         }
 
         public void Inputs(float deltaTime)
@@ -55,7 +60,7 @@ namespace EngineGDI
             if (vel >= 500.0f) vel = 500.0f;
         }
         public void Render() {
-            Engine.Draw("Bomberman.png", transform.Position.x, transform.Position.y, 1, 1, 0, 0, 0);            
+            Engine.Draw("Bomberman.png", transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);            
         }
     }
 }
