@@ -13,6 +13,7 @@ namespace EngineGDI
         public Vector2 Position;
         public Vector2 Scale;
         public Vector2 Offset;
+        public Vector2 RealSize;
 
         public float Angle;
 

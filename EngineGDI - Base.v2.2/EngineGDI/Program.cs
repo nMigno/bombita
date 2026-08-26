@@ -18,8 +18,8 @@ namespace EngineGDI
         static int SCREEN_HEIGHT = 900;
 
         public static Player pacman;
-        public static Player pacman2;
-        public static Player pacman3;
+        public static Enemy enemy;
+        public static Colider colider;
 
 
         public static float deltaTime;
@@ -32,6 +32,8 @@ namespace EngineGDI
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
             pacman = new Player(5.0f, 5.0f);
+            enemy = new Enemy(100.0f, 10.0f);
+            colider = new Colider();
 
             while (Engine.IsWindowOpen)
             {
@@ -71,11 +73,19 @@ namespace EngineGDI
         static void Update()
         {
 
+            if (colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize))
+            {
+                colider.Render();
+            }
+
+
         }
+       
 
         static void Render()
         {
             pacman.Render();
+            enemy.Render();
         }
 
     }

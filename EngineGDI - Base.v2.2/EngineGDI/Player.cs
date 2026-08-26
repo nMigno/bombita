@@ -13,7 +13,7 @@ namespace EngineGDI
     {
         string id;
         float vel;
-        Transform transform;
+        public Transform transform;
         
         public Player(float initialx, float initialy, float speed = 200)
         {         
@@ -27,6 +27,8 @@ namespace EngineGDI
             transform.Angle = 0;
             transform.Offset.x = 0;
             transform.Offset.y = 0;
+            transform.RealSize.x = 32;
+            transform.RealSize.y = 32;
         }
 
         public void Inputs(float deltaTime)
@@ -62,5 +64,6 @@ namespace EngineGDI
         public void Render() {
             Engine.Draw("Bomberman.png", transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);            
         }
+
     }
 }

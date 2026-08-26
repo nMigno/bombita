@@ -47,14 +47,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Colider.cs" />
     <Compile Include="DataFiles\PositionData.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="Maze.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transform.cs" />
     <Compile Include="Vector2.cs" />
+    <Compile Include="Wall.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +82,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bomberman.png" />
     <Content Include="test.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
