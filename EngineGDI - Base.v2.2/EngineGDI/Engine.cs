@@ -94,6 +94,14 @@ namespace EngineGDI
             sounds[path].Play();
         }
 
+        public static void PlaySoundLoop(string path)
+        {
+            if (!sounds.ContainsKey(path))
+                sounds[path] = new SoundPlayer(path);
+
+            sounds[path].PlayLooping();
+        }
+
         public static void Draw(string path, float x, float y, float scaleX = 1f, float scaleY = 1f, float angle = 0f, float offsetX = 0f, float offsetY = 0f)
         {
             if (!textures.ContainsKey(path))

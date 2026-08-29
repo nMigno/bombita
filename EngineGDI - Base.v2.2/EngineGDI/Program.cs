@@ -21,10 +21,11 @@ namespace EngineGDI
         public static Enemy enemy;
         public static Colider colider;
 
+        public static AudioManager audioManager = new AudioManager();
+
 
         public static float deltaTime;
-        static DateTime lastFrameTime = DateTime.Now;
-        
+        static DateTime lastFrameTime = DateTime.Now;             
 
         [STAThread]
         static void Main()
@@ -76,6 +77,7 @@ namespace EngineGDI
             if (colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize))
             {
                 colider.Render();
+                audioManager.PlayPlayerDie();
             }
 
 
