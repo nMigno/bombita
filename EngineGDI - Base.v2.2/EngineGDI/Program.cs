@@ -25,7 +25,10 @@ namespace EngineGDI
 
 
         public static float deltaTime;
-        static DateTime lastFrameTime = DateTime.Now;             
+        static DateTime lastFrameTime = DateTime.Now;
+
+        static bool isCollidingNow = false;
+        static bool wasColliding = false;
 
         [STAThread]
         static void Main()
@@ -35,6 +38,8 @@ namespace EngineGDI
             pacman = new Player(5.0f, 5.0f);
             enemy = new Enemy(100.0f, 10.0f);
             colider = new Colider();
+
+            
 
             while (Engine.IsWindowOpen)
             {
@@ -73,16 +78,24 @@ namespace EngineGDI
         }
         static void Update()
         {
+            isCollidingNow = colider.IsBoxColliding(pacman.transform.Position, 
+                pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize);
 
-            if (colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize))
+            if (isCollidingNow)
             {
                 colider.Render();
-                audioManager.PlayPlayerDie();
+                
+                if (!wasColliding)
+                {
+                    audioManager.PlayPlayerDie();
+                    wasColliding = true;
+                }
             }
-
-
-        }
-       
+            else
+            {
+                wasColliding = false;
+            }
+        }       
 
         static void Render()
         {
