@@ -27,7 +27,7 @@ namespace EngineGDI
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
 
-        static bool isCollidingNow = false;
+        static bool isColliding = false;
         static bool wasColliding = false;
 
         [STAThread]
@@ -78,10 +78,10 @@ namespace EngineGDI
         }
         static void Update()
         {
-            isCollidingNow = colider.IsBoxColliding(pacman.transform.Position, 
+            isColliding = colider.IsBoxColliding(pacman.transform.Position, 
                 pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize);
 
-            if (isCollidingNow)
+            if (isColliding)
             {
                 colider.Render();
                 
