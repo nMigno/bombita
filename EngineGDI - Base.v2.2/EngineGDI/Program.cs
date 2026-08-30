@@ -74,10 +74,12 @@ namespace EngineGDI
         }
         static void Input()
         {
-            pacman.Inputs(deltaTime);
+            pacman.Inputs();
         }
         static void Update()
         {
+            pacman.Update(deltaTime);
+
             isColliding = colider.IsBoxColliding(pacman.transform.Position, 
                 pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize);
 
