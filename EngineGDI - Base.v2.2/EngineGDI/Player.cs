@@ -72,27 +72,14 @@ namespace EngineGDI
         {
             sprites = new Animation("wip", upFrames, 0.1f, true, 16, 16);
         }
-        public void Update(float deltaTime)
+        void ChangeSpeed(float value)
         {
-            switch (CurrentState)
+            if (vel <= 500.0f && vel >= 100.0f)
             {
-                case SpriteState.up:
-                    transform.Position.y -= vel * deltaTime;
-                    sprites.frames = upFrames;
-                    break;
-                case SpriteState.left:
-                    transform.Position.x -= vel * deltaTime;
-                    sprites.frames = leftFrames;
-                    break;
-                case SpriteState.down:
-                    transform.Position.y += vel * deltaTime;
-                    sprites.frames = downFrames;
-                    break;
-                case SpriteState.right:
-                    transform.Position.x += vel * deltaTime;
-                    sprites.frames = rightFrames;
-                    break;                                    
+                vel = vel + (value * 20);
             }
+            if (vel <= 100.0f) vel = 100.0f;
+            if (vel >= 500.0f) vel = 500.0f;
         }
         public void Inputs()
         {                          
@@ -113,25 +100,39 @@ namespace EngineGDI
                 CurrentState = SpriteState.right;
             }
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J)){
+        
                 ChangeSpeed(1.0f);
             }
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.K)){
                 ChangeSpeed(-1.0f);
             }            
-        }
-        void ChangeSpeed(float value)
+        }        
+        public void Update(float deltaTime)
         {
-            if  (vel <= 500.0f && vel >= 100.0f)
+            sprites.Update();
+
+            switch (CurrentState)
             {
-                vel = vel + (value * 20);
+                case SpriteState.up:
+                    transform.Position.y -= vel * deltaTime;
+                    sprites.frames = upFrames;
+                    break;
+                case SpriteState.left:
+                    transform.Position.x -= vel * deltaTime;
+                    sprites.frames = leftFrames;
+                    break;
+                case SpriteState.down:
+                    transform.Position.y += vel * deltaTime;
+                    sprites.frames = downFrames;
+                    break;
+                case SpriteState.right:
+                    transform.Position.x += vel * deltaTime;
+                    sprites.frames = rightFrames;
+                    break;
             }
-            if (vel <= 100.0f) vel = 100.0f;
-            if (vel >= 500.0f) vel = 500.0f;
         }
         public void Render() {
             Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
-
-            sprites.Update();
         }
 
     }
