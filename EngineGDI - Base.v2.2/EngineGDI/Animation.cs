@@ -10,7 +10,7 @@ namespace EngineGDI
     {
         private string id;
         private bool isLoopEnabled;
-        private List<string> frames;
+        public List<string> frames;
         private float speed = 0;
         private float currentAnimationTime = 0;
         private int currentFrameIndex = 0;
