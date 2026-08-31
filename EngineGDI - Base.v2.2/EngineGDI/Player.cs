@@ -99,6 +99,13 @@ namespace EngineGDI
                 
                 CurrentState = SpriteState.right;
             }
+            if (!Engine.IsKeyDown(System.Windows.Forms.Keys.W) &&
+                !Engine.IsKeyDown(System.Windows.Forms.Keys.A) &&
+                !Engine.IsKeyDown(System.Windows.Forms.Keys.S) &&
+                !Engine.IsKeyDown(System.Windows.Forms.Keys.D))
+            {
+                CurrentState = SpriteState.idle;
+            }
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J)){
         
                 ChangeSpeed(1.0f);
@@ -128,6 +135,9 @@ namespace EngineGDI
                 case SpriteState.right:
                     transform.Position.x += vel * deltaTime;
                     sprites.frames = rightFrames;
+                    break;
+                case SpriteState.idle:
+                    sprites.frames = downFrames;
                     break;
             }
         }
