@@ -20,6 +20,7 @@ namespace EngineGDI
         public static Player pacman;
         public static Enemy enemy;
         public static Colider colider;
+        public static Wall wall;
 
         public static AudioManager audioManager = new AudioManager();
 
@@ -38,6 +39,7 @@ namespace EngineGDI
             pacman = new Player(5.0f, 5.0f);
             enemy = new Enemy(100.0f, 10.0f);
             colider = new Colider();
+            wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
 
             
 
@@ -54,7 +56,7 @@ namespace EngineGDI
                 Render();
 
                 #region Engine Window Control
-                Engine.Clear(Color.Pink);
+                Engine.Clear(Color.Black);
                 // mensajes de debug
                 if (showDebug)
                 {
@@ -79,9 +81,9 @@ namespace EngineGDI
         static void Update()
         {
             pacman.Update(deltaTime);
+            colider.FourDirPlayerPusher(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 
-            isColliding = colider.IsBoxColliding(pacman.transform.Position, 
-                pacman.transform.RealSize, enemy.transform.Position, enemy.transform.RealSize);
+            isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 
             if (isColliding)
             {
@@ -103,6 +105,7 @@ namespace EngineGDI
         {
             pacman.Render();
             enemy.Render();
+            wall.Render();
         }
 
     }
