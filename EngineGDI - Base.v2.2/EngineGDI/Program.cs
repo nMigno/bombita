@@ -21,7 +21,8 @@ namespace EngineGDI
         public static Enemy enemy;
         public static Colider colider;
         public static Wall wall;
-
+        public static Wall wall2;
+        public static Wall wall3;
         public static AudioManager audioManager = new AudioManager();
 
 
@@ -40,8 +41,9 @@ namespace EngineGDI
             enemy = new Enemy(100.0f, 10.0f);
             colider = new Colider();
             wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
+            wall2 = new Wall(100, 116, "Assets/Sprites/Players/Bombita1/wallr.png");
+            wall3 = new Wall(100, 148, "Assets/Sprites/Players/Bombita1/wallr.png");
 
-            
 
             while (Engine.IsWindowOpen)
             {
@@ -81,9 +83,11 @@ namespace EngineGDI
         static void Update()
         {
             pacman.Update(deltaTime);
-            colider.FourDirPlayerPusher(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
+            colider.FourDirPlayerPusher(ref pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
+            colider.FourDirPlayerPusher(ref pacman.transform.Position, pacman.transform.RealSize, wall2.transform.Position, wall2.transform.RealSize);
+            colider.FourDirPlayerPusher(ref pacman.transform.Position, pacman.transform.RealSize, wall3.transform.Position, wall3.transform.RealSize);
 
-            isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
+            //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 
             if (isColliding)
             {
@@ -106,6 +110,8 @@ namespace EngineGDI
             pacman.Render();
             enemy.Render();
             wall.Render();
+            wall2.Render();
+            wall3.Render();
         }
 
     }
