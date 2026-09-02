@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
+using EngineGDI.DataFiles;
 
 namespace EngineGDI
 {
@@ -23,6 +24,7 @@ namespace EngineGDI
         public static Wall wall;
         public static Wall wall2;
         public static Wall wall3;
+        public static LevelLoaderFromJson level;
         public static AudioManager audioManager = new AudioManager();
 
 
@@ -43,6 +45,7 @@ namespace EngineGDI
             wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
             wall2 = new Wall(100, 116, "Assets/Sprites/Players/Bombita1/wallr.png");
             wall3 = new Wall(100, 148, "Assets/Sprites/Players/Bombita1/wallr.png");
+            level = new LevelLoaderFromJson();
 
 
             while (Engine.IsWindowOpen)
@@ -83,9 +86,10 @@ namespace EngineGDI
         static void Update()
         {
             pacman.Update(deltaTime);
-            colider.FourDirPlayerPusher(ref pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
-            colider.FourDirPlayerPusher(ref pacman.transform.Position, pacman.transform.RealSize, wall2.transform.Position, wall2.transform.RealSize);
-            colider.FourDirPlayerPusher(ref pacman.transform.Position, pacman.transform.RealSize, wall3.transform.Position, wall3.transform.RealSize);
+            colider.playerWallColision(pacman.transform, wall.transform);
+            colider.playerWallColision(pacman.transform, wall2.transform);
+            colider.playerWallColision(pacman.transform, wall3.transform);
+            level.ReadPathFromJson("DataFiles/EnemyPathing.json");
 
             //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 

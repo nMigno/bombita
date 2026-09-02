@@ -8,5 +8,8 @@ namespace EngineGDI
 {
     internal class Maze
     {
+       // public List<Wall> transforms { get; set; }
+        public float speed { get; set; }
+        public float life { get; set; }
     }
 }

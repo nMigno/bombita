@@ -15,22 +15,22 @@ namespace EngineGDI.DataFiles
         public float y; // { get; set; }
     }
 
-    public class PathData
+    public class Level
     {
-        public List<Position> path { get; set; }
+        List<Wall> muros { get; set; }
         public float speed { get; set; }
         public float life { get; set; }
     }
-
-    public class PositionData
+    
+    public class LevelLoaderFromJson
     {
-        public PathData ReadPathFromJson(string filePath)
+        public Level ReadPathFromJson(string filePath)
         {
             string json = File.ReadAllText(filePath);
 
             JavaScriptSerializer serializer = new JavaScriptSerializer();
 
-            return serializer.Deserialize<PathData>(json);
+            return serializer.Deserialize<Level>(json);
         }
     }
 }
