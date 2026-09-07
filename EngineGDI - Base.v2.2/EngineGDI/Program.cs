@@ -20,7 +20,8 @@ namespace EngineGDI
 
         public static Player pacman;
         public static Enemy enemy;
-        public static Colider colider;
+        public static Collider collider;
+        public static Background background;
         public static Wall wall;
         public static Wall wall2;
         public static Wall wall3;
@@ -41,10 +42,11 @@ namespace EngineGDI
 
             pacman = new Player(5.0f, 5.0f);
             enemy = new Enemy(100.0f, 10.0f);
-            colider = new Colider();
+            collider = new Collider();
+            background = new Background(0, 0, "Assets/Maps/Background.png");
             wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
-            wall2 = new Wall(100, 116, "Assets/Sprites/Players/Bombita1/wallr.png");
-            wall3 = new Wall(100, 148, "Assets/Sprites/Players/Bombita1/wallr.png");
+            wall2 = new Wall(100, 200, "Assets/Sprites/Players/Bombita1/wallr.png");
+            wall3 = new Wall(100, 300, "Assets/Sprites/Players/Bombita1/wallr.png");
             level = new LevelLoaderFromJson();
 
 
@@ -86,16 +88,16 @@ namespace EngineGDI
         static void Update()
         {
             pacman.Update(deltaTime);
-            colider.playerWallColision(pacman.transform, wall.transform);
-            colider.playerWallColision(pacman.transform, wall2.transform);
-            colider.playerWallColision(pacman.transform, wall3.transform);
+            collider.playerWallColision(pacman.transform, wall.transform);
+            collider.playerWallColision(pacman.transform, wall2.transform);
+            collider.playerWallColision(pacman.transform, wall3.transform);
             level.ReadPathFromJson("DataFiles/EnemyPathing.json");
 
             //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 
             if (isColliding)
             {
-                colider.Render();
+                collider.Render();
                 
                 if (!wasColliding)
                 {
@@ -111,6 +113,7 @@ namespace EngineGDI
 
         static void Render()
         {
+            background.Render();
             pacman.Render();
             enemy.Render();
             wall.Render();

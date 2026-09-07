@@ -22,7 +22,11 @@ namespace EngineGDI
         }
         string id;
         float vel;
+        SpriteState lastMoveDirection = SpriteState.down;
+
+        public Bomb ActiveBomb { get; private set; }
         public Transform transform;
+        
 
         Animation sprites;
 
@@ -86,18 +90,22 @@ namespace EngineGDI
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.W)) {
                 
                 CurrentState = SpriteState.up;
+                lastMoveDirection = SpriteState.up;
             }
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.A)) {
                 
                 CurrentState = SpriteState.left;
+                lastMoveDirection = SpriteState.left;
             }
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.S)) {
                 
                 CurrentState = SpriteState.down;
+                lastMoveDirection = SpriteState.down;
             }
             if (Engine.IsKeyDown(System.Windows.Forms.Keys.D)) {
                 
                 CurrentState = SpriteState.right;
+                lastMoveDirection = SpriteState.right;
             }
             if (!Engine.IsKeyDown(System.Windows.Forms.Keys.W) &&
                 !Engine.IsKeyDown(System.Windows.Forms.Keys.A) &&
@@ -106,14 +114,56 @@ namespace EngineGDI
             {
                 CurrentState = SpriteState.idle;
             }
+
+            if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Space))
+            {
+                PlaceBomb();
+            }
+
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J)){
         
                 ChangeSpeed(1.0f);
             }
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.K)){
                 ChangeSpeed(-1.0f);
-            }            
-        }        
+            }                
+        }    
+        
+        private void PlaceBomb()
+        {
+            if (ActiveBomb != null && ActiveBomb.IsActive) return;
+
+            float distanceOffset = 4.0f;
+            float bombX = transform.Position.x;
+            float bombY = transform.Position.y;
+
+            switch (lastMoveDirection)
+            {
+                case SpriteState.up:
+                    bombY -= transform.RealSize.y + distanceOffset;
+                    break;
+                case SpriteState.down:
+                    bombY += transform.RealSize.y + distanceOffset;
+                    break;
+                case SpriteState.left:
+                    bombX -= transform.RealSize.x + distanceOffset;
+                    break;
+                case SpriteState.right:
+                    bombX += transform.RealSize.x + distanceOffset;
+                    break;
+            }
+
+            Vector2 bombPos = new Vector2 { x = bombX, y = bombY };
+            Vector2 bombSize = new Vector2 { x = 26, y = 16 };
+
+            bool collide = Program.collider.IsBoxColliding(bombPos, bombSize, Program.wall.transform.Position, Program.wall.transform.RealSize);
+
+            if (!collide)
+            {
+                ActiveBomb = new Bomb(bombX, bombY, "Assets/Sprites/Players/Bombita1/bomb1.png");
+            }
+        }
+
         public void Update(float deltaTime)
         {
             sprites.Update();
@@ -140,10 +190,17 @@ namespace EngineGDI
                     sprites.frames = downFrames;
                     break;
             }
+
+            ActiveBomb?.Update(deltaTime);
+
+            // Sin esta línea, la bomba no deja de renderizarse. Vaya a saber uno por qué xd
+            if (ActiveBomb != null && !ActiveBomb.IsActive) ActiveBomb = null;
         }
         public void Render() {
-            Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
-        }
+            Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y, 
+                transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
 
+            ActiveBomb?.Render();
+        }
     }
 }

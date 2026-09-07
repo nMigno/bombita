@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace EngineGDI
 {
-    internal class Wall
+    internal class Background
     {
         public Transform transform;
         string id;
         string texture;
 
-        public Wall(float initialX, float initialY, string path)
+        public Background(float initialx, float initialy, string path)
         {
-            id = "Wall";
+            id = "Background";
             texture = path;
             transform = new Transform();
-            transform.Position.x = initialX;
-            transform.Position.y = initialY;
-            transform.Scale.x = 1;
-            transform.Scale.y = 1;
+            transform.Position.x = initialx;
+            transform.Position.y = initialy;
+            transform.Scale.x = 3.24f;
+            transform.Scale.y = 4.35f;
             transform.Angle = 0;
             transform.Offset.x = 0;
             transform.Offset.y = 0;

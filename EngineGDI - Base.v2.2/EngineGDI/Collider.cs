@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EngineGDI
 {
-    public class Colider
+    public class Collider
     {
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
