@@ -91,7 +91,11 @@ namespace EngineGDI
             collider.playerWallColision(pacman.transform, wall.transform);
             collider.playerWallColision(pacman.transform, wall2.transform);
             collider.playerWallColision(pacman.transform, wall3.transform);
-            
+
+            for (int i = 0; i < maze.WallsInMaze.Count; i++)
+            {
+                collider.playerWallColision(pacman.transform, maze.WallsInMaze[i].transform);
+            }
 
             //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 
