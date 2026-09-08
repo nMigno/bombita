@@ -11,14 +11,12 @@ namespace EngineGDI
         public Transform transform;
         string id;
         string texture;
-
         public Wall(float initialX, float initialY, string path)
         {
             id = "Wall";
             texture = path;
             transform = new Transform();
-            transform.Position.x = initialX;
-            transform.Position.y = initialY;
+            //escala y angulo
             transform.Scale.x = 2.5f;
             transform.Scale.y = 2.5f;
             transform.Angle = 0;
@@ -26,6 +24,9 @@ namespace EngineGDI
             transform.Offset.y = 0;
             transform.RealSize.x = 16 * transform.Scale.x;
             transform.RealSize.y = 16 * transform.Scale.y;
+            //cordenadas
+            transform.Position.x = transform.RealSize.x * initialX;
+            transform.Position.y = transform.RealSize.y * initialY;
         }
 
         public void Render()

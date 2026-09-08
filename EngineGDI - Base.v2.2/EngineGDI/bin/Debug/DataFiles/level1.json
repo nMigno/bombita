@@ -6,28 +6,33 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     },
     {
-      "X": 16.0,
+      "X": 1.0,
       "Y": 0.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     },
     {
-      "X": 32.0,
+      "X": 2.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
+    },
+    {
+      "X": 3.0,
       "Y": 0.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     },
     {
       "X": 0.0,
-      "Y": 16.0,
+      "Y": 1.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     },
     {
       "X": 0.0,
-      "Y": 32.0,
+      "Y": 2.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     },
     {
       "X": 0.0,
-      "Y": 48.0,
+      "Y": 3.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     }
   ]
