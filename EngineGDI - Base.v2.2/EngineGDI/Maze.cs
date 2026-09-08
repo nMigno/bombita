@@ -10,7 +10,11 @@ namespace EngineGDI
     public class Maze
     {
         public List<Wall> WallsInMaze { get; private set; } = new List<Wall>();
-        public void LoadLevel(string filePath)
+        public Maze(string path)
+        {
+            LoadLevel(path);
+        }
+        void LoadLevel(string filePath)
         {
             LevelLoaderFromJson loader = new LevelLoaderFromJson();
             Level levelData = loader.ReadPathFromJson(filePath);
