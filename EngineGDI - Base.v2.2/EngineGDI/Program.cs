@@ -25,8 +25,8 @@ namespace EngineGDI
         public static Wall wall;
         public static Wall wall2;
         public static Wall wall3;
-        public static LevelLoaderFromJson level;
         public static AudioManager audioManager = new AudioManager();
+        public static Maze maze;
 
 
         public static float deltaTime;
@@ -47,7 +47,7 @@ namespace EngineGDI
             wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
             wall2 = new Wall(100, 200, "Assets/Sprites/Players/Bombita1/wallr.png");
             wall3 = new Wall(100, 300, "Assets/Sprites/Players/Bombita1/wallr.png");
-            level = new LevelLoaderFromJson();
+            maze = new Maze("DataFiles/level1.json");
 
 
             while (Engine.IsWindowOpen)
@@ -91,7 +91,7 @@ namespace EngineGDI
             collider.playerWallColision(pacman.transform, wall.transform);
             collider.playerWallColision(pacman.transform, wall2.transform);
             collider.playerWallColision(pacman.transform, wall3.transform);
-            level.ReadPathFromJson("DataFiles/EnemyPathing.json");
+            
 
             //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
 
@@ -119,6 +119,7 @@ namespace EngineGDI
             wall.Render();
             wall2.Render();
             wall3.Render();
+            maze.Render();
         }
 
     }
