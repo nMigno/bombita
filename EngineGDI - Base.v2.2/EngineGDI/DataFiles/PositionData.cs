@@ -9,17 +9,16 @@ using System.Web.Script.Serialization;
 
 namespace EngineGDI.DataFiles
 {
-    public class Position
+    public class WallData
     {
-        public float x; // { get; set; }
-        public float y; // { get; set; }
+        public float X { get; set; }
+        public float Y { get; set; }
+        public string ImagePath { get; set; }
     }
 
     public class Level
     {
-        List<Wall> muros { get; set; }
-        public float speed { get; set; }
-        public float life { get; set; }
+        public List<WallData> WallsInFile { get; set; }
     }
     
     public class LevelLoaderFromJson

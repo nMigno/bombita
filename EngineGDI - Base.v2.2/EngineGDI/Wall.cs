@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EngineGDI
 {
-    internal class Wall
+    public class Wall
     {
         public Transform transform;
         string id;
@@ -27,6 +27,7 @@ namespace EngineGDI
             transform.RealSize.x = 16;
             transform.RealSize.y = 16;
         }
+
         public void Render()
         {
             Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
