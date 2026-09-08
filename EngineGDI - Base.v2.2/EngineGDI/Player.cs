@@ -62,13 +62,13 @@ namespace EngineGDI
             transform = new Transform();
             transform.Position.x = initialx;
             transform.Position.y = initialy;
-            transform.Scale.x = 1;
-            transform.Scale.y = 1;
+            transform.Scale.x = 2.5f;
+            transform.Scale.y = 2.5f;
             transform.Angle = 0;
             transform.Offset.x = 0;
             transform.Offset.y = 0;
-            transform.RealSize.x = 16;
-            transform.RealSize.y = 16;
+            transform.RealSize.x = 16 * transform.Scale.x;
+            transform.RealSize.y = 16 * transform.Scale.y;
 
             LoadSprites();
         }
@@ -193,7 +193,6 @@ namespace EngineGDI
 
             ActiveBomb?.Update(deltaTime);
 
-            // Sin esta línea, la bomba no deja de renderizarse. Vaya a saber uno por qué xd
             if (ActiveBomb != null && !ActiveBomb.IsActive) ActiveBomb = null;
         }
         public void Render() {

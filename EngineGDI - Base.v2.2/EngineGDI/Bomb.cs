@@ -22,13 +22,13 @@ namespace EngineGDI
             transform = new Transform();
             Transform.Position.x = initialX;
             Transform.Position.y = initialY;
-            Transform.Scale.x = 1;
-            Transform.Scale.y = 1;
+            Transform.Scale.x = 2.5f;
+            Transform.Scale.y = 2.5f;
             Transform.Angle = 0;
             Transform.Offset.x = 0;
             Transform.Offset.y = 0;
-            Transform.RealSize.x = 16;
-            Transform.RealSize.y = 16;
+            Transform.RealSize.x = 16 * Transform.Scale.x;
+            Transform.RealSize.y = 16 * Transform.Scale.y;
 
             timer = 3.0f;
             isActive = true;
