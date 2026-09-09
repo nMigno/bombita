@@ -51,6 +51,7 @@
     <Compile Include="AudioManager.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Bomb.cs" />
+    <Compile Include="ClaseVirtualDelegado.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="DataFiles\PositionData.cs" />
     <Compile Include="Enemy.cs" />
@@ -72,6 +73,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="bin\Debug\DataFiles\EnemyPathing.json" />
+    <None Include="bin\Debug\DataFiles\level0.json" />
     <None Include="bin\Debug\DataFiles\level1.json" />
     <None Include="bin\Debug\EngineGDI.exe.config" />
     <None Include="Properties\Settings.settings">

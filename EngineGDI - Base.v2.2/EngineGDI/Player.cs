@@ -9,7 +9,7 @@ using System.Web.Script.Serialization;
 namespace EngineGDI
 {    
     public class Player
-    {
+    {                
         enum SpriteState
         {
             idle,
@@ -22,11 +22,15 @@ namespace EngineGDI
         }
         string id;
         float vel;
-        SpriteState lastMoveDirection = SpriteState.down;
 
         public Bomb ActiveBomb { get; private set; }
         public Transform transform;
-        
+
+        //trackeo estado del player
+
+        public event Action OnLifeChanged;
+        public bool alive = true;
+        //lo mato
 
         Animation sprites;
 
@@ -51,6 +55,13 @@ namespace EngineGDI
                 "Assets//Sprites//Players//Bombita1//b10.png" ,
                 "Assets//Sprites//Players//Bombita1//b11.png" ,
                 "Assets//Sprites//Players//Bombita1//b12.png" ,
+            };
+        List<string> dieFrames = new List<string> {
+                "Assets/Sprites/Players/Bombita1/bd1.png" ,
+                "Assets/Sprites/Players/Bombita1/bd2.png" ,
+                "Assets/Sprites/Players/Bombita1/bd3.png" ,
+                "Assets/Sprites/Players/Bombita1/bd4.png" ,
+                "Assets/Sprites/Players/Bombita1/bd5.png" ,
             };
 
         SpriteState CurrentState = SpriteState.idle;
@@ -85,50 +96,56 @@ namespace EngineGDI
             if (vel <= 100.0f) vel = 100.0f;
             if (vel >= 500.0f) vel = 500.0f;
         }
+        //metodo Die suscrito en program CLASEDELEGADO
+        public void Die()
+        {
+            alive = false;
+            CurrentState = SpriteState.die;
+        }
         public void Inputs()
-        {                          
-            if (Engine.IsKeyDown(System.Windows.Forms.Keys.W)) {
+        {
+            if (alive) {                           
+                if (Engine.IsKeyDown(System.Windows.Forms.Keys.W)) {
                 
-                CurrentState = SpriteState.up;
-                lastMoveDirection = SpriteState.up;
-            }
-            if (Engine.IsKeyDown(System.Windows.Forms.Keys.A)) {
+                    CurrentState = SpriteState.up;
+                }
+                if (Engine.IsKeyDown(System.Windows.Forms.Keys.A)) {
                 
-                CurrentState = SpriteState.left;
-                lastMoveDirection = SpriteState.left;
-            }
-            if (Engine.IsKeyDown(System.Windows.Forms.Keys.S)) {
+                    CurrentState = SpriteState.left;
+                }
+                if (Engine.IsKeyDown(System.Windows.Forms.Keys.S)) {
                 
-                CurrentState = SpriteState.down;
-                lastMoveDirection = SpriteState.down;
-            }
-            if (Engine.IsKeyDown(System.Windows.Forms.Keys.D)) {
+                    CurrentState = SpriteState.down;
+                }
+                if (Engine.IsKeyDown(System.Windows.Forms.Keys.D)) {
                 
-                CurrentState = SpriteState.right;
-                lastMoveDirection = SpriteState.right;
-            }
-            if (!Engine.IsKeyDown(System.Windows.Forms.Keys.W) &&
-                !Engine.IsKeyDown(System.Windows.Forms.Keys.A) &&
-                !Engine.IsKeyDown(System.Windows.Forms.Keys.S) &&
-                !Engine.IsKeyDown(System.Windows.Forms.Keys.D))
-            {
-                CurrentState = SpriteState.idle;
-            }
+                    CurrentState = SpriteState.right;
+                }
+                if (!Engine.IsKeyDown(System.Windows.Forms.Keys.W) &&
+                    !Engine.IsKeyDown(System.Windows.Forms.Keys.A) &&
+                    !Engine.IsKeyDown(System.Windows.Forms.Keys.S) &&
+                    !Engine.IsKeyDown(System.Windows.Forms.Keys.D))
+                {
+                    CurrentState = SpriteState.idle;
+                }
 
-            if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Space))
-            {
-                PlaceBomb();
-            }
+                if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Space))
+                {
+                    PlaceBomb();
+                    
+                }
 
-            if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J)){
-        
-                ChangeSpeed(1.0f);
+                if (Engine.IsKeyPressed(System.Windows.Forms.Keys.K)){
+                    ChangeSpeed(-1.0f);
+                }                
             }
-            if (Engine.IsKeyPressed(System.Windows.Forms.Keys.K)){
-                ChangeSpeed(-1.0f);
-            }                
-        }    
-        
+            if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J))
+            {
+                //llamo al evento CLASEDELEGADO
+                OnLifeChanged();
+            }
+    }
+
         private void PlaceBomb()
         {
             if (ActiveBomb != null && ActiveBomb.IsActive) return;
@@ -137,7 +154,7 @@ namespace EngineGDI
             float bombX = transform.Position.x;
             float bombY = transform.Position.y;
 
-            switch (lastMoveDirection)
+            switch (CurrentState)
             {
                 case SpriteState.up:
                     bombY -= transform.RealSize.y + distanceOffset;
@@ -166,8 +183,7 @@ namespace EngineGDI
 
         public void Update(float deltaTime)
         {
-            sprites.Update();
-
+           
             switch (CurrentState)
             {
                 case SpriteState.up:
@@ -189,7 +205,11 @@ namespace EngineGDI
                 case SpriteState.idle:
                     sprites.frames = downFrames;
                     break;
+                case SpriteState.die:
+                    sprites.frames = dieFrames;
+                    break;
             }
+            sprites.Update();
 
             ActiveBomb?.Update(deltaTime);
 

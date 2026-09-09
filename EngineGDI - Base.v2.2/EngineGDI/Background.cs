@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EngineGDI
 {
-    internal class Background
+    public class Background
     {
         public Transform transform;
         string id;

@@ -8,10 +8,11 @@ namespace EngineGDI
 {
     public class AudioManager
     {
-        private const string playerDie = "PlayerHit.wav";
+        private const string playerDie = "SFX/PlayerHit.wav";
         // Hacemos una lista laaaaarga de todos los paths de pistas de audio que usemos en el juego
         // Usando 'private const string'
 
+        //metodo suscrito en program CLASEDELEGADO
         public void PlayPlayerDie()
         {
             PlaySound(playerDie, false);

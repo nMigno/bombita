@@ -1,15 +1,16 @@
-﻿using System;
+﻿using EngineGDI.DataFiles;
+using System;
 using System.Drawing;
 using System.Media;
-using System.Windows.Forms;
 using System.Web.Script.Serialization;
-using EngineGDI.DataFiles;
+using System.Windows.Forms;
+using static EngineGDI.Player;
 
 namespace EngineGDI
 {
 
 
-    static class Program
+    public static class Program
     {
         // mostrar debug
         public static bool showDebug = true;
@@ -27,7 +28,7 @@ namespace EngineGDI
         public static Wall wall3;
         public static AudioManager audioManager = new AudioManager();
         public static Maze maze;
-
+        
 
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
@@ -47,8 +48,11 @@ namespace EngineGDI
             wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
             wall2 = new Wall(100, 200, "Assets/Sprites/Players/Bombita1/wallr.png");
             wall3 = new Wall(100, 300, "Assets/Sprites/Players/Bombita1/wallr.png");
-            maze = new Maze("DataFiles/level1.json");
+            maze = new Maze("DataFiles/level0.json");
 
+            //suscripcios CLASEDELEGADO
+            pacman.OnLifeChanged += pacman.Die;
+            pacman.OnLifeChanged += audioManager.PlayPlayerDie;
 
             while (Engine.IsWindowOpen)
             {
@@ -57,6 +61,7 @@ namespace EngineGDI
                 #endregion
 
                 calcDeltatime();
+
 
                 Input();
                 Update();
@@ -74,6 +79,9 @@ namespace EngineGDI
                 Engine.Window.Invalidate();
                 #endregion
             }
+            //desuscriptions CLASEDELEGADO
+            pacman.OnLifeChanged -= pacman.Die;
+            pacman.OnLifeChanged -= audioManager.PlayPlayerDie;
         }
         static void calcDeltatime()
         {
@@ -91,28 +99,14 @@ namespace EngineGDI
             collider.playerWallColision(pacman.transform, wall.transform);
             collider.playerWallColision(pacman.transform, wall2.transform);
             collider.playerWallColision(pacman.transform, wall3.transform);
+            //pacman.OnLifeChanged(1);
 
             for (int i = 0; i < maze.WallsInMaze.Count; i++)
             {
                 collider.playerWallColision(pacman.transform, maze.WallsInMaze[i].transform);
             }
 
-            //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);
-
-            if (isColliding)
-            {
-                collider.Render();
-                
-                if (!wasColliding)
-                {
-                    audioManager.PlayPlayerDie();
-                    wasColliding = true;
-                }
-            }
-            else
-            {
-                wasColliding = false;
-            }
+            //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);           
         }       
 
         static void Render()

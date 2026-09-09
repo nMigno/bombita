@@ -34,6 +34,11 @@
       "X": 0.0,
       "Y": 3.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
     }
   ]
 }
