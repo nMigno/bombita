@@ -16,8 +16,8 @@ namespace EngineGDI
         public static bool showDebug = true;
         public static string currentMsg = "";
 
-        static int SCREEN_WIDTH = 1600;
-        static int SCREEN_HEIGHT = 900;
+        static int SCREEN_WIDTH = 1560;
+        static int SCREEN_HEIGHT = 840;
 
         public static Player pacman;
         public static Enemy enemy;
@@ -41,13 +41,14 @@ namespace EngineGDI
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
-            pacman = new Player(5.0f, 5.0f);
-            enemy = new Enemy(100.0f, 10.0f);
+            pacman = new Player(20.0f, 20.0f);
+            enemy = new Enemy(200.0f, 44.4f);
             collider = new Collider();
-            background = new Background(0, 0, "Assets/Maps/Background.png");
-            wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
-            wall2 = new Wall(100, 200, "Assets/Sprites/Players/Bombita1/wallr.png");
-            wall3 = new Wall(100, 300, "Assets/Sprites/Players/Bombita1/wallr.png");
+            background = new Background(0, 0, "Textures/bg-lv0.png");
+            //wall = new Wall(100, 100, "Assets/Sprites/Players/Bombita1/wallr.png");
+            //wall2 = new Wall(100, 200, "Assets/Sprites/Players/Bombita1/wallr.png");
+            //wall3 = new Wall(100, 300, "Assets/Sprites/Players/Bombita1/wallr.png");
+            //maze = new Maze("DataFiles/level0.json");
             maze = new Maze("DataFiles/level0.json");
 
             //suscripcios CLASEDELEGADO
@@ -96,9 +97,9 @@ namespace EngineGDI
         static void Update()
         {
             pacman.Update(deltaTime);
-            collider.playerWallColision(pacman.transform, wall.transform);
-            collider.playerWallColision(pacman.transform, wall2.transform);
-            collider.playerWallColision(pacman.transform, wall3.transform);
+            //collider.playerWallColision(pacman.transform, wall.transform);
+            //collider.playerWallColision(pacman.transform, wall2.transform);
+            //collider.playerWallColision(pacman.transform, wall3.transform);
             //pacman.OnLifeChanged(1);
 
             for (int i = 0; i < maze.WallsInMaze.Count; i++)
@@ -106,7 +107,7 @@ namespace EngineGDI
                 collider.playerWallColision(pacman.transform, maze.WallsInMaze[i].transform);
             }
 
-            //isColliding = colider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);           
+            //isColliding = collider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize, wall.transform.Position, wall.transform.RealSize);           
         }       
 
         static void Render()
@@ -114,9 +115,9 @@ namespace EngineGDI
             background.Render();
             pacman.Render();
             enemy.Render();
-            wall.Render();
-            wall2.Render();
-            wall3.Render();
+            //wall.Render();
+            //wall2.Render();
+            //wall3.Render();
             maze.Render();
         }
 

@@ -76,6 +76,7 @@
     <None Include="bin\Debug\DataFiles\level0.json" />
     <None Include="bin\Debug\DataFiles\level1.json" />
     <None Include="bin\Debug\EngineGDI.exe.config" />
+    <None Include="bin\Debug\DataFiles\MazeBounds.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

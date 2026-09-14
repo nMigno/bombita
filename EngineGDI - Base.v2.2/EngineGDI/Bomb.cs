@@ -8,6 +8,12 @@ namespace EngineGDI
 {
     public class Bomb
     {
+        public enum BombState
+        {
+            colliding,
+            free
+        };
+
         private Transform transform;
         private float timer;
         private bool isActive;

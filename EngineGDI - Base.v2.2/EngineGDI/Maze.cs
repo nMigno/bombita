@@ -9,6 +9,7 @@ namespace EngineGDI
 {
     public class Maze
     {
+        public Wall NewWall;
         public List<Wall> WallsInMaze { get; private set; } = new List<Wall>();
         public Maze(string path)
         {
@@ -22,8 +23,8 @@ namespace EngineGDI
 
             foreach (WallData wallData in levelData.WallsInFile)
             {
-                Wall newWall = new Wall(wallData.X, wallData.Y, wallData.ImagePath);
-                WallsInMaze.Add(newWall);
+                NewWall = new Wall(wallData.X, wallData.Y, wallData.ImagePath);
+                WallsInMaze.Add(NewWall);
             }
         }
 

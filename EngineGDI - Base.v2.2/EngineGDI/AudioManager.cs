@@ -11,6 +11,7 @@ namespace EngineGDI
         private const string playerDie = "SFX/PlayerHit.wav";
         // Hacemos una lista laaaaarga de todos los paths de pistas de audio que usemos en el juego
         // Usando 'private const string'
+        // O bien usar un JSON 
 
         //metodo suscrito en program CLASEDELEGADO
         public void PlayPlayerDie()

@@ -25,6 +25,7 @@ namespace EngineGDI
 
         public Bomb ActiveBomb { get; private set; }
         public Transform transform;
+        public Transform bombTransform;
 
         //trackeo estado del player
 
@@ -131,8 +132,7 @@ namespace EngineGDI
 
                 if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Space))
                 {
-                    PlaceBomb();
-                    
+                    PlaceBomb();                    
                 }
 
                 if (Engine.IsKeyPressed(System.Windows.Forms.Keys.K)){
@@ -146,13 +146,23 @@ namespace EngineGDI
             }
     }
 
-        private void PlaceBomb()
+        public void PlaceBomb()
         {
             if (ActiveBomb != null && ActiveBomb.IsActive) return;
 
-            float distanceOffset = 4.0f;
             float bombX = transform.Position.x;
             float bombY = transform.Position.y;
+            float bombSizeX = transform.RealSize.x;
+            float bombSizeY = transform.RealSize.y;
+
+            Vector2 bombPos = new Vector2 { x = bombX, y = bombY };
+            Vector2 bombSize = new Vector2 { x = bombSizeX, y = bombSizeY };
+
+            ActiveBomb = new Bomb(bombX, bombY, "Assets/Sprites/Players/Bombita1/bomb1.png");
+            Bomb.BombState state = Bomb.BombState.free;
+
+            /*
+            float distanceOffset = 4.0f;
 
             switch (CurrentState)
             {
@@ -170,15 +180,12 @@ namespace EngineGDI
                     break;
             }
 
-            Vector2 bombPos = new Vector2 { x = bombX, y = bombY };
-            Vector2 bombSize = new Vector2 { x = 26, y = 16 };
 
-            bool collide = Program.collider.IsBoxColliding(bombPos, bombSize, Program.wall.transform.Position, Program.wall.transform.RealSize);
-
-            if (!collide)
+            if (Program.collider.CanPlaceBomb(bombPos, bombSize, Program.maze.WallsInMaze))
             {
                 ActiveBomb = new Bomb(bombX, bombY, "Assets/Sprites/Players/Bombita1/bomb1.png");
             }
+            */
         }
 
         public void Update(float deltaTime)

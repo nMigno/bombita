@@ -60,6 +60,29 @@ namespace EngineGDI
             }
         }
 
+        /*public bool CollidingWithBomb(Transform a, Transform b)
+        {
+            if (IsBoxColliding(a.Position, a.RealSize, b.Position, b.RealSize))
+            {
+                return true;
+            }
+        }*/
+
+        /*
+        public bool CanPlaceBomb(Vector2 bombPos, Vector2 bombSize, List<Wall> walls)
+        {
+            for (int i = 0;  i < walls.Count; i++)
+            {
+                if (IsBoxColliding(bombPos, bombSize, walls[i].transform.Position, walls[i].transform.RealSize))
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+        */
+
 
         public void Render()
         {

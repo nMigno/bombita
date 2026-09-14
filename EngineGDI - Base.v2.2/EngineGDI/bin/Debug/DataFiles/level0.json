@@ -6,133 +6,13 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 0.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 0.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 1.0,
       "Y": 0.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 1.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 1.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 1.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 1.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 1.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 1.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 2.0,
       "Y": 0.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 2.0,
-      "Y": 10.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
@@ -141,108 +21,8 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 3.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 3.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 4.0,
       "Y": 0.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 4.0,
-      "Y": 10.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
@@ -251,108 +31,8 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 5.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 5.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 6.0,
       "Y": 0.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 6.0,
-      "Y": 10.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
@@ -361,108 +41,8 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 7.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 7.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 8.0,
       "Y": 0.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 8.0,
-      "Y": 10.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
@@ -471,98 +51,8 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 9.0,
-      "Y": 1.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 9.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 9.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 10.0,
       "Y": 0.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 2.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 8.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 10.0,
-      "Y": 10.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
@@ -571,45 +61,822 @@
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 11.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 11.0,
-      "Y": 4.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 11.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 11.0,
-      "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 11.0,
-      "Y": 7.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 11.0,
-      "Y": 10.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
       "X": 12.0,
       "Y": 0.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
-      "X": 12.0,
+      "X": 13.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 15.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 17.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 19.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 21.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 23.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 25.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 27.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 29.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 31.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 33.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 35.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 37.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 0.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 0.0,
       "Y": 1.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
+    {
+      "X": 0.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 3.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 5.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 7.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 9.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 11.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 13.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 15.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 17.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 19.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 0.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+
+    {
+      "X": 1.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 3.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 5.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 7.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 9.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 11.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 12.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 13.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 15.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 17.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 19.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 21.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 23.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 25.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 27.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 29.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 31.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 33.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 35.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 37.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 38.0,
+      "Y": 1.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 3.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 5.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 7.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 9.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 11.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 13.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 15.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 17.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 19.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 21.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 38.0,
+      "Y": 22.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 2.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 2.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+    {
+      "X": 4.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 4.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 6.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 6.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 8.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 8.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 10.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 10.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
     {
       "X": 12.0,
       "Y": 2.0,
@@ -617,27 +884,12 @@
     },
     {
       "X": 12.0,
-      "Y": 3.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 12.0,
       "Y": 4.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
       "X": 12.0,
-      "Y": 5.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 12.0,
       "Y": 6.0,
-      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
-    },
-    {
-      "X": 12.0,
-      "Y": 7.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
@@ -647,12 +899,668 @@
     },
     {
       "X": 12.0,
-      "Y": 9.0,
+      "Y": 10.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     },
     {
       "X": 12.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 12.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 12.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 12.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 12.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 14.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
       "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 14.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 16.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 16.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 18.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 18.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 20.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 20.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 22.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 22.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 24.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 24.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 26.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 26.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 28.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 28.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 30.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 30.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 32.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 32.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 34.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 34.0,
+      "Y": 20.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+
+
+
+    {
+      "X": 36.0,
+      "Y": 2.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 4.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 6.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 8.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 10.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 12.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 14.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 16.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 18.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
+    },
+    {
+      "X": 36.0,
+      "Y": 20.0,
       "ImagePath": "Assets/Sprites/Players/Bombita1/wall.png"
     }
   ]

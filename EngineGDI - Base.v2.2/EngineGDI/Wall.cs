@@ -24,7 +24,7 @@ namespace EngineGDI
             transform.Offset.y = 0;
             transform.RealSize.x = 16 * transform.Scale.x;
             transform.RealSize.y = 16 * transform.Scale.y;
-            //cordenadas
+            //coordenadas
             transform.Position.x = transform.RealSize.x * initialX;
             transform.Position.y = transform.RealSize.y * initialY;
         }
