@@ -10,13 +10,28 @@ namespace EngineGDI
     {
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
-            float distanceX = Math.Abs(positionA.x - positionB.x);
-            float distanceY = Math.Abs(positionA.y - positionB.y);
+            if (positionA.x + sizeA.x > positionB.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
+                positionA.x < positionB.x + sizeB.x && // El borde IZQUIERDO del PJ colisiona con el borde DERECHO del objeto
+                positionA.y + sizeA.y > positionB.y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
+                positionA.y < positionB.y + sizeB.y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+            /*
+            float distanceX = Math.Abs(sizeA.x - sizeB.x);
+            float distanceY = Math.Abs(sizeA.y - sizeB.y);
 
             float sumHalfWidths = sizeA.x / 2 + sizeB.x / 2;
             float sumHalfHeights = sizeA.y / 2 + sizeB.y / 2;       
 
             return distanceX <= sumHalfWidths && distanceY <= sumHalfHeights;
+            */
         }
         public void playerWallColision(Transform a, Transform b)
         {
@@ -42,20 +57,43 @@ namespace EngineGDI
                 //el valor mas chico determina el eje de la colision
                 if (overlapX < overlapY)
                 {
-                    //la colision fue horizontal, revisamos el sentido 
-                    if (a.Position.x < b.Position.x)
-                        
-                        a.Position.x -= overlapX; //colision A izquierda de B
-                    else                        
-                        a.Position.x += overlapX; //colision A derecha de B                                                             
+                    if (a.Position.x <= b.Position.x)
+                    {
+                        a.Position.x -= overlapX;
+                    }
+                    else if (a.Position.x > b.Position.x)
+                    {
+                        a.Position.x += overlapX;
+                    }
+
+                    if (overlapTop <= 10)
+                    {
+                        a.Position.y -= 2f;
+                    }
+                    else if (overlapBottom <= 10)
+                    {
+                        a.Position.y += 2f;
+                    }            
                 }
                 else //la colison fue vertical, revisamos el sentido
-                {                    
-                    if (a.Position.y < b.Position.y)
+                {
+                    if (a.Position.y <= b.Position.y)
+                    {
+                        a.Position.y -= overlapY;
+                    }
+                    else if (a.Position.y > b.Position.y)
+                    {
+                        a.Position.y += overlapY;
+                    }
 
-                        a.Position.y -= overlapY; //colision A arriba de B                     
-                    else
-                        a.Position.y += overlapY;//colision A abajo de B
+                    if (overlapLeft <= 10)
+                    {
+                        a.Position.x -= 2f;
+                    }
+                    else if (overlapRight <= 10)
+                    {
+                        a.Position.x += 2f;
+                    }
                 }
             }
         }

@@ -77,10 +77,10 @@ namespace EngineGDI
             transform.Scale.x = 2.5f;
             transform.Scale.y = 2.5f;
             transform.Angle = 0;
+            transform.RealSize.x = 16f * transform.Scale.x;
+            transform.RealSize.y = 16f * transform.Scale.y;
             transform.Offset.x = 0;
             transform.Offset.y = 0;
-            transform.RealSize.x = 16 * transform.Scale.x;
-            transform.RealSize.y = 16 * transform.Scale.y;
 
             LoadSprites();
         }
