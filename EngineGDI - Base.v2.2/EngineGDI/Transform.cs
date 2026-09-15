@@ -16,18 +16,21 @@ namespace EngineGDI
         public Vector2 RealSize;
 
         public float Angle;
+        public GameId gameId;
+    }
+    public enum GameId
+    {
+        player,
+        enemy,
+        wall,
+        brickWall,
+        bomb,
+        explosion,
+        speedPickUp,
+        exit,
     }
     public class ObjectType
     {
-        public enum type
-        {
-            player,
-            enemy,
-            wall,
-            bomb,
-            explosion,
-            pickup,
-            exit,
-        }
+        
     }
 }

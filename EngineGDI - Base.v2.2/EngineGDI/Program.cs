@@ -47,6 +47,7 @@ namespace EngineGDI
             //suscripcios CLASEDELEGADO
             pacman.OnLifeChanged += pacman.Die;
             pacman.OnLifeChanged += audioManager.PlayPlayerDie;
+            
 
             while (Engine.IsWindowOpen)
             {
@@ -93,11 +94,11 @@ namespace EngineGDI
 
             for (int i = 0; i < maze.WallsInMaze.Count; i++)
             {
-                collider.playerWallColision(pacman.transform, maze.WallsInMaze[i].transform);
+                collider.IsTransformColliding(pacman.transform, maze.WallsInMaze[i].transform);
             }
             for (int i = 0; i < maze.BrickWallsInMaze.Count; i++)
             {
-                collider.playerWallColision(pacman.transform, maze.BrickWallsInMaze[i].transform);
+                collider.IsTransformColliding(pacman.transform, maze.BrickWallsInMaze[i].transform);
             }
         }       
 

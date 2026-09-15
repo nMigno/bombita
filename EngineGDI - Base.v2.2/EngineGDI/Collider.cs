@@ -8,6 +8,8 @@ namespace EngineGDI
 {
     public class Collider
     {
+        public Action<Transform> OnDestroyBrickWall;
+
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
             if (positionA.x + sizeA.x > positionB.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
@@ -21,111 +23,88 @@ namespace EngineGDI
             {
                 return false;
             }
-
-
-            /*
-            float distanceX = Math.Abs(sizeA.x - sizeB.x);
-            float distanceY = Math.Abs(sizeA.y - sizeB.y);
-
-            float sumHalfWidths = sizeA.x / 2 + sizeB.x / 2;
-            float sumHalfHeights = sizeA.y / 2 + sizeB.y / 2;       
-
-            return distanceX <= sumHalfWidths && distanceY <= sumHalfHeights;
-            */
         }
-        public void playerWallColision(Transform a, Transform b)
+        public void IsTransformColliding(Transform boxA, Transform boxB)
         {
-            if (IsBoxColliding(a.Position, a.RealSize, b.Position, b.RealSize))
+            if (boxA.Position.x + boxA.RealSize.x > boxB.Position.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
+                boxA.Position.x < boxB.Position.x + boxB.RealSize.x && // El borde IZQUIERDO del PJ colisiona con el borde DERECHO del objeto
+                boxA.Position.y + boxA.RealSize.y > boxB.Position.y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
+                boxA.Position.y < boxB.Position.y + boxB.RealSize.y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
             {
-                float aPOSx2 = a.Position.x + a.RealSize.x;
-                float aPOSy2 = a.Position.y + a.RealSize.y;
-
-                float bPOSx2 = b.Position.x + b.RealSize.x;
-                float bPOSy2 = b.Position.y + b.RealSize.y;
-
-                //sobreposicion horizontal
-                float overlapLeft = aPOSx2 - b.Position.x;
-                float overlapRight = bPOSx2 - a.Position.x;
-
-                //sobrposicion vertical
-                float overlapTop = aPOSy2 - b.Position.y;
-                float overlapBottom = bPOSy2 - a.Position.y;
-
-                float overlapX = Math.Min(overlapLeft, overlapRight);
-                float overlapY = Math.Min(overlapTop, overlapBottom);
-
-                //el valor mas chico determina el eje de la colision
-                if (overlapX < overlapY)
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.wall) 
                 {
-                    if (a.Position.x <= b.Position.x)
-                    {
-                        a.Position.x -= overlapX;
-                    }
-                    else if (a.Position.x > b.Position.x)
-                    {
-                        a.Position.x += overlapX;
-                    }
-
-                    if (overlapTop <= 10)
-                    {
-                        a.Position.y -= 2f;
-                    }
-                    else if (overlapBottom <= 10)
-                    {
-                        a.Position.y += 2f;
-                    }            
+                    playerPushOutColision(boxA, boxB);
                 }
-                else //la colison fue vertical, revisamos el sentido
+                if (boxB.gameId == GameId.player && boxB.gameId == GameId.brickWall)
                 {
-                    if (a.Position.y <= b.Position.y)
-                    {
-                        a.Position.y -= overlapY;
-                    }
-                    else if (a.Position.y > b.Position.y)
-                    {
-                        a.Position.y += overlapY;
-                    }
-
-                    if (overlapLeft <= 10)
-                    {
-                        a.Position.x -= 2f;
-                    }
-                    else if (overlapRight <= 10)
-                    {
-                        a.Position.x += 2f;
-                    }
+                    //llamar aca al delegado y mandarle la boxB
+                    //el delegado es void y recibe un objeto de clase Transform
+                    //DestroyBrickWall(boxB);
                 }
-            }
+
+            }                        
         }
-
-        /*public bool CollidingWithBomb(Transform a, Transform b)
+        //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos
+        public void playerPushOutColision(Transform a, Transform b)
         {
-            if (IsBoxColliding(a.Position, a.RealSize, b.Position, b.RealSize))
-            {
-                return true;
-            }
-        }*/
+            float aPOSx2 = a.Position.x + a.RealSize.x;
+            float aPOSy2 = a.Position.y + a.RealSize.y;
 
-        /*
-        public bool CanPlaceBomb(Vector2 bombPos, Vector2 bombSize, List<Wall> walls)
-        {
-            for (int i = 0;  i < walls.Count; i++)
+            float bPOSx2 = b.Position.x + b.RealSize.x;
+            float bPOSy2 = b.Position.y + b.RealSize.y;
+
+            //sobreposicion horizontal
+            float overlapLeft = aPOSx2 - b.Position.x;
+            float overlapRight = bPOSx2 - a.Position.x;
+
+            //sobrposicion vertical
+            float overlapTop = aPOSy2 - b.Position.y;
+            float overlapBottom = bPOSy2 - a.Position.y;
+
+            float overlapX = Math.Min(overlapLeft, overlapRight);
+            float overlapY = Math.Min(overlapTop, overlapBottom);
+
+            //el valor mas chico determina el eje de la colision
+            if (overlapX < overlapY)
             {
-                if (IsBoxColliding(bombPos, bombSize, walls[i].transform.Position, walls[i].transform.RealSize))
+                if (a.Position.x <= b.Position.x)
                 {
-                    return false;
+                    a.Position.x -= overlapX;
+                }
+                else if (a.Position.x > b.Position.x)
+                {
+                    a.Position.x += overlapX;
+                }
+
+                if (overlapTop <= 10)
+                {
+                    a.Position.y -= 2f;
+                }
+                else if (overlapBottom <= 10)
+                {
+                    a.Position.y += 2f;
+                }            
+            }
+            else //la colison fue vertical, revisamos el sentido
+            {
+                if (a.Position.y <= b.Position.y)
+                {
+                    a.Position.y -= overlapY;
+                }
+                else if (a.Position.y > b.Position.y)
+                {
+                    a.Position.y += overlapY;
+                }
+
+                if (overlapLeft <= 10)
+                {
+                    a.Position.x -= 2f;
+                }
+                else if (overlapRight <= 10)
+                {
+                    a.Position.x += 2f;
                 }
             }
-
-            return true;
-        }
-        */
-
-
-        public void Render()
-        {
-            Engine.Draw("Bomberman.png", 100, 100, 2, 2, 0, 0.5f, 0.5f);
         }
     }
-
 }

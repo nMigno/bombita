@@ -81,6 +81,7 @@ namespace EngineGDI
             transform.RealSize.y = 16f * transform.Scale.y;
             transform.Offset.x = 0;
             transform.Offset.y = 0;
+            transform.gameId = GameId.player;
 
             LoadSprites();
         }

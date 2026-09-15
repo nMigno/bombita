@@ -27,6 +27,8 @@ namespace EngineGDI
             //coordenadas
             transform.Position.x = transform.RealSize.x * initialX;
             transform.Position.y = transform.RealSize.y * initialY;
+            //que somos?
+            transform.gameId = GameId.wall;
         }
 
         public void Render()
@@ -55,6 +57,8 @@ namespace EngineGDI
             //coordenadas
             transform.Position.x = transform.RealSize.x * initialX;
             transform.Position.y = transform.RealSize.y * initialY;
+            //que somos?
+            transform.gameId = GameId.brickWall;
         }
 
         public void Render()
