@@ -35,14 +35,21 @@ namespace EngineGDI
                 BrickWallsInMaze.Add(NewBrickWall);
             }
         }
+        //psoible forma de romber murosdeladrillso cuando la cosita que hace click clack click haga BOOOM
+        public void RemoveBrickWall(BrickWall ayudaMeVanADestruir)
+        {
+            BrickWallsInMaze.Remove(ayudaMeVanADestruir);
+        }
         void Update()
         {
             for (int i = 0; i < WallsInMaze.Count; i++)
             {
+                //sin implementar
                 //WallsInMaze[i].Update();
             }
             for (int i = 0; i < BrickWallsInMaze.Count; i++)
             {
+                //sin mplementar
                 //BrickWallsInMaze[i].Update();
             }
         }
