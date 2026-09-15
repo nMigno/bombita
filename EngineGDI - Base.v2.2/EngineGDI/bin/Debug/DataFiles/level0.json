@@ -1,4 +1,11 @@
 {
+  "BricksInFile": [
+    {
+      "X": 1.0,
+      "Y": 1.0,
+      "ImagePath": "Assets/Sprites/Players/Bombita1/wallr.png"
+    }
+  ],
   "WallsInFile": [
     {
       "X": 0.0,
