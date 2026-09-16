@@ -18,9 +18,12 @@ namespace EngineGDI
         private float timer;
         private bool isActive;
         private string texture;
+        private int radius;
+        private int pixelSize = 16;
+
 
         //la bomba va a tener explosiones, y si me das tiempo, una mecha tambien 
-        Explosion explosion;
+        public List<Explosion> explosions = new List<Explosion>();
 
         public bool IsActive => isActive;
         public Transform Transform => transform;
@@ -41,6 +44,7 @@ namespace EngineGDI
 
             timer = 3.0f;
             isActive = true;
+            radius = 2;
         }
 
         public void Update(float deltaTime)
@@ -55,24 +59,48 @@ namespace EngineGDI
         {
             isActive = false;
             // Acá luego metemos el efecto de la explosión que hace daño
-            explosion.GenerateExplosion(transform);
+            GenerateExplosion(transform);
+        }
+        public void GenerateExplosion(Transform BoxOrigin)
+        {
+            explosions.Add(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y));
+
+            //for para spawnear explosiones arriba
+            for (int i = 1; i < radius; i++)
+            {
+                explosions.Add(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y - i * pixelSize * 2.5f));
+            }
+            //for para spawnear explosiones abajo
+            for (int i = 1; i < radius; i++)
+                {
+                    explosions.Add(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y + i * pixelSize * 2.5f));
+                }
+            //for para spawnear explosiones derecha
+            for (int i = 1; i < radius; i++)
+                {
+                    explosions.Add(new Explosion(BoxOrigin.Position.x + i * pixelSize * 2.5f, BoxOrigin.Position.y));
+                }
+            //for para spawnear explosiones izquierda
+            for (int i = 1; i < radius; i++)
+                {
+                    explosions.Add(new Explosion(BoxOrigin.Position.x - i * pixelSize * 2.5f, BoxOrigin.Position.y));
+                }
         }
 
         public void Render()
         {
-            Engine.Draw(texture, transform.Position.x, transform.Position.y, 
-                transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+
+            for (int i = 0; i < explosions.Count; i++)
+            {
+                explosions[i].Render();
+            }
         }
     }
-    class Explosion
+    public class Explosion
     {
-        private Transform transform;
+        public Transform transform;
         private string texture;
-        private int radius;
-        private int pixelSize = 16;
-        float timer;
-        bool isActive;
-        
         Transform Transform => transform;
         public Explosion(float initialX, float initialY)
         {
@@ -87,20 +115,11 @@ namespace EngineGDI
             Transform.Offset.y = 0;
             Transform.RealSize.x = 16 * Transform.Scale.x;
             Transform.RealSize.y = 16 * Transform.Scale.y;
-
-            timer = 1.5f;
-            isActive = true;
+            transform.gameId = GameId.explosion;
         }
-        public void GenerateExplosion(Transform BoxOrigin)
+        public void Render()
         {
-            for (int i = 0; i < radius; i++)
-            {
-                //generar explosiones arriba
-            }
-            for (int i = 0; i < radius; i++)
-            {
-                //generar explosiones abajo
-            }
+            Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
         }
     }
 }

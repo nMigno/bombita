@@ -221,7 +221,7 @@ namespace EngineGDI
 
             ActiveBomb?.Update(deltaTime);
 
-            if (ActiveBomb != null && !ActiveBomb.IsActive) ActiveBomb = null;
+            //if (ActiveBomb != null && !ActiveBomb.IsActive) ActiveBomb = null;
         }
         public void Render() {
             Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y, 

@@ -36,7 +36,6 @@ namespace EngineGDI
             }
         }
         //psoible forma de romber murosdeladrillso cuando la cosita que hace click clack click haga BOOOM
-        //clase Maze.cs instanciado en main bajo el nombre maze.cs
         public void RemoveBrickWall(Transform ayudaMeVanADestruir)
         {
             for (int i = 0; i < BrickWallsInMaze.Count; i++)
@@ -44,7 +43,7 @@ namespace EngineGDI
                 if (BrickWallsInMaze[i].transform.Position.x == ayudaMeVanADestruir.Position.x &&
                     BrickWallsInMaze[i].transform.Position.y == ayudaMeVanADestruir.Position.y)
                 {
-                    BrickWallsInMaze.Remove(BrickWallsInMaze[i]);
+                    BrickWallsInMaze.RemoveAt(i);
                 }
             }
         }

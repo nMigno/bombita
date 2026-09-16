@@ -35,11 +35,18 @@ namespace EngineGDI
                 {
                     playerPushOutColision(boxA, boxB);
                 }
-                if (boxB.gameId == GameId.player && boxB.gameId == GameId.brickWall)
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.brickWall)
                 {
-                    //llamar aca al delegado y mandarle la boxB
-                    //el delegado es void y recibe un objeto de clase Transform
-                    //DestroyBrickWall(boxB);
+                    playerPushOutColision(boxA, boxB);
+                }
+                if (boxA.gameId == GameId.brickWall)
+                {
+                    if (boxB.gameId == GameId.explosion)
+                    {
+                        //llamar aca al delegado y mandarle la boxB
+                        //el delegado es void y recibe un objeto de clase Transform
+                        OnDestroyBrickWall(boxA);
+                    }
                 }
 
             }                        
