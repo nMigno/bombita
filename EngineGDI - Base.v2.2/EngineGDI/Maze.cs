@@ -9,6 +9,8 @@ namespace EngineGDI
 {
     public class Maze
     {
+        private string wallSprite = "Assets/Sprites/Players/Bombita1/wall.png";
+        private string brickSprite = "Assets/Sprites/Players/Bombita1/wallr.png";
         public Wall NewWall;
         public BrickWall NewBrickWall;
         //public DoorLevelExit NewDoor;
@@ -26,12 +28,12 @@ namespace EngineGDI
 
             foreach (WallData wall in levelData.WallsInFile)
             {
-                NewWall = new Wall(wall.X, wall.Y, wall.ImagePath);
+                NewWall = new Wall(wall.X, wall.Y, wallSprite);
                 WallsInMaze.Add(NewWall);
             }
             foreach (BrickWallData brick in levelData.BricksInFile)
             {
-                NewBrickWall = new BrickWall(brick.X, brick.Y, brick.ImagePath);
+                NewBrickWall = new BrickWall(brick.X, brick.Y, brickSprite);
                 BrickWallsInMaze.Add(NewBrickWall);
             }
         }
