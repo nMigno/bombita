@@ -39,8 +39,8 @@ namespace EngineGDI
             Transform.Angle = 0;
             Transform.Offset.x = 0;
             Transform.Offset.y = 0;
-            Transform.RealSize.x = 16 * Transform.Scale.x;
-            Transform.RealSize.y = 16 * Transform.Scale.y;
+            Transform.RealSize.x = pixelSize * Transform.Scale.x;
+            Transform.RealSize.y = pixelSize * Transform.Scale.y;
 
             timer = 3.0f;
             isActive = true;

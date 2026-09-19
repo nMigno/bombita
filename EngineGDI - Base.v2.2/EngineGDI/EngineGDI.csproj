@@ -56,6 +56,7 @@
     <Compile Include="DataFiles\PositionData.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="LevelExit.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
@@ -246,6 +247,9 @@
     <Content Include="bin\Debug\Textures\Animations\Idle_e\meteorito9.png" />
     <Content Include="bin\Debug\Textures\bomb1.png" />
     <Content Include="bin\Debug\Textures\test.png" />
+    <Content Include="bin\Debug\Assets\Sprites\Icons\Exit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Textures\Background.png" />
     <Content Include="Textures\bomb1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

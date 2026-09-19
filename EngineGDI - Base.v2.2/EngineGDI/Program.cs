@@ -25,6 +25,7 @@ namespace EngineGDI
         public static Background background;
         public static AudioManager audioManager = new AudioManager();
         public static Maze maze;
+        public static LevelExit exit;
         
 
         public static float deltaTime;
@@ -38,7 +39,8 @@ namespace EngineGDI
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
-            pacman = new Player(48.0f, 16.0f);
+            exit = new LevelExit(40.0f, 720.0f);
+            pacman = new Player(41.0f, 16.0f);
             enemy = new Enemy(200.0f, 44.4f);
             collider = new Collider();
             background = new Background(0, 0, "Textures/bg-lv0.png");
@@ -115,6 +117,7 @@ namespace EngineGDI
         static void Render()
         {
             background.Render();
+            exit.Render();
             pacman.Render();
             enemy.Render();
             maze.Render();
