@@ -146,7 +146,8 @@ namespace EngineGDI
 
                 if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Space))
                 {
-                    PlaceBomb();                    
+                    PlaceBomb();
+                    
                 }
 
                 if (Engine.IsKeyPressed(System.Windows.Forms.Keys.K)){
@@ -156,7 +157,7 @@ namespace EngineGDI
             if (Engine.IsKeyPressed(System.Windows.Forms.Keys.J))
             {
                 //llamo al evento CLASEDELEGADO
-                OnLifeChanged();
+                OnLifeChanged(); 
             }
     }
 
@@ -164,16 +165,9 @@ namespace EngineGDI
         {
             if (ActiveBomb != null && ActiveBomb.IsActive) return;
 
-            float bombX = transform.Position.x;
-            float bombY = transform.Position.y;
-            float bombSizeX = transform.RealSize.x;
-            float bombSizeY = transform.RealSize.y;
-
-            Vector2 bombPos = new Vector2 { x = bombX, y = bombY };
-            Vector2 bombSize = new Vector2 { x = bombSizeX, y = bombSizeY };
-
-            ActiveBomb = new Bomb(bombX, bombY, "Assets/Sprites/Players/Bombita1/bomb1.png");
-            Bomb.BombState state = Bomb.BombState.free;
+            ActiveBomb = new Bomb(transform.Position.x, transform.Position.y);
+            //WIP bomb player colision onPlace
+            //Bomb.BombState state = Bomb.BombState.free;
         }
 
         public void Update(float deltaTime)
@@ -216,8 +210,6 @@ namespace EngineGDI
             }
 
             ActiveBomb?.Update(deltaTime);
-
-            //if (ActiveBomb != null && !ActiveBomb.IsActive) ActiveBomb = null;
         }
         public void Render() 
         {
