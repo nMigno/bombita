@@ -148,6 +148,7 @@ namespace EngineGDI
                 {
                     for (int i = 0; i < pacman.ActiveBomb.explosions.Count; i++)
                     {
+                        collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.explosions[i].transform);
                         for (int j = 0; j < maze.BrickWallsInMaze.Count; j++)
                         {
                             collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, pacman.ActiveBomb.explosions[i].transform);

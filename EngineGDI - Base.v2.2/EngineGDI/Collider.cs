@@ -71,6 +71,10 @@ namespace EngineGDI
                 {
                     OnPlayerEnemyColision();
                 }
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.explosion)
+                {
+                    OnPlayerEnemyColision();
+                }
             }
         }
         //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos
