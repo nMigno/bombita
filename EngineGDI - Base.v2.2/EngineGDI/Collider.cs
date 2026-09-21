@@ -10,7 +10,8 @@ namespace EngineGDI
     public class Collider
     {
         public Action<Transform> OnDestroyBrickWall;
-
+        public Action<Transform> OnDestroyPlayer;
+        public Action<Transform> OnDestroyEnemy;
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
             if (positionA.x + sizeA.x > positionB.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
@@ -44,9 +45,18 @@ namespace EngineGDI
                 {
                     if (boxB.gameId == GameId.explosion)
                     {
-                        //llamar aca al delegado y mandarle la boxB
+                        //llamar aca al delegado y mandarle la boxA
                         //el delegado es void y recibe un objeto de clase Transform
                         OnDestroyBrickWall(boxA);
+                    }
+                }
+                if (boxA.gameId == GameId.enemy)
+                {
+                    if (boxB.gameId == GameId.explosion)
+                    {
+                        //llamar aca al delegado y mandarle la boxA
+                        //el delegado es void y recibe un objeto de clase Transform
+                        OnDestroyEnemy(boxA);
                     }
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)
@@ -69,6 +79,7 @@ namespace EngineGDI
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.enemy)
                 {
                     if (Program.pacman.alive) Program.pacman.Die();
+                    //OnDestroyPlayer(boxA);
                 }
             }                        
         }
