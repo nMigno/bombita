@@ -69,7 +69,6 @@ namespace EngineGDI
                 transform.Position.y += normalizedDirY * vel * deltaTime;
             }
         }
-
         public void Render()
         {
             Engine.Draw("Textures/Enemy.png", transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);

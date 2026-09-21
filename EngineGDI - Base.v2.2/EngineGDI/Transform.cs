@@ -31,6 +31,6 @@ namespace EngineGDI
     }
     public class ObjectType
     {
-        
+
     }
 }
