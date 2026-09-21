@@ -58,7 +58,7 @@ namespace EngineGDI
         {
             if (CurrentState == GameState.victory)
             {
-                backgroundMenu.Render();
+                GameManager.Instance.backgroundMenu.Render();
                 Engine.Draw(winText, SCREEN_WIDTH / 2 - 236, 200, 1f, 1f);
 
                 if (MenuIndex == 0)
@@ -74,7 +74,7 @@ namespace EngineGDI
             }
             else if (CurrentState == GameState.defeat)
             {
-                backgroundMenu.Render();
+                GameManager.Instance.backgroundMenu.Render();
                 Engine.Draw(deadText, SCREEN_WIDTH / 2 - 236, 200, 1f, 1f);
                 
                 if (MenuIndex == 0)

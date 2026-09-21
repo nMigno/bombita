@@ -18,17 +18,16 @@ namespace EngineGDI
 
         public static int SCREEN_WIDTH = 1560;
         public static int SCREEN_HEIGHT = 880;
-
-        public static GameManager gameloop;
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
+        static GameManager gameManager;
 
         [STAThread]
         static void Main()
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
             
-            gameloop = new GameManager(SCREEN_WIDTH, SCREEN_HEIGHT);
+            gameManager = GameManager.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
             
             while (Engine.IsWindowOpen)
             {
@@ -63,16 +62,16 @@ namespace EngineGDI
         }
         static void Input()
         {
-            gameloop.Input();
+            GameManager.Instance.Input();
         }
         static void Update()
         {
-            gameloop.Update(deltaTime);
+            GameManager.Instance.Update(deltaTime);
         }
 
         static void Render()
         {
-            gameloop.Render();
+            GameManager.Instance.Render();
         }
     }
 }

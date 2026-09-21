@@ -10,8 +10,10 @@ namespace EngineGDI
 {
     public class GameManager
     {
-        public AudioManager audioManager = new AudioManager();
-        public Player pacman;
+        private GameManager instance;
+        public GameManager Instance => instance;
+        public AudioManager audioManager;
+        private Player pacman;
         public Collider collider;
         public Background background;
         public Background backgroundMenu;
@@ -50,11 +52,18 @@ namespace EngineGDI
 
         int SCREEN_HEIGHT;
         int SCREEN_WIDTH;
-        public GameManager(int Width, int Height)
+        private GameManager(int Width, int Height)
         {
             SCREEN_HEIGHT = Height;
             SCREEN_WIDTH = Width;
+            audioManager = new AudioManager();
+            mainMenuScreen = new MainMenu(SCREEN_WIDTH);
+            gameOverScreen = new GameOver(SCREEN_WIDTH);
             RestartGame();
+        }
+        public static void Initialize(int width, int height)
+        {
+            instance = new GameManager(width, height);
         }
         public void Input()
         {
@@ -151,25 +160,31 @@ namespace EngineGDI
 
             exit = new LevelExit(40.0f, 720.0f);
             pacman = new Player(41.0f, 40.0f);
+            enemies = new EnemyManager();
             collider = new Collider();
             background = new Background(0, 0, "Textures/bg-lv0.png");
             backgroundMenu = new Background(0, 0, "Textures/bg-black.png");
             maze = new Maze("DataFiles/level0.json");
-            gameOverScreen = new GameOver(SCREEN_WIDTH);
             uiManager = new UIManager();
-            mainMenuScreen = new MainMenu(SCREEN_WIDTH);
 
             pacman.OnLifeChanged += pacman.Die;
-            pacman.OnLifeChanged += audioManager.PlayPlayerDie;
+            pacman.OnLifeChanged += audioManager.PlayPlayerDie;           
             collider.OnPlayerExitColision += PlayerExitedLevel;
             collider.OnPlayerColisionWithSomethingThatKillsIt += pacman.Die;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;
             collider.OnDestroyEnemy += enemies.RemoveEnemy;
             gameOverScreen.OnRestartGame += RestartGame;
 
-            //suscripcios CLASEDELEGADO
+            if (CurrentState == GameState.victory ||
+                CurrentState == GameState.defeat)
+            {
+                CurrentState = GameState.playing;
+            }
+            else
+            {
+                CurrentState = GameState.start;
+            }
 
-            CurrentState = GameState.start;
         }
         public static void PlayerExitedLevel()
         {

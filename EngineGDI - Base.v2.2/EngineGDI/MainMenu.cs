@@ -51,7 +51,7 @@ namespace EngineGDI
         {
             if (CurrentState == GameState.start)
             {
-                backgroundMenu.Render();
+                GameManager.Instance.backgroundMenu.Render();
 
                 Engine.Draw(title, SCREEN_WIDTH / 2 - 450, 200, 1f, 1f);
 
