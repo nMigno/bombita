@@ -56,13 +56,13 @@ namespace EngineGDI
 
                 if (MenuIndex == 0)
                 {
-                    Engine.Draw(btnPlayAgainSelect, SCREEN_WIDTH / 2 - 236, 500, 1f, 1f);
-                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 236, 600, 1f, 1f);
+                    Engine.Draw(btnPlayAgainSelect, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
                 }
                 else
                 {
-                    Engine.Draw(btnPlayAgain, SCREEN_WIDTH / 2 - 236, 500, 1f, 1f);
-                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 236, 600, 1f, 1f);
+                    Engine.Draw(btnPlayAgain, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
                 }
             }
             else if (CurrentState == GameState.defeat)
@@ -72,13 +72,13 @@ namespace EngineGDI
                 
                 if (MenuIndex == 0)
                 {
-                    Engine.Draw(btnTryAgainSelect, SCREEN_WIDTH / 2 - 236, 500, 1f, 1f);
-                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 236, 600, 1f, 1f);
+                    Engine.Draw(btnTryAgainSelect, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
                 }
                 else
                 {
-                    Engine.Draw(btnTryAgain, SCREEN_WIDTH / 2 - 236, 500, 1f, 1f);
-                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 236, 600, 1f, 1f);
+                    Engine.Draw(btnTryAgain, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
                 }
             }
         }

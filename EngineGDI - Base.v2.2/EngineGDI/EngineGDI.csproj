@@ -58,6 +58,7 @@
     <Compile Include="Engine.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="LevelExit.cs" />
+    <Compile Include="MainMenu.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="PathGenerator.cs" />
     <Compile Include="Player.cs" />

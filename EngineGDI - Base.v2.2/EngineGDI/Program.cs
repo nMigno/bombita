@@ -29,6 +29,7 @@ namespace EngineGDI
         public static LevelExit exit;
         public static GameOver gameOverScreen;
         public static UIManager uiManager;
+        public static MainMenu mainMenuScreen;
 
         public enum GameState
         {
@@ -38,7 +39,7 @@ namespace EngineGDI
             defeat
         }
 
-        public static GameState CurrentState = GameState.playing;
+        public static GameState CurrentState = GameState.start;
 
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
@@ -91,6 +92,7 @@ namespace EngineGDI
             maze = new Maze("DataFiles/level0.json");
             gameOverScreen = new GameOver();
             uiManager = new UIManager();
+            mainMenuScreen = new MainMenu();
 
 
             //suscripcios CLASEDELEGADO
@@ -188,6 +190,10 @@ namespace EngineGDI
             {
                 gameOverScreen.Update();
             }
+            else if (CurrentState == GameState.start)
+            {
+                mainMenuScreen.Update();
+            }
 
         }       
 
@@ -209,6 +215,10 @@ namespace EngineGDI
             else if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
             {
                 gameOverScreen.Render();
+            }
+            else if (CurrentState == GameState.start)
+            {
+                mainMenuScreen.Render();
             }
         }
 
