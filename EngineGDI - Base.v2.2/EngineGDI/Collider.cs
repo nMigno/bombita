@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static EngineGDI.Program;
 
 namespace EngineGDI
 {
     public class Collider
     {
         public Action<Transform> OnDestroyBrickWall;
-        public Action<Transform> OnDestroyPlayer;
+        public Action OnPlayerEnemyColision;
         public Action<Transform> OnDestroyEnemy;
+        public Action OnPlayerExitColision;
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
             if (positionA.x + sizeA.x > positionB.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
@@ -33,7 +33,7 @@ namespace EngineGDI
                 boxA.Position.y + boxA.RealSize.y > boxB.Position.y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
                 boxA.Position.y < boxB.Position.y + boxB.RealSize.y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
             {
-                if (boxA.gameId == GameId.player && boxB.gameId == GameId.wall) 
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.wall)
                 {
                     playerPushOutColision(boxA, boxB);
                 }
@@ -41,47 +41,37 @@ namespace EngineGDI
                 {
                     playerPushOutColision(boxA, boxB);
                 }
-                if (boxA.gameId == GameId.brickWall)
+                if (boxA.gameId == GameId.brickWall && boxB.gameId == GameId.explosion)
                 {
-                    if (boxB.gameId == GameId.explosion)
-                    {
-                        //llamar aca al delegado y mandarle la boxA
-                        //el delegado es void y recibe un objeto de clase Transform
-                        OnDestroyBrickWall(boxA);
-                    }
+                    //llamar aca al delegado y mandarle la boxA que son las coordenadas
+                    //el delegado es void y recibe un objeto de clase Transform
+                    OnDestroyBrickWall(boxA);
+
                 }
-                if (boxA.gameId == GameId.enemy)
+                if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
                 {
-                    if (boxB.gameId == GameId.explosion)
-                    {
-                        //llamar aca al delegado y mandarle la boxA
-                        //el delegado es void y recibe un objeto de clase Transform
-                        OnDestroyEnemy(boxA);
-                    }
+                    OnDestroyEnemy(boxA);
+
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)
                 {
-                    if (Program.exit.Opened)
-                    {
                         // Calculamos el centro de ambos sprites para asegurarnos de que el
                         // player pise lo suficiente la salida para triggerear la victoria
-                        float pacmanCenterX = pacman.transform.Position.x + (pacman.transform.RealSize.x / 2);
-                        float pacmanCenterY = pacman.transform.Position.y + (pacman.transform.RealSize.y / 2);
-                        float exitCenterX = exit.Transform.Position.x + (exit.Transform.RealSize.x / 2);
-                        float exitCenterY = exit.Transform.Position.y + (exit.Transform.RealSize.y / 2);
+                        float pacmanCenterX = boxA.Position.x + (boxA.RealSize.x / 2);
+                        float pacmanCenterY = boxA.Position.y + (boxA.RealSize.y / 2);
+                        float exitCenterX = boxB.Position.x + (boxB.RealSize.x / 2);
+                        float exitCenterY = boxB.Position.y + (boxB.RealSize.y / 2);
                         float distanceX = pacmanCenterX - exitCenterX;
                         float distanceY = pacmanCenterY - exitCenterY;
                         float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-                        if (distance < 8.0f) CurrentState = GameState.victory;
-                    }
+                        if (distance < 8.0f) OnPlayerExitColision(); 
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.enemy)
                 {
-                    if (Program.pacman.alive) Program.pacman.Die();
-                    //OnDestroyPlayer(boxA);
+                    OnPlayerEnemyColision();
                 }
-            }                        
+            }
         }
         //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos
         public void playerPushOutColision(Transform a, Transform b)
@@ -122,7 +112,7 @@ namespace EngineGDI
                 else if (overlapBottom <= 10)
                 {
                     a.Position.y += 2f;
-                }            
+                }
             }
             else //la colison fue vertical, revisamos el sentido
             {

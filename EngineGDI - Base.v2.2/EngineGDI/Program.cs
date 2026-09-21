@@ -85,6 +85,8 @@ namespace EngineGDI
             //suscripcios CLASEDELEGADO
             pacman.OnLifeChanged += pacman.Die;
             pacman.OnLifeChanged += audioManager.PlayPlayerDie;
+            collider.OnPlayerExitColision += PlayerExitedLevel;
+            collider.OnPlayerEnemyColision += pacman.Die;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;
             collider.OnDestroyEnemy += enemies.RemoveEnemy;
 
@@ -230,6 +232,13 @@ namespace EngineGDI
             enemies.LoadEnemies();
 
             CurrentState = GameState.playing;
+        }
+        public static void PlayerExitedLevel()
+        {
+            if (exit.Opened)
+            {
+                CurrentState = GameState.victory;
+            }
         }
     }
 }
