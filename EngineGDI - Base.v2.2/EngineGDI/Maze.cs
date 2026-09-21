@@ -25,7 +25,7 @@ namespace EngineGDI
             LevelLoaderFromJson loader = new LevelLoaderFromJson();
             Level levelData = loader.ReadPathFromJson(filePath);
             WallsInMaze.Clear();
-
+            BrickWallsInMaze.Clear();
             foreach (WallData wall in levelData.WallsInFile)
             {
                 NewWall = new Wall(wall.X, wall.Y, wallSprite);
