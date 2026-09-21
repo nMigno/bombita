@@ -43,8 +43,9 @@ namespace EngineGDI
             Transform.Offset.y = 0;
             Transform.RealSize.x = pixelSize * Transform.Scale.x;
             Transform.RealSize.y = pixelSize * Transform.Scale.y;
+            Transform.gameId = GameId.bomb;
 
-            timer = 1.0f;
+            timer = 3.0f;
             explosionTimer = 1.0f;
             isActive = true;
             isExplosionActive = false;
@@ -62,7 +63,11 @@ namespace EngineGDI
             if (isExplosionActive)
             {
                 explosionTimer -= deltaTime;
-                if (explosionTimer <= 0) explosions.Clear();
+                if (explosionTimer <= 0)
+                {
+                    explosions.Clear();             
+                }
+                    
             }
         }
 

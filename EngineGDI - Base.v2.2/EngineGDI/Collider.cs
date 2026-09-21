@@ -75,6 +75,10 @@ namespace EngineGDI
                 {
                     OnPlayerColisionWithSomethingThatKillsIt();
                 }
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.bomb)
+                {
+                    playerPushOutColision(boxA, boxB);
+                }
             }
         }
         //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos

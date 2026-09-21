@@ -87,6 +87,7 @@ namespace EngineGDI
                 }
                 if (pacman.ActiveBomb != null)
                 {
+                    collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.Transform);
                     for (int i = 0; i < pacman.ActiveBomb.explosions.Count; i++)
                     {
                         collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.explosions[i].transform);
