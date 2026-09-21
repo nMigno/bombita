@@ -10,10 +10,10 @@ namespace EngineGDI
 {
     public class GameManager
     {
-        private GameManager instance;
-        public GameManager Instance => instance;
+        private static GameManager instance;
+        public static GameManager Instance => instance;
         public AudioManager audioManager;
-        private Player pacman;
+        public Player pacman;
         public Collider collider;
         public Background background;
         public Background backgroundMenu;
@@ -59,6 +59,7 @@ namespace EngineGDI
             audioManager = new AudioManager();
             mainMenuScreen = new MainMenu(SCREEN_WIDTH);
             gameOverScreen = new GameOver(SCREEN_WIDTH);
+
             RestartGame();
         }
         public static void Initialize(int width, int height)
@@ -158,6 +159,7 @@ namespace EngineGDI
         {
             levelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "level0.json");
 
+
             exit = new LevelExit(40.0f, 720.0f);
             pacman = new Player(41.0f, 40.0f);
             enemies = new EnemyManager();
@@ -167,8 +169,9 @@ namespace EngineGDI
             maze = new Maze("DataFiles/level0.json");
             uiManager = new UIManager();
 
+
             pacman.OnLifeChanged += pacman.Die;
-            pacman.OnLifeChanged += audioManager.PlayPlayerDie;           
+            pacman.OnLifeChanged += audioManager.PlayPlayerDie;
             collider.OnPlayerExitColision += PlayerExitedLevel;
             collider.OnPlayerColisionWithSomethingThatKillsIt += pacman.Die;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;

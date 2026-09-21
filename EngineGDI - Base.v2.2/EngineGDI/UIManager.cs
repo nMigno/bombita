@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EngineGDI.GameManager;
 
 namespace EngineGDI
 {
@@ -15,19 +16,19 @@ namespace EngineGDI
         float uiPosX = 10f;
         float uiPosY = 840f;
 
-        public void Render(int playerLives)
+        public void Render()
         {
             if (CurrentState == GameState.playing)
             {
-                if (playerLives == 2)
+                if (GameManager.Instance.pacman.Lives == 2)
                 {
                     Engine.Draw(upTwo, uiPosX, uiPosY, 1f, 1f);
                 }
-                else if (playerLives == 1)
+                else if (GameManager.Instance.pacman.Lives == 1)
                 {
                     Engine.Draw(upOne, uiPosX, uiPosY, 1f, 1f);
                 }
-                else if (playerLives == 0)
+                else if (GameManager.Instance.pacman.Lives == 0)
                 {
                     Engine.Draw(upZero, uiPosX, uiPosY, 1f, 1f);
                 }

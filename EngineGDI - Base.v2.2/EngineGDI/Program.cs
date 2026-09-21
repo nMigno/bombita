@@ -20,14 +20,13 @@ namespace EngineGDI
         public static int SCREEN_HEIGHT = 880;
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
-        static GameManager gameManager;
 
         [STAThread]
         static void Main()
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
             
-            gameManager = GameManager.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
+            GameManager.Initialize(SCREEN_WIDTH, SCREEN_HEIGHT);
             
             while (Engine.IsWindowOpen)
             {
