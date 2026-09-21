@@ -21,6 +21,7 @@ namespace EngineGDI.DataFiles
     public class WallData : ElementData { }
     public class BrickWallData : ElementData { }
     public class DoorLevelExitData : ElementData { }
+    public class Position : ElementData { }
 
     public class Level
     {
@@ -28,6 +29,16 @@ namespace EngineGDI.DataFiles
         public List<BrickWallData> BricksInFile { get; set; }
         public List<DoorLevelExitData> DoorsInFile { get; set; }
     }
+
+    public class EnemyRoute
+    {
+        public List<Position> Path {  get; set; }
+    }
+    public class PathData
+    {
+        public List<EnemyRoute> EnemyRoutes { get; set; }
+    }
+
     
     public class LevelLoaderFromJson
     {
@@ -38,6 +49,18 @@ namespace EngineGDI.DataFiles
             JavaScriptSerializer serializer = new JavaScriptSerializer();
 
             return serializer.Deserialize<Level>(json);
+        }
+    }
+
+    public static class PositionData
+    {
+        public static PathData ReadPathFromJson(string filePath)
+        {
+            string json = File.ReadAllText(filePath);
+
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+
+            return serializer.Deserialize<PathData>(json);
         }
     }
 }

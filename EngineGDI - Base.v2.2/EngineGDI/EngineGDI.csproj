@@ -59,6 +59,7 @@
     <Compile Include="GameOver.cs" />
     <Compile Include="LevelExit.cs" />
     <Compile Include="Maze.cs" />
+    <Compile Include="PathGenerator.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -284,6 +285,9 @@
     <Content Include="bin\Debug\Textures\Animations\Idle_e\meteorito8.png" />
     <Content Include="bin\Debug\Textures\Animations\Idle_e\meteorito9.png" />
     <Content Include="bin\Debug\Textures\bomb1.png" />
+    <Content Include="bin\Debug\Textures\Enemy.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\Textures\test.png" />
     <Content Include="bin\Debug\Assets\Sprites\Icons\Exit.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
