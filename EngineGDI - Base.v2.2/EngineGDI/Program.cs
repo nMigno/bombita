@@ -86,7 +86,7 @@ namespace EngineGDI
             pacman.OnLifeChanged += pacman.Die;
             pacman.OnLifeChanged += audioManager.PlayPlayerDie;
             collider.OnPlayerExitColision += PlayerExitedLevel;
-            collider.OnPlayerEnemyColision += pacman.Die;
+            collider.OnPlayerColisionWithSomethingThatKillsIt += pacman.Die;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;
             collider.OnDestroyEnemy += enemies.RemoveEnemy;
 
@@ -225,10 +225,15 @@ namespace EngineGDI
             backgroundMenu = new Background(0, 0, "Textures/bg-black.png");
             maze = new Maze("DataFiles/level0.json");
 
-            //suscripcios CLASEDELEGADO
             pacman.OnLifeChanged += pacman.Die;
             pacman.OnLifeChanged += audioManager.PlayPlayerDie;
+            collider.OnPlayerExitColision += PlayerExitedLevel;
+            collider.OnPlayerColisionWithSomethingThatKillsIt += pacman.Die;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;
+            collider.OnDestroyEnemy += enemies.RemoveEnemy;
+
+            //suscripcios CLASEDELEGADO
+
 
             enemies.LoadEnemies();
 
