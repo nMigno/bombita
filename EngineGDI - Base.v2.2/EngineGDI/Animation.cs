@@ -20,6 +20,7 @@ namespace EngineGDI
         public string CurrentFrame => frames[currentFrameIndex];
         public float Width => width;
         public float Height => height;
+        public bool IsFinished { get; private set; } = false;
         public Animation(string id, List<string> frames, float speed, bool isLoopEnabled, float w, float h)
         {
             this.id = id;
@@ -33,6 +34,7 @@ namespace EngineGDI
         {
             this.currentFrameIndex = 0;
             this.currentAnimationTime = 0;
+            this.IsFinished = false;
         }
         public void Update()
         {
@@ -50,6 +52,7 @@ namespace EngineGDI
                     else
                     {
                         currentFrameIndex = frames.Count - 1;
+                        IsFinished = true;
                     }
                 }
             }

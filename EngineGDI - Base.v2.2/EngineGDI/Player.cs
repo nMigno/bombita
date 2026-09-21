@@ -22,6 +22,8 @@ namespace EngineGDI
         }
         string id;
         float vel;
+        float startX;
+        float startY;
 
         public Bomb ActiveBomb { get; private set; }
         public Transform transform;
@@ -32,8 +34,12 @@ namespace EngineGDI
         public event Action OnLifeChanged;
         public bool alive = true;
         //lo mato
+        public int Lives = 2;
 
         Animation sprites;
+        Animation deathSprites;
+        float deathTimer = 0f;
+        public bool Dead = false;
 
         //pendiente manejo de carga via json
 
@@ -71,6 +77,8 @@ namespace EngineGDI
         {
             id = "Player";
             vel = speed;
+            startX = initialx;
+            startY = initialy;
             transform = new Transform();
             transform.Position.x = initialx;
             transform.Position.y = initialy;
@@ -88,6 +96,7 @@ namespace EngineGDI
         void LoadSprites()
         {
             sprites = new Animation("wip", upFrames, 0.1f, true, 16, 16);
+            deathSprites =new Animation("die", dieFrames, 0.1f, false, 16, 16);
         }
         void ChangeSpeed(float value)
         {
@@ -101,8 +110,12 @@ namespace EngineGDI
         //metodo Die suscrito en program CLASEDELEGADO
         public void Die()
         {
-            alive = false;
-            CurrentState = SpriteState.die;
+            if (alive)
+            {
+                alive = false;
+                CurrentState = SpriteState.die;
+                OnLifeChanged?.Invoke();
+            }
         }
         public void Inputs()
         {
@@ -161,73 +174,76 @@ namespace EngineGDI
 
             ActiveBomb = new Bomb(bombX, bombY, "Assets/Sprites/Players/Bombita1/bomb1.png");
             Bomb.BombState state = Bomb.BombState.free;
-
-            /*
-            float distanceOffset = 4.0f;
-
-            switch (CurrentState)
-            {
-                case SpriteState.up:
-                    bombY -= transform.RealSize.y + distanceOffset;
-                    break;
-                case SpriteState.down:
-                    bombY += transform.RealSize.y + distanceOffset;
-                    break;
-                case SpriteState.left:
-                    bombX -= transform.RealSize.x + distanceOffset;
-                    break;
-                case SpriteState.right:
-                    bombX += transform.RealSize.x + distanceOffset;
-                    break;
-            }
-
-
-            if (Program.collider.CanPlaceBomb(bombPos, bombSize, Program.maze.WallsInMaze))
-            {
-                ActiveBomb = new Bomb(bombX, bombY, "Assets/Sprites/Players/Bombita1/bomb1.png");
-            }
-            */
         }
 
         public void Update(float deltaTime)
         {
-           
-            switch (CurrentState)
+            if (CurrentState == SpriteState.die)
             {
-                case SpriteState.up:
-                    transform.Position.y -= vel * deltaTime;
-                    sprites.frames = upFrames;
-                    break;
-                case SpriteState.left:
-                    transform.Position.x -= vel * deltaTime;
-                    sprites.frames = leftFrames;
-                    break;
-                case SpriteState.down:
-                    transform.Position.y += vel * deltaTime;
-                    sprites.frames = downFrames;
-                    break;
-                case SpriteState.right:
-                    transform.Position.x += vel * deltaTime;
-                    sprites.frames = rightFrames;
-                    break;
-                case SpriteState.idle:
-                    sprites.frames = downFrames;
-                    break;
-                case SpriteState.die:
-                    sprites.frames = dieFrames;
-                    break;
+                deathSprites.Update();
+
+                if (deathSprites.IsFinished) Dead = true;
             }
-            sprites.Update();
+            else
+            {
+                switch (CurrentState)
+                {
+                    case SpriteState.up:
+                        transform.Position.y -= vel * deltaTime;
+                        sprites.frames = upFrames;
+                        break;
+                    case SpriteState.left:
+                        transform.Position.x -= vel * deltaTime;
+                        sprites.frames = leftFrames;
+                        break;
+                    case SpriteState.down:
+                        transform.Position.y += vel * deltaTime;
+                        sprites.frames = downFrames;
+                        break;
+                    case SpriteState.right:
+                        transform.Position.x += vel * deltaTime;
+                        sprites.frames = rightFrames;
+                        break;
+                    case SpriteState.idle:
+                        sprites.frames = downFrames;
+                        break;
+                    case SpriteState.die:
+                        sprites.frames = dieFrames;
+                        break;
+                }
+
+                sprites.Update();
+            }
 
             ActiveBomb?.Update(deltaTime);
 
             //if (ActiveBomb != null && !ActiveBomb.IsActive) ActiveBomb = null;
         }
-        public void Render() {
-            Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y, 
+        public void Render() 
+        {
+            if (CurrentState == SpriteState.die)
+            {
+                Engine.Draw(deathSprites.CurrentFrame, transform.Position.x, transform.Position.y,
                 transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            }
+            else
+            {
+               Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y,
+               transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            }           
 
             ActiveBomb?.Render();
+        }
+
+        public void Respawn()
+        {
+            transform.Position.x = startX;
+            transform.Position.y = startY;
+
+            alive = true;
+            Dead = false;
+            CurrentState = SpriteState.idle;
+            deathSprites.Reset();
         }
     }
 }

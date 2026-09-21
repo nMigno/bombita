@@ -11,7 +11,7 @@ namespace EngineGDI
         string id;
         string texture;
         Transform transform;
-        bool opened = false;
+        bool opened = true;
         int pixelSize = 16;
         public bool Opened => opened;
         public Transform Transform => transform;

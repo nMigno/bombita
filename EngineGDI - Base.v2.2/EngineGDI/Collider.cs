@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EngineGDI.Program;
 
 namespace EngineGDI
 {
@@ -48,7 +49,27 @@ namespace EngineGDI
                         OnDestroyBrickWall(boxA);
                     }
                 }
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)
+                {
+                    if (Program.exit.Opened)
+                    {
+                        // Calculamos el centro de ambos sprites para asegurarnos de que el
+                        // player pise lo suficiente la salida para triggerear la victoria
+                        float pacmanCenterX = pacman.transform.Position.x + (pacman.transform.RealSize.x / 2);
+                        float pacmanCenterY = pacman.transform.Position.y + (pacman.transform.RealSize.y / 2);
+                        float exitCenterX = exit.Transform.Position.x + (exit.Transform.RealSize.x / 2);
+                        float exitCenterY = exit.Transform.Position.y + (exit.Transform.RealSize.y / 2);
+                        float distanceX = pacmanCenterX - exitCenterX;
+                        float distanceY = pacmanCenterY - exitCenterY;
+                        float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
+                        if (distance < 8.0f) CurrentState = GameState.victory;
+                    }
+                }
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.enemy)
+                {
+                    if (Program.pacman.alive) Program.pacman.Die();
+                }
             }                        
         }
         //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos

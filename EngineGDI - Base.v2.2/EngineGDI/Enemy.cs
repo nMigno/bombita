@@ -25,6 +25,8 @@ namespace EngineGDI
             transform.Offset.y = 0;
             transform.RealSize.x = 32;
             transform.RealSize.y = 32;
+
+            transform.gameId = GameId.enemy;
         }
         public void Render()
         {

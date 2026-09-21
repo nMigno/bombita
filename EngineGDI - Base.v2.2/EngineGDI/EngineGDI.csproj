@@ -56,12 +56,14 @@
     <Compile Include="DataFiles\PositionData.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="GameOver.cs" />
     <Compile Include="LevelExit.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transform.cs" />
+    <Compile Include="UIManager.cs" />
     <Compile Include="Vector2.cs" />
     <Compile Include="Wall.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -225,6 +227,42 @@
     <Content Include="bin\Debug\Assets\Sprites\Powerups\SNES - Super Bomberman - Enemies &amp; Bosses - World 1 Enemies and Items 1_7.png" />
     <Content Include="bin\Debug\Assets\Sprites\Powerups\SNES - Super Bomberman - Enemies &amp; Bosses - World 1 Enemies and Items 1_8.png" />
     <Content Include="bin\Debug\Assets\Sprites\Powerups\SNES - Super Bomberman - Enemies &amp; Bosses - World 1 Enemies and Items 1_9.png" />
+    <Content Include="bin\Debug\Assets\Text\BtnExit.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnExit_Selected.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnPlayAgain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnPlayAgain_Selected.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnStart.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnStart_Selected.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnTryAgain.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\BtnTryAgain_Selected.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\Title.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\UP_0.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\UP_1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\Assets\Text\UP_2.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="bin\Debug\Bomberman.png" />
     <Content Include="bin\Debug\Colider.png" />
     <Content Include="bin\Debug\EngineGDI.exe" />
