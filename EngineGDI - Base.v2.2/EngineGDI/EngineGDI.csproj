@@ -57,6 +57,7 @@
     <Compile Include="Enemy.cs" />
     <Compile Include="EnemyManager.cs" />
     <Compile Include="Engine.cs" />
+    <Compile Include="GameManager.cs" />
     <Compile Include="GameOver.cs" />
     <Compile Include="LevelExit.cs" />
     <Compile Include="MainMenu.cs" />

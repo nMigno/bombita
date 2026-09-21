@@ -50,7 +50,7 @@ namespace EngineGDI
                 }
                 if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
                 {
-                    OnDestroyEnemy(boxA);
+                    if (boxB != null) OnDestroyEnemy(boxA);
 
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)

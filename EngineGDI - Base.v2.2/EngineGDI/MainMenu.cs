@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static EngineGDI.Program;
+using static EngineGDI.GameManager;
 
 namespace EngineGDI
 {
     public class MainMenu
     {
         public int MenuIndex = 0;
-        static string title = "Assets/Text/Title.png";
+        string title = "Assets/Text/Title.png";
         static string btnStart = "Assets/Text/BtnStart.png";
         static string btnStartSelect = "Assets/Text/BtnStart_Selected.png";
         static string btnExit = "Assets/Text/BtnExit.png";
         static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
-
+        static float SCREEN_WIDTH;
+        public MainMenu(float Width)
+        {
+            SCREEN_WIDTH = Width;
+        }
         public void Update()
         {
             if (CurrentState == GameState.start)

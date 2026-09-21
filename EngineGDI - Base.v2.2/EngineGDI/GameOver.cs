@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static EngineGDI.Program;
+using static EngineGDI.GameManager;
 
 namespace EngineGDI
 {
@@ -18,7 +18,14 @@ namespace EngineGDI
         static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
         static string winText = "Assets/Text/WinText.png";
         static string deadText = "Assets/Text/DeadText.png";
+        static float SCREEN_WIDTH;
 
+        public Action OnRestartGame;
+
+        public GameOver(float Width)
+        {
+            SCREEN_WIDTH = Width;
+        }
         public void Update()
         {
             if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
@@ -36,7 +43,7 @@ namespace EngineGDI
                 {
                     if (MenuIndex == 0)
                     {
-                        RestartGame();
+                        OnRestartGame();
                         MenuIndex = 0;
                     }
                     else

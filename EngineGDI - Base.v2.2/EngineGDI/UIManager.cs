@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EngineGDI.GameManager;
 
 namespace EngineGDI
 {
@@ -17,17 +18,17 @@ namespace EngineGDI
 
         public void Render()
         {
-            if (Program.CurrentState == Program.GameState.playing)
+            if (CurrentState == GameState.playing)
             {
-                if (Program.pacman.Lives == 2)
+                if (pacman.Lives == 2)
                 {
                     Engine.Draw(upTwo, uiPosX, uiPosY, 1f, 1f);
                 }
-                else if (Program.pacman.Lives == 1)
+                else if (pacman.Lives == 1)
                 {
                     Engine.Draw(upOne, uiPosX, uiPosY, 1f, 1f);
                 }
-                else if (Program.pacman.Lives == 0)
+                else if (pacman.Lives == 0)
                 {
                     Engine.Draw(upZero, uiPosX, uiPosY, 1f, 1f);
                 }
