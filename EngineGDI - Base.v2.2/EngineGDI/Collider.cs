@@ -9,7 +9,7 @@ namespace EngineGDI
     public class Collider
     {
         public Action<Transform> OnDestroyBrickWall;
-        public Action OnPlayerEnemyColision;
+        public Action OnPlayerColisionWithSomethingThatKillsIt;
         public Action<Transform> OnDestroyEnemy;
         public Action OnPlayerExitColision;
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
@@ -45,7 +45,7 @@ namespace EngineGDI
                 {
                     //llamar aca al delegado y mandarle la boxA que son las coordenadas
                     //el delegado es void y recibe un objeto de clase Transform
-                    OnDestroyBrickWall(boxA);
+                    if(boxA != null) OnDestroyBrickWall(boxA);
 
                 }
                 if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
@@ -69,11 +69,11 @@ namespace EngineGDI
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.enemy)
                 {
-                    OnPlayerEnemyColision();
+                    OnPlayerColisionWithSomethingThatKillsIt();
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.explosion)
                 {
-                    OnPlayerEnemyColision();
+                    OnPlayerColisionWithSomethingThatKillsIt();
                 }
             }
         }
