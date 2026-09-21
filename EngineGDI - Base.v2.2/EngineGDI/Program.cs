@@ -21,12 +21,12 @@ namespace EngineGDI
 
         public static AudioManager audioManager = new AudioManager();
         public static Player pacman;
-        public static List<Enemy> Enemies = new List<Enemy>();
         public static Collider collider;
         public static Background background;
         public static Background backgroundMenu;
         public static Maze maze;
         public static LevelExit exit;
+        public static EnemyManager enemies;
         public static GameOver gameOverScreen;
         public static UIManager uiManager;
         public static MainMenu mainMenuScreen;
@@ -44,11 +44,7 @@ namespace EngineGDI
         public static float deltaTime;
         static DateTime lastFrameTime = DateTime.Now;
 
-        public static PathData Pathing;
-        public static string EnemyPath;
-        public static float EnemySpeed = 100.0f;
-        public static List<Vector2> Routes;
-        public static Enemy Enemy;
+
 
         public static float xf = 100;
         public static float yf = 100;
@@ -71,18 +67,8 @@ namespace EngineGDI
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
 
-            levelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, 
+            levelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
                 "DataFiles", "level0.json");
-            EnemyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, 
-                "DataFiles", "EnemyPathing.json");
-
-            // Line below generates random positioning of enemies. We
-            // deactivate ir for avoiding constant random enemy positioning
-            // every time we open the game
-            //PathGenerator.GeneratePaths(levelPath, EnemyPath);
-
-            Pathing = PositionData.ReadPathFromJson(EnemyPath);
-            LoadEnemies();
 
             exit = new LevelExit(40.0f, 720.0f);
             pacman = new Player(41.0f, 40.0f);
@@ -93,12 +79,14 @@ namespace EngineGDI
             gameOverScreen = new GameOver();
             uiManager = new UIManager();
             mainMenuScreen = new MainMenu();
+            enemies = new EnemyManager();
 
 
             //suscripcios CLASEDELEGADO
             pacman.OnLifeChanged += pacman.Die;
             pacman.OnLifeChanged += audioManager.PlayPlayerDie;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;
+            collider.OnDestroyEnemy += enemies.RemoveEnemy;
 
             while (Engine.IsWindowOpen)
             {
@@ -144,6 +132,7 @@ namespace EngineGDI
             if (CurrentState == GameState.playing)
             {
                 pacman.Update(deltaTime);
+                enemies.Update(deltaTime);
 
                 for (int i = 0; i < maze.WallsInMaze.Count; i++)
                 {
@@ -161,16 +150,22 @@ namespace EngineGDI
                         {
                             collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, pacman.ActiveBomb.explosions[i].transform);
                         }
+                        for (int j = 0; j < enemies.Enemies.Count; j++)
+                        {
+                            collider.IsTransformColliding(enemies.Enemies[j].transform, pacman.ActiveBomb.explosions[i].transform);
+                        }
                     }
+                    
                 }
+                
 
                 collider.IsTransformColliding(pacman.transform, exit.Transform);
-                
-                for (int i = 0; i < Enemies.Count; i++)
+
+                for (int i = 0; i < enemies.Enemies.Count; i++)
                 {
-                    Enemies[i].Update(deltaTime);
-                    collider.IsTransformColliding(pacman.transform, Enemies[i].transform);
+                    collider.IsTransformColliding(pacman.transform, enemies.Enemies[i].transform);
                 }
+
 
                 if (pacman.Dead)
                 {
@@ -185,7 +180,7 @@ namespace EngineGDI
                         CurrentState = GameState.defeat;
                     }
                 }
-            }   
+            }
             else if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
             {
                 gameOverScreen.Update();
@@ -195,7 +190,7 @@ namespace EngineGDI
                 mainMenuScreen.Update();
             }
 
-        }       
+        }
 
         static void Render()
         {
@@ -206,11 +201,7 @@ namespace EngineGDI
                 pacman.Render();
                 maze.Render();
                 uiManager.Render();
-
-                for (int i = 0;i < Enemies.Count; i++)
-                {
-                    Enemies[i].Render();
-                }
+                enemies.Render();
             }
             else if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
             {
@@ -236,27 +227,9 @@ namespace EngineGDI
             pacman.OnLifeChanged += audioManager.PlayPlayerDie;
             collider.OnDestroyBrickWall += maze.RemoveBrickWall;
 
-            LoadEnemies();
+            enemies.LoadEnemies();
 
             CurrentState = GameState.playing;
-        }
-
-        public static void LoadEnemies()
-        {
-            Enemies.Clear();
-
-            foreach (var route in Pathing.EnemyRoutes)
-            {
-                Routes = new List<Vector2>();
-
-                foreach (var pathing in route.Path)
-                {
-                    Routes.Add(new Vector2 { x = pathing.X, y = pathing.Y });
-                }
-
-                Enemy = new Enemy(EnemySpeed, Routes);
-                Enemies.Add(Enemy);
-            }
         }
     }
 }
