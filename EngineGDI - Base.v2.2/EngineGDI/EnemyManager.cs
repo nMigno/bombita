@@ -1,0 +1,80 @@
+﻿using EngineGDI.DataFiles;
+using System;
+using System.Drawing;
+using System.Collections.Generic;
+using System.IO;
+using System.Media;
+using System.Web.Script.Serialization;
+using System.Windows.Forms;
+
+namespace EngineGDI
+{
+    public class EnemyManager
+    {
+        public PathData Pathing;
+        public string EnemyPath;
+        public float EnemySpeed = 100.0f;
+        public List<Vector2> Routes;
+        public Enemy NewEnemy;
+        public List<Enemy> Enemies = new List<Enemy>();
+        public EnemyManager()
+        {
+            EnemyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
+                    "DataFiles", "EnemyPathing.json");
+            // Line below generates random positioning of enemies. We
+            // deactivate ir for avoiding constant random enemy positioning
+            // every time we open the game
+            //PathGenerator.GeneratePaths(levelPath, EnemyPath);
+
+            Pathing = PositionData.ReadPathFromJson(EnemyPath);
+            LoadEnemies();
+
+        }
+        public void LoadEnemies()
+        {
+            Enemies.Clear();
+
+            foreach (var route in Pathing.EnemyRoutes)
+            {
+                Routes = new List<Vector2>();
+
+                foreach (var pathing in route.Path)
+                {
+                    Routes.Add(new Vector2 { x = pathing.X, y = pathing.Y });
+                }
+
+                NewEnemy = new Enemy(EnemySpeed, Routes);
+                Enemies.Add(NewEnemy);
+            }
+        }
+        public void RemoveEnemy(Transform ayudaMeVanADestruir)
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                if (Enemies[i].transform.Position.x == ayudaMeVanADestruir.Position.x &&
+                    Enemies[i].transform.Position.y == ayudaMeVanADestruir.Position.y)
+                {
+                    Enemies.RemoveAt(i);
+                }
+            }
+        }
+        public void Render()
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                Enemies[i].Render();
+            }
+        }
+        public void Update(float deltaTime)
+        {
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                Enemies[i].Update(deltaTime);
+            }
+        }
+
+    }
+}
+
+
+
