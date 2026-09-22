@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace EngineGDI
 {
@@ -125,9 +121,9 @@ namespace EngineGDI
     }
     public class Explosion
     {
-        public Transform transform;
+        private Transform transform;
         private string texture;
-        Transform Transform => transform;
+        public Transform Transform => transform;
 
         public bool TimeOut { get; private set; }
         private float timer = 1.0f;

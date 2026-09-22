@@ -1,11 +1,7 @@
 ﻿using EngineGDI.DataFiles;
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 using System.IO;
-using System.Media;
-using System.Web.Script.Serialization;
-using System.Windows.Forms;
 
 namespace EngineGDI
 {

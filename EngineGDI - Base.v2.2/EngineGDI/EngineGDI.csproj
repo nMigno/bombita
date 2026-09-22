@@ -51,7 +51,6 @@
     <Compile Include="AudioManager.cs" />
     <Compile Include="Background.cs" />
     <Compile Include="Bomb.cs" />
-    <Compile Include="ClaseVirtualDelegado.cs" />
     <Compile Include="Collider.cs" />
     <Compile Include="DataFiles\PositionData.cs" />
     <Compile Include="Enemy.cs" />

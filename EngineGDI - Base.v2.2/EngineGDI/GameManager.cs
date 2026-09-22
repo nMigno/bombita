@@ -1,10 +1,5 @@
-﻿using EngineGDI.DataFiles;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EngineGDI
 {
@@ -42,14 +37,6 @@ namespace EngineGDI
         public static string levelPath;
 
         static bool isColliding = false;
-        static bool wasColliding = false;
-
-        static string title = "Assets/Text/Title.png";
-        static string btnStart = "Assets/Text/BtnStart.png";
-        static string btnStartSelect = "Assets/Text/BtnStart_Selected.png";
-
-        static string btnExit = "Assets/Text/BtnExit.png";
-        static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
 
         int SCREEN_HEIGHT;
         int SCREEN_WIDTH;
@@ -105,14 +92,14 @@ namespace EngineGDI
 
                     for (int i = 0; i < explosions.ActiveExplosions.Count; i++)
                     {
-                        collider.IsTransformColliding(pacman.transform, explosions.ActiveExplosions[i].transform);
+                        collider.IsTransformColliding(pacman.transform, explosions.ActiveExplosions[i].Transform);
                         for (int j = 0; j < maze.BrickWallsInMaze.Count; j++)
                         {
-                            collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, explosions.ActiveExplosions[i].transform);
+                            collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, explosions.ActiveExplosions[i].Transform);
                         }
                         for (int j = 0; j < enemies.Enemies.Count; j++)
                         {
-                            collider.IsTransformColliding(enemies.Enemies[j].transform, explosions.ActiveExplosions[i].transform);
+                            collider.IsTransformColliding(enemies.Enemies[j].transform, explosions.ActiveExplosions[i].Transform);
                         }
                     }
 
