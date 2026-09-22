@@ -13,13 +13,13 @@ namespace EngineGDI
         private static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
         private static string winText = "Assets/Text/WinText.png";
         private static string deadText = "Assets/Text/DeadText.png";
-        private static float SCREEN_WIDTH;
+        private static float screenWidth;
 
         public Action OnRestartGame;
 
         public GameOver(float Width)
         {
-            SCREEN_WIDTH = Width;
+            screenWidth = Width;
         }
         public void Update()
         {
@@ -54,33 +54,33 @@ namespace EngineGDI
             if (GameManager.CurrentState == GameManager.GameState.victory)
             {
                 GameManager.Instance.BackgroundMenu.Render();
-                Engine.Draw(winText, SCREEN_WIDTH / 2 - 180, 200, 1f, 1f);
+                Engine.Draw(winText, screenWidth / 2 - 180, 200, 1f, 1f);
 
                 if (MenuIndex == 0)
                 {
-                    Engine.Draw(btnPlayAgainSelect, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
-                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
+                    Engine.Draw(btnPlayAgainSelect, screenWidth / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExit, screenWidth / 2 - 80, 600, 1f, 1f);
                 }
                 else
                 {
-                    Engine.Draw(btnPlayAgain, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
-                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
+                    Engine.Draw(btnPlayAgain, screenWidth / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExitSelect, screenWidth / 2 - 80, 600, 1f, 1f);
                 }
             }
             else if (GameManager.CurrentState == GameManager.GameState.defeat)
             {
                 GameManager.Instance.BackgroundMenu.Render();
-                Engine.Draw(deadText, SCREEN_WIDTH / 2 - 120, 200, 1f, 1f);
+                Engine.Draw(deadText, screenWidth / 2 - 120, 200, 1f, 1f);
                 
                 if (MenuIndex == 0)
                 {
-                    Engine.Draw(btnTryAgainSelect, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
-                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
+                    Engine.Draw(btnTryAgainSelect, screenWidth / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExit, screenWidth / 2 - 80, 600, 1f, 1f);
                 }
                 else
                 {
-                    Engine.Draw(btnTryAgain, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
-                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
+                    Engine.Draw(btnTryAgain, screenWidth / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExitSelect, screenWidth / 2 - 80, 600, 1f, 1f);
                 }
             }
         }

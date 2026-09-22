@@ -38,25 +38,12 @@ namespace EngineGDI
         {
             for (int i = 0; i < BrickWallsInMaze.Count; i++)
             {
-                if (BrickWallsInMaze[i].transform.Position.x == ayudaMeVanADestruir.Position.x &&
-                    BrickWallsInMaze[i].transform.Position.y == ayudaMeVanADestruir.Position.y)
+                if (BrickWallsInMaze[i].Transform.Position.X == ayudaMeVanADestruir.Position.X &&
+                    BrickWallsInMaze[i].Transform.Position.Y == ayudaMeVanADestruir.Position.Y)
                 {
                     BrickWallsInMaze.RemoveAt(i);
                 }
             } 
-        }
-        void Update()
-        {
-            for (int i = 0; i < WallsInMaze.Count; i++)
-            {
-                //sin implementar
-                //WallsInMaze[i].Update();
-            }
-            for (int i = 0; i < BrickWallsInMaze.Count; i++)
-            {
-                //sin mplementar
-                //BrickWallsInMaze[i].Update();
-            }
         }
 
         public void Render()

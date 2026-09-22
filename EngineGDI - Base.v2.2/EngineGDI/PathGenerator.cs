@@ -8,156 +8,156 @@ namespace EngineGDI
 {
     public static class PathGenerator
     {
-        public static int maxX = 39;
-        public static int maxY = 21;
-        public static bool[,] grid;
-        public static int x;
-        public static int y;
-        public static int i;
-        public static int startEmpty;
-        public static int currentLength;
-        public static string levelJson;
-        public static string outputJson;
-        static float startPosX;
-        static float startPosY;
-        static bool isInsideSafeZone;
+        public static int MaxX = 39;
+        public static int MaxY = 21;
+        public static bool[,] Grid;
+        public static int X;
+        public static int Y;
+        public static int I;
+        public static int StartEmpty;
+        public static int CurrentLength;
+        public static string LevelJson;
+        public static string OutputJson;
+        private static float startPosX;
+        private static float startPosY;
+        private static bool isInsideSafeZone;
         public static int n;
 
-        public static List<EnemyRoute> validRoutes;
-        public static List<EnemyRoute> filteredRoutes;
-        public static List<Position> tempPath;
-        public static EnemyRoute tempRoute;
-        public static JavaScriptSerializer serializer;
-        public static Level levelData;
-        public static PathData finalData;
-        public static EnemyRoute value;
-        public static Random rng = new Random();
+        public static List<EnemyRoute> ValidRoutes;
+        public static List<EnemyRoute> FilteredRoutes;
+        public static List<Position> TempPath;
+        public static EnemyRoute TempRoute;
+        public static JavaScriptSerializer Serializer;
+        public static Level LevelData;
+        public static PathData FinalData;
+        public static EnemyRoute Value;
+        public static Random Rng = new Random();
 
         public static void GeneratePaths(string levelFilePath, string outputFilePath)
         {
-            grid = new bool[maxX, maxY];
-            validRoutes = new List<EnemyRoute>();
-            serializer = new JavaScriptSerializer();
+            Grid = new bool[MaxX, MaxY];
+            ValidRoutes = new List<EnemyRoute>();
+            Serializer = new JavaScriptSerializer();
 
-            levelJson = File.ReadAllText(levelFilePath);
-            levelData = serializer.Deserialize<Level>(levelJson);
+            LevelJson = File.ReadAllText(levelFilePath);
+            LevelData = Serializer.Deserialize<Level>(LevelJson);
 
-            for (i = 0; i < levelData.WallsInFile.Count; i++)
+            for (I = 0; I < LevelData.WallsInFile.Count; I++)
             {
-                grid[(int)levelData.WallsInFile[i].X, (int)levelData.WallsInFile[i].Y] = true;
+                Grid[(int)LevelData.WallsInFile[I].X, (int)LevelData.WallsInFile[I].Y] = true;
             }
 
-            for (i = 0; i < levelData.BricksInFile.Count; i++)
+            for (I = 0; I < LevelData.BricksInFile.Count; I++)
             {
-                grid[(int)levelData.BricksInFile[i].X, (int)levelData.BricksInFile[i].Y] = true;
+                Grid[(int)LevelData.BricksInFile[I].X, (int)LevelData.BricksInFile[I].Y] = true;
             }
 
-            for (y = 0; y < maxY; y++)
+            for (Y = 0; Y < MaxY; Y++)
             {
-                startEmpty = -1;
-                currentLength = 0;
-                for (x = 0; x < maxX; x++)
+                StartEmpty = -1;
+                CurrentLength = 0;
+                for (X = 0; X < MaxX; X++)
                 {
-                    if (!grid[x, y])
+                    if (!Grid[X, Y])
                     {
-                        if (currentLength == 0) startEmpty = x;
-                        currentLength++;
+                        if (CurrentLength == 0) StartEmpty = X;
+                        CurrentLength++;
                     }
                     else
                     {
-                        if (currentLength >= 3)
+                        if (CurrentLength >= 3)
                         {
-                            tempPath = new List<Position>();
-                            tempPath.Add(new Position { X = startEmpty, Y = y });
-                            tempPath.Add(new Position { X = x - 1, Y = y });
+                            TempPath = new List<Position>();
+                            TempPath.Add(new Position { X = StartEmpty, Y = Y });
+                            TempPath.Add(new Position { X = X - 1, Y = Y });
 
-                            tempRoute = new EnemyRoute();
-                            tempRoute.Path = tempPath;
-                            validRoutes.Add(tempRoute);
+                            TempRoute = new EnemyRoute();
+                            TempRoute.Path = TempPath;
+                            ValidRoutes.Add(TempRoute);
                         }
-                        currentLength = 0;
+                        CurrentLength = 0;
                     }
                 }
-                if (currentLength >= 3)
+                if (CurrentLength >= 3)
                 {
-                    tempPath = new List<Position>();
-                    tempPath.Add(new Position { X = startEmpty, Y = y });
-                    tempPath.Add(new Position { X = maxX - 1, Y = y });
+                    TempPath = new List<Position>();
+                    TempPath.Add(new Position { X = StartEmpty, Y = Y });
+                    TempPath.Add(new Position { X = MaxX - 1, Y = Y });
 
-                    tempRoute = new EnemyRoute();
-                    tempRoute.Path = tempPath;
-                    validRoutes.Add(tempRoute);
+                    TempRoute = new EnemyRoute();
+                    TempRoute.Path = TempPath;
+                    ValidRoutes.Add(TempRoute);
                 }
             }
 
-            for (x = 0; x < maxX; x++)
+            for (X = 0; X < MaxX; X++)
             {
-                startEmpty = -1;
-                currentLength = 0;
-                for (y = 0; y < maxY; y++)
+                StartEmpty = -1;
+                CurrentLength = 0;
+                for (Y = 0; Y < MaxY; Y++)
                 {
-                    if (!grid[x, y])
+                    if (!Grid[X, Y])
                     {
-                        if (currentLength == 0) startEmpty = y;
-                        currentLength++;
+                        if (CurrentLength == 0) StartEmpty = Y;
+                        CurrentLength++;
                     }
                     else
                     {
-                        if (currentLength >= 3)
+                        if (CurrentLength >= 3)
                         {
-                            tempPath = new List<Position>();
-                            tempPath.Add(new Position { X = x, Y = startEmpty });
-                            tempPath.Add(new Position { X = x, Y = y - 1 });
+                            TempPath = new List<Position>();
+                            TempPath.Add(new Position { X = X, Y = StartEmpty });
+                            TempPath.Add(new Position { X = X, Y = Y - 1 });
 
-                            tempRoute = new EnemyRoute();
-                            tempRoute.Path = tempPath;
-                            validRoutes.Add(tempRoute);
+                            TempRoute = new EnemyRoute();
+                            TempRoute.Path = TempPath;
+                            ValidRoutes.Add(TempRoute);
                         }
-                        currentLength = 0;
+                        CurrentLength = 0;
                     }
                 }
-                if (currentLength >= 3)
+                if (CurrentLength >= 3)
                 {
-                    tempPath = new List<Position>();
-                    tempPath.Add(new Position { X = x, Y = startEmpty });
-                    tempPath.Add(new Position { X = x, Y = maxY - 1 });
+                    TempPath = new List<Position>();
+                    TempPath.Add(new Position { X = X, Y = StartEmpty });
+                    TempPath.Add(new Position { X = X, Y = MaxY - 1 });
 
-                    tempRoute = new EnemyRoute();
-                    tempRoute.Path = tempPath;
-                    validRoutes.Add(tempRoute);
+                    TempRoute = new EnemyRoute();
+                    TempRoute.Path = TempPath;
+                    ValidRoutes.Add(TempRoute);
                 }
             }
 
-            n = validRoutes.Count;
+            n = ValidRoutes.Count;
             while (n > 1)
             {
                 n--;
-                i = rng.Next(n + 1);
-                value = validRoutes[i];
-                validRoutes[i] = validRoutes[n];
-                validRoutes[n] = value;
+                I = Rng.Next(n + 1);
+                Value = ValidRoutes[I];
+                ValidRoutes[I] = ValidRoutes[n];
+                ValidRoutes[n] = Value;
             }
 
-            filteredRoutes = new List<EnemyRoute>();
+            FilteredRoutes = new List<EnemyRoute>();
 
-            for (i = 0; i < validRoutes.Count; i++)
+            for (I = 0; I < ValidRoutes.Count; I++)
             {
-                startPosX = validRoutes[i].Path[0].X;
-                startPosY = validRoutes[i].Path[0].Y;
+                startPosX = ValidRoutes[I].Path[0].X;
+                startPosY = ValidRoutes[I].Path[0].Y;
 
                 isInsideSafeZone = (startPosX >= 0 && startPosX <= 5 &&
                                     startPosY >= 0 && startPosY <= 5);
 
-                if (!isInsideSafeZone && filteredRoutes.Count < 20)
+                if (!isInsideSafeZone && FilteredRoutes.Count < 20)
                 {
-                    filteredRoutes.Add(validRoutes[i]);
+                    FilteredRoutes.Add(ValidRoutes[I]);
                 }
             }
 
-            finalData = new PathData();
-            finalData.EnemyRoutes = filteredRoutes;
-            outputJson = serializer.Serialize(finalData);
-            File.WriteAllText(outputFilePath, outputJson);
+            FinalData = new PathData();
+            FinalData.EnemyRoutes = FilteredRoutes;
+            OutputJson = Serializer.Serialize(FinalData);
+            File.WriteAllText(outputFilePath, OutputJson);
         }
     }
 }

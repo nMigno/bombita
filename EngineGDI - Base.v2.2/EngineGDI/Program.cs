@@ -6,12 +6,12 @@ namespace EngineGDI
     public static class Program
     {
         // mostrar debug
-        public static bool showDebug = true;
-        public static string currentMsg = "";
+        public static bool ShowDebug = true;
+        public static string CurrentMsg = "";
 
         public static int SCREEN_WIDTH = 1560;
         public static int SCREEN_HEIGHT = 880;
-        public static float deltaTime;
+        public static float DeltaTime;
         private static DateTime lastFrameTime = DateTime.Now;
 
         [STAThread]
@@ -36,10 +36,10 @@ namespace EngineGDI
                 #region Engine Window Control
                 Engine.Clear(Color.Black);
                 // mensajes de debug
-                if (showDebug)
+                if (ShowDebug)
                 {
                     Engine.ClearDebug();
-                    Engine.DebugLog(currentMsg);
+                    Engine.DebugLog(CurrentMsg);
 
                 }
                 Engine.Window.Invalidate();
@@ -49,7 +49,7 @@ namespace EngineGDI
         private static void calcDeltatime()
         {
             TimeSpan deltaSpan = DateTime.Now - lastFrameTime;
-            deltaTime = (float)deltaSpan.TotalSeconds;
+            DeltaTime = (float)deltaSpan.TotalSeconds;
             lastFrameTime = DateTime.Now;
         }
         private static void Input()
@@ -58,7 +58,7 @@ namespace EngineGDI
         }
         private static void Update()
         {
-            GameManager.Instance.Update(deltaTime);
+            GameManager.Instance.Update(DeltaTime);
         }
 
         private static void Render()

@@ -20,13 +20,13 @@ namespace EngineGDI
         private float startY;
 
         public Bomb ActiveBomb { get; private set; }
-        public Transform transform;
-        public Transform bombTransform;
+        public Transform Transform;
+        public Transform BombTransform;
 
         //trackeo estado del player
 
         public event Action OnLifeChanged;
-        public bool alive = true;
+        public bool Alive = true;
         //lo mato
         public int Lives = 2;
 
@@ -64,24 +64,24 @@ namespace EngineGDI
                 "Assets/Sprites/Players/Bombita1/bd5.png" ,
             };
 
-        private SpriteState CurrentState = SpriteState.idle;
+        private SpriteState currentState = SpriteState.idle;
 
         public Player(float initialx, float initialy, float speed = 200)
         {
             vel = speed;
             startX = initialx;
             startY = initialy;
-            transform = new Transform();
-            transform.Position.x = initialx;
-            transform.Position.y = initialy;
-            transform.Scale.x = 2.5f;
-            transform.Scale.y = 2.5f;
-            transform.Angle = 0;
-            transform.RealSize.x = 16f * transform.Scale.x;
-            transform.RealSize.y = 16f * transform.Scale.y;
-            transform.Offset.x = 0;
-            transform.Offset.y = 0;
-            transform.gameId = GameId.player;
+            Transform = new Transform();
+            Transform.Position.X = initialx;
+            Transform.Position.Y = initialy;
+            Transform.Scale.X = 2.5f;
+            Transform.Scale.Y = 2.5f;
+            Transform.Angle = 0;
+            Transform.RealSize.X = 16f * Transform.Scale.X;
+            Transform.RealSize.Y = 16f * Transform.Scale.Y;
+            Transform.Offset.X = 0;
+            Transform.Offset.Y = 0;
+            Transform.gameId = GameId.player;
 
             LoadSprites();
         }
@@ -102,38 +102,38 @@ namespace EngineGDI
         //metodo Die suscrito en program CLASEDELEGADO
         public void Die()
         {
-            if (alive)
+            if (Alive)
             {
-                alive = false;
-                CurrentState = SpriteState.die;
+                Alive = false;
+                currentState = SpriteState.die;
                 OnLifeChanged?.Invoke();
             }
         }
         public void Inputs()
         {
-            if (alive) {                           
+            if (Alive) {                           
                 if (Engine.IsKeyDown(System.Windows.Forms.Keys.W)) {
                 
-                    CurrentState = SpriteState.up;
+                    currentState = SpriteState.up;
                 }
                 if (Engine.IsKeyDown(System.Windows.Forms.Keys.A)) {
                 
-                    CurrentState = SpriteState.left;
+                    currentState = SpriteState.left;
                 }
                 if (Engine.IsKeyDown(System.Windows.Forms.Keys.S)) {
                 
-                    CurrentState = SpriteState.down;
+                    currentState = SpriteState.down;
                 }
                 if (Engine.IsKeyDown(System.Windows.Forms.Keys.D)) {
                 
-                    CurrentState = SpriteState.right;
+                    currentState = SpriteState.right;
                 }
                 if (!Engine.IsKeyDown(System.Windows.Forms.Keys.W) &&
                     !Engine.IsKeyDown(System.Windows.Forms.Keys.A) &&
                     !Engine.IsKeyDown(System.Windows.Forms.Keys.S) &&
                     !Engine.IsKeyDown(System.Windows.Forms.Keys.D))
                 {
-                    CurrentState = SpriteState.idle;
+                    currentState = SpriteState.idle;
                 }
 
                 if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Space))
@@ -157,14 +157,14 @@ namespace EngineGDI
         {
             if (ActiveBomb != null && ActiveBomb.IsActive) return;
 
-            ActiveBomb = new Bomb(transform.Position.x, transform.Position.y);
+            ActiveBomb = new Bomb(Transform.Position.X, Transform.Position.Y);
             //WIP bomb player colision onPlace
             //Bomb.BombState state = Bomb.BombState.free;
         }
 
         public void Update(float deltaTime)
         {
-            if (CurrentState == SpriteState.die)
+            if (currentState == SpriteState.die)
             {
                 deathSprites.Update();
 
@@ -172,29 +172,29 @@ namespace EngineGDI
             }
             else
             {
-                switch (CurrentState)
+                switch (currentState)
                 {
                     case SpriteState.up:
-                        transform.Position.y -= vel * deltaTime;
-                        sprites.frames = upFrames;
+                        Transform.Position.Y -= vel * deltaTime;
+                        sprites.Frames = upFrames;
                         break;
                     case SpriteState.left:
-                        transform.Position.x -= vel * deltaTime;
-                        sprites.frames = leftFrames;
+                        Transform.Position.X -= vel * deltaTime;
+                        sprites.Frames = leftFrames;
                         break;
                     case SpriteState.down:
-                        transform.Position.y += vel * deltaTime;
-                        sprites.frames = downFrames;
+                        Transform.Position.Y += vel * deltaTime;
+                        sprites.Frames = downFrames;
                         break;
                     case SpriteState.right:
-                        transform.Position.x += vel * deltaTime;
-                        sprites.frames = rightFrames;
+                        Transform.Position.X += vel * deltaTime;
+                        sprites.Frames = rightFrames;
                         break;
                     case SpriteState.idle:
-                        sprites.frames = downFrames;
+                        sprites.Frames = downFrames;
                         break;
                     case SpriteState.die:
-                        sprites.frames = dieFrames;
+                        sprites.Frames = dieFrames;
                         break;
                 }
 
@@ -209,15 +209,15 @@ namespace EngineGDI
         }
         public void Render() 
         {
-            if (CurrentState == SpriteState.die)
+            if (currentState == SpriteState.die)
             {
-                Engine.Draw(deathSprites.CurrentFrame, transform.Position.x, transform.Position.y,
-                transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+                Engine.Draw(deathSprites.CurrentFrame, Transform.Position.X, Transform.Position.Y,
+                Transform.Scale.X, Transform.Scale.Y, Transform.Angle, Transform.Offset.X, Transform.Offset.Y);
             }
             else
             {
-               Engine.Draw(sprites.CurrentFrame, transform.Position.x, transform.Position.y,
-               transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+               Engine.Draw(sprites.CurrentFrame, Transform.Position.X, Transform.Position.Y,
+               Transform.Scale.X, Transform.Scale.Y, Transform.Angle, Transform.Offset.X, Transform.Offset.Y);
             }           
 
             ActiveBomb?.Render();
@@ -225,12 +225,12 @@ namespace EngineGDI
 
         public void Respawn()
         {
-            transform.Position.x = startX;
-            transform.Position.y = startY;
+            Transform.Position.X = startX;
+            Transform.Position.Y = startY;
 
-            alive = true;
+            Alive = true;
             Dead = false;
-            CurrentState = SpriteState.idle;
+            currentState = SpriteState.idle;
             deathSprites.Reset();
         }
     }

@@ -10,10 +10,10 @@ namespace EngineGDI
         public Action OnPlayerExitColision;
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
-            if (positionA.x + sizeA.x > positionB.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
-                positionA.x < positionB.x + sizeB.x && // El borde IZQUIERDO del PJ colisiona con el borde DERECHO del objeto
-                positionA.y + sizeA.y > positionB.y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
-                positionA.y < positionB.y + sizeB.y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
+            if (positionA.X + sizeA.X > positionB.X && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
+                positionA.X < positionB.X + sizeB.X && // El borde IZQUIERDO del PJ colisiona con el borde DERECHO del objeto
+                positionA.Y + sizeA.Y > positionB.Y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
+                positionA.Y < positionB.Y + sizeB.Y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
             {
                 return true;
             }
@@ -24,18 +24,18 @@ namespace EngineGDI
         }
         public void IsTransformColliding(Transform boxA, Transform boxB)
         {
-            if (boxA.Position.x + boxA.RealSize.x > boxB.Position.x && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
-                boxA.Position.x < boxB.Position.x + boxB.RealSize.x && // El borde IZQUIERDO del PJ colisiona con el borde DERECHO del objeto
-                boxA.Position.y + boxA.RealSize.y > boxB.Position.y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
-                boxA.Position.y < boxB.Position.y + boxB.RealSize.y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
+            if (boxA.Position.X + boxA.RealSize.X > boxB.Position.X && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
+                boxA.Position.X < boxB.Position.X + boxB.RealSize.X && // El borde IZQUIERDO del PJ colisiona con el borde DERECHO del objeto
+                boxA.Position.Y + boxA.RealSize.Y > boxB.Position.Y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
+                boxA.Position.Y < boxB.Position.Y + boxB.RealSize.Y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
             {
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.wall)
                 {
-                    playerPushOutColision(boxA, boxB);
+                    PlayerPushOutColision(boxA, boxB);
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.brickWall)
                 {
-                    playerPushOutColision(boxA, boxB);
+                    PlayerPushOutColision(boxA, boxB);
                 }
                 if (boxA.gameId == GameId.brickWall && boxB.gameId == GameId.explosion)
                 {
@@ -53,10 +53,10 @@ namespace EngineGDI
                 {
                     // Calculamos el centro de ambos sprites para asegurarnos de que el
                     // player pise lo suficiente la salida para triggerear la victoria
-                    float pacmanCenterX = boxA.Position.x + (boxA.RealSize.x / 2);
-                    float pacmanCenterY = boxA.Position.y + (boxA.RealSize.y / 2);
-                    float exitCenterX = boxB.Position.x + (boxB.RealSize.x / 2);
-                    float exitCenterY = boxB.Position.y + (boxB.RealSize.y / 2);
+                    float pacmanCenterX = boxA.Position.X + (boxA.RealSize.X / 2);
+                    float pacmanCenterY = boxA.Position.Y + (boxA.RealSize.Y / 2);
+                    float exitCenterX = boxB.Position.X + (boxB.RealSize.X / 2);
+                    float exitCenterY = boxB.Position.Y + (boxB.RealSize.Y / 2);
                     float distanceX = pacmanCenterX - exitCenterX;
                     float distanceY = pacmanCenterY - exitCenterY;
                     float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
@@ -73,26 +73,26 @@ namespace EngineGDI
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.bomb)
                 {
-                    playerPushOutColision(boxA, boxB);
+                    PlayerPushOutColision(boxA, boxB);
                 }
             }
         }
         //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos
-        public void playerPushOutColision(Transform a, Transform b)
+        public void PlayerPushOutColision(Transform a, Transform b)
         {
-            float aPOSx2 = a.Position.x + a.RealSize.x;
-            float aPOSy2 = a.Position.y + a.RealSize.y;
+            float aPOSx2 = a.Position.X + a.RealSize.X;
+            float aPOSy2 = a.Position.Y + a.RealSize.Y;
 
-            float bPOSx2 = b.Position.x + b.RealSize.x;
-            float bPOSy2 = b.Position.y + b.RealSize.y;
+            float bPOSx2 = b.Position.X + b.RealSize.X;
+            float bPOSy2 = b.Position.Y + b.RealSize.Y;
 
             //sobreposicion horizontal
-            float overlapLeft = aPOSx2 - b.Position.x;
-            float overlapRight = bPOSx2 - a.Position.x;
+            float overlapLeft = aPOSx2 - b.Position.X;
+            float overlapRight = bPOSx2 - a.Position.X;
 
             //sobrposicion vertical
-            float overlapTop = aPOSy2 - b.Position.y;
-            float overlapBottom = bPOSy2 - a.Position.y;
+            float overlapTop = aPOSy2 - b.Position.Y;
+            float overlapBottom = bPOSy2 - a.Position.Y;
 
             float overlapX = Math.Min(overlapLeft, overlapRight);
             float overlapY = Math.Min(overlapTop, overlapBottom);
@@ -100,42 +100,42 @@ namespace EngineGDI
             //el valor mas chico determina el eje de la colision
             if (overlapX < overlapY)
             {
-                if (a.Position.x <= b.Position.x)
+                if (a.Position.X <= b.Position.X)
                 {
-                    a.Position.x -= overlapX;
+                    a.Position.X -= overlapX;
                 }
-                else if (a.Position.x > b.Position.x)
+                else if (a.Position.X > b.Position.X)
                 {
-                    a.Position.x += overlapX;
+                    a.Position.X += overlapX;
                 }
 
                 if (overlapTop <= 10)
                 {
-                    a.Position.y -= 2f;
+                    a.Position.Y -= 2f;
                 }
                 else if (overlapBottom <= 10)
                 {
-                    a.Position.y += 2f;
+                    a.Position.Y += 2f;
                 }
             }
             else //la colison fue vertical, revisamos el sentido
             {
-                if (a.Position.y <= b.Position.y)
+                if (a.Position.Y <= b.Position.Y)
                 {
-                    a.Position.y -= overlapY;
+                    a.Position.Y -= overlapY;
                 }
-                else if (a.Position.y > b.Position.y)
+                else if (a.Position.Y > b.Position.Y)
                 {
-                    a.Position.y += overlapY;
+                    a.Position.Y += overlapY;
                 }
 
                 if (overlapLeft <= 10)
                 {
-                    a.Position.x -= 2f;
+                    a.Position.X -= 2f;
                 }
                 else if (overlapRight <= 10)
                 {
-                    a.Position.x += 2f;
+                    a.Position.X += 2f;
                 }
             }
         }

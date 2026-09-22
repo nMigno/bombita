@@ -2,58 +2,58 @@
 {
     public class Wall
     {
-        public Transform transform;
+        public Transform Transform;
         private string texture;
         public Wall(float initialX, float initialY, string path)
         {
             texture = path;
-            transform = new Transform();
+            Transform = new Transform();
             //escala y angulo
-            transform.Scale.x = 2.5f;
-            transform.Scale.y = 2.5f;
-            transform.Angle = 0;
-            transform.Offset.x = 0;
-            transform.Offset.y = 0;
-            transform.RealSize.x = 16 * transform.Scale.x;
-            transform.RealSize.y = 16 * transform.Scale.y;
+            Transform.Scale.X = 2.5f;
+            Transform.Scale.Y = 2.5f;
+            Transform.Angle = 0;
+            Transform.Offset.X = 0;
+            Transform.Offset.Y = 0;
+            Transform.RealSize.X = 16 * Transform.Scale.X;
+            Transform.RealSize.Y = 16 * Transform.Scale.Y;
             //coordenadas
-            transform.Position.x = transform.RealSize.x * initialX;
-            transform.Position.y = transform.RealSize.y * initialY;
+            Transform.Position.X = Transform.RealSize.X * initialX;
+            Transform.Position.Y = Transform.RealSize.Y * initialY;
             //que somos?
-            transform.gameId = GameId.wall;
+            Transform.gameId = GameId.wall;
         }
 
         public void Render()
         {
-            Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            Engine.Draw(texture, Transform.Position.X, Transform.Position.Y, Transform.Scale.X, Transform.Scale.Y, Transform.Angle, Transform.Offset.X, Transform.Offset.Y);
         }
     }
     public class BrickWall
     {
-        public Transform transform;
+        public Transform Transform;
         private string texture;
         public BrickWall(float initialX, float initialY, string path)
         {
             texture = path;
-            transform = new Transform();
+            Transform = new Transform();
             //escala y angulo
-            transform.Scale.x = 2.5f;
-            transform.Scale.y = 2.5f;
-            transform.Angle = 0;
-            transform.Offset.x = 0;
-            transform.Offset.y = 0;
-            transform.RealSize.x = 16 * transform.Scale.x;
-            transform.RealSize.y = 16 * transform.Scale.y;
+            Transform.Scale.X = 2.5f;
+            Transform.Scale.Y = 2.5f;
+            Transform.Angle = 0;
+            Transform.Offset.X = 0;
+            Transform.Offset.Y = 0;
+            Transform.RealSize.X = 16 * Transform.Scale.X;
+            Transform.RealSize.Y = 16 * Transform.Scale.Y;
             //coordenadas
-            transform.Position.x = transform.RealSize.x * initialX;
-            transform.Position.y = transform.RealSize.y * initialY;
+            Transform.Position.X = Transform.RealSize.X * initialX;
+            Transform.Position.Y = Transform.RealSize.Y * initialY;
             //que somos?
-            transform.gameId = GameId.brickWall;
+            Transform.gameId = GameId.brickWall;
         }
 
         public void Render()
         {
-            Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            Engine.Draw(texture, Transform.Position.X, Transform.Position.Y, Transform.Scale.X, Transform.Scale.Y, Transform.Angle, Transform.Offset.X, Transform.Offset.Y);
         }
     }
 }

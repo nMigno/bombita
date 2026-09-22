@@ -2,7 +2,7 @@
 {
     public struct Vector2
     {
-        public float x; 
-        public float y;
+        public float X; 
+        public float Y;
     }
 }

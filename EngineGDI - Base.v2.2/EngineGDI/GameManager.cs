@@ -7,7 +7,7 @@ namespace EngineGDI
     {
         private static GameManager instance;
         public static GameManager Instance => instance;
-        public AudioManager audioManager;
+        public AudioManager AudioManager;
         public Player BombitaMan;
         public Collider Collider;
         public Background Background;
@@ -37,7 +37,7 @@ namespace EngineGDI
         private GameManager(int Width)
         {
             SCREEN_WIDTH = Width;
-            audioManager = new AudioManager();
+            AudioManager = new AudioManager();
             MainMenuScreen = new MainMenu(SCREEN_WIDTH);
             GameOverScreen = new GameOver(SCREEN_WIDTH);
 
@@ -60,17 +60,17 @@ namespace EngineGDI
 
                 for (int i = 0; i < Maze.WallsInMaze.Count; i++)
                 {
-                    Collider.IsTransformColliding(BombitaMan.transform, Maze.WallsInMaze[i].transform);
+                    Collider.IsTransformColliding(BombitaMan.Transform, Maze.WallsInMaze[i].Transform);
                 }
                 for (int i = 0; i < Maze.BrickWallsInMaze.Count; i++)
                 {
-                    Collider.IsTransformColliding(BombitaMan.transform, Maze.BrickWallsInMaze[i].transform);
+                    Collider.IsTransformColliding(BombitaMan.Transform, Maze.BrickWallsInMaze[i].Transform);
                 }
                 if (BombitaMan.ActiveBomb != null)
                 {
                     if (BombitaMan.ActiveBomb.CurrentState == Bomb.BombState.colliding)
                     {
-                        isColliding = Collider.IsBoxColliding(BombitaMan.transform.Position, BombitaMan.transform.RealSize,
+                        isColliding = Collider.IsBoxColliding(BombitaMan.Transform.Position, BombitaMan.Transform.RealSize,
                             BombitaMan.ActiveBomb.Transform.Position, BombitaMan.ActiveBomb.Transform.RealSize);
                         if (!isColliding)
                         {
@@ -79,30 +79,30 @@ namespace EngineGDI
                     }
                     else if (BombitaMan.ActiveBomb.CurrentState == Bomb.BombState.free)
                     {
-                        Collider.IsTransformColliding(BombitaMan.transform, BombitaMan.ActiveBomb.Transform);
+                        Collider.IsTransformColliding(BombitaMan.Transform, BombitaMan.ActiveBomb.Transform);
                     }
 
-                    for (int i = 0; i < BombitaMan.ActiveBomb.explosions.Count; i++)
+                    for (int i = 0; i < BombitaMan.ActiveBomb.Explosions.Count; i++)
                     {
-                        Collider.IsTransformColliding(BombitaMan.transform, BombitaMan.ActiveBomb.explosions[i].Transform);
+                        Collider.IsTransformColliding(BombitaMan.Transform, BombitaMan.ActiveBomb.Explosions[i].Transform);
                         for (int j = 0; j < Maze.BrickWallsInMaze.Count; j++)
                         {
-                            Collider.IsTransformColliding(Maze.BrickWallsInMaze[j].transform, BombitaMan.ActiveBomb.explosions[i].Transform);
+                            Collider.IsTransformColliding(Maze.BrickWallsInMaze[j].Transform, BombitaMan.ActiveBomb.Explosions[i].Transform);
                         }
                         for (int j = 0; j < Enemies.Enemies.Count; j++)
                         {
-                            Collider.IsTransformColliding(Enemies.Enemies[j].transform, BombitaMan.ActiveBomb.explosions[i].Transform);
+                            Collider.IsTransformColliding(Enemies.Enemies[j].Transform, BombitaMan.ActiveBomb.Explosions[i].Transform);
                         }
                     }
 
                 }
 
 
-                Collider.IsTransformColliding(BombitaMan.transform, Exit.Transform);
+                Collider.IsTransformColliding(BombitaMan.Transform, Exit.Transform);
 
                 for (int i = 0; i < Enemies.Enemies.Count; i++)
                 {
-                    Collider.IsTransformColliding(BombitaMan.transform, Enemies.Enemies[i].transform);
+                    Collider.IsTransformColliding(BombitaMan.Transform, Enemies.Enemies[i].Transform);
                 }
 
 
@@ -166,7 +166,7 @@ namespace EngineGDI
 
 
             BombitaMan.OnLifeChanged += BombitaMan.Die;
-            BombitaMan.OnLifeChanged += audioManager.PlayPlayerDie;
+            BombitaMan.OnLifeChanged += AudioManager.PlayPlayerDie;
             Collider.OnPlayerExitColision += PlayerExitedLevel;
             Collider.OnPlayerColisionWithSomethingThatKillsIt += BombitaMan.Die;
             Collider.OnDestroyBrickWall += Maze.RemoveBrickWall;

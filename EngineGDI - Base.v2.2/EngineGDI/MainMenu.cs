@@ -11,10 +11,10 @@ namespace EngineGDI
         private static string btnStartSelect = "Assets/Text/BtnStart_Selected.png";
         private static string btnExit = "Assets/Text/BtnExit.png";
         private static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
-        private static float SCREEN_WIDTH;
+        private static float screenWidth;
         public MainMenu(float Width)
         {
-            SCREEN_WIDTH = Width;
+            screenWidth = Width;
         }
         public void Update()
         {
@@ -48,17 +48,17 @@ namespace EngineGDI
             {
                 GameManager.Instance.BackgroundMenu.Render();
 
-                Engine.Draw(title, SCREEN_WIDTH / 2 - 450, 200, 1f, 1f);
+                Engine.Draw(title, screenWidth / 2 - 450, 200, 1f, 1f);
 
                 if (MenuIndex == 0)
                 {
-                    Engine.Draw(btnStartSelect, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
-                    Engine.Draw(btnExit, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
+                    Engine.Draw(btnStartSelect, screenWidth / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExit, screenWidth / 2 - 80, 600, 1f, 1f);
                 }
                 else
                 {
-                    Engine.Draw(btnStart, SCREEN_WIDTH / 2 - 80, 500, 1f, 1f);
-                    Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
+                    Engine.Draw(btnStart, screenWidth / 2 - 80, 500, 1f, 1f);
+                    Engine.Draw(btnExitSelect, screenWidth / 2 - 80, 600, 1f, 1f);
                 }
             }
         }

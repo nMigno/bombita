@@ -15,21 +15,21 @@
         {
             texture = "Assets/Sprites/Icons/Exit.png";
             transform = new Transform();
-            Transform.Position.x = posX;
-            Transform.Position.y = posY;
-            Transform.Scale.x = 2.5f;
-            Transform.Scale.y = 2.5f;
+            Transform.Position.X = posX;
+            Transform.Position.Y = posY;
+            Transform.Scale.X = 2.5f;
+            Transform.Scale.Y = 2.5f;
             Transform.Angle = 0;
-            Transform.Offset.x = 0;
-            Transform.Offset.y = 0;
-            Transform.RealSize.x = pixelSize * Transform.Scale.x;
-            Transform.RealSize.y = pixelSize * Transform.Scale.y;
+            Transform.Offset.X = 0;
+            Transform.Offset.Y = 0;
+            Transform.RealSize.X = pixelSize * Transform.Scale.X;
+            Transform.RealSize.Y = pixelSize * Transform.Scale.Y;
             Transform.gameId = GameId.exit;
         }
 
         public void Render()
         {
-            Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            Engine.Draw(texture, transform.Position.X, transform.Position.Y, transform.Scale.X, transform.Scale.Y, transform.Angle, transform.Offset.X, transform.Offset.Y);
         }
     }
 }

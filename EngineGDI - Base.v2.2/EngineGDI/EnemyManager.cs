@@ -36,7 +36,7 @@ namespace EngineGDI
 
                 foreach (var pathing in route.Path)
                 {
-                    Routes.Add(new Vector2 { x = pathing.X, y = pathing.Y });
+                    Routes.Add(new Vector2 { X = pathing.X, Y = pathing.Y });
                 }
 
                 NewEnemy = new Enemy(EnemySpeed, Routes);
@@ -47,8 +47,8 @@ namespace EngineGDI
         {
             for (int i = 0; i < Enemies.Count; i++)
             {
-                if (Enemies[i].transform.Position.x == ayudaMeVanADestruir.Position.x &&
-                    Enemies[i].transform.Position.y == ayudaMeVanADestruir.Position.y)
+                if (Enemies[i].Transform.Position.X == ayudaMeVanADestruir.Position.X &&
+                    Enemies[i].Transform.Position.Y == ayudaMeVanADestruir.Position.Y)
                 {
                     Enemies.RemoveAt(i);
                 }

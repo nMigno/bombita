@@ -6,10 +6,9 @@ namespace EngineGDI
     public class Enemy
     {
         private float vel;
-        public Transform transform;
-        List<Vector2> waypoints;
+        public Transform Transform;
+        private List<Vector2> waypoints;
         private int currentWaypointIndex = 0;
-
         private float targetX;
         private float targetY;
         private float directionX;
@@ -22,33 +21,33 @@ namespace EngineGDI
         {
             vel = speed;
             waypoints = pathNodes;
-            transform = new Transform();
-            transform.Scale.x = 2.5f;
-            transform.Scale.y = 2.5f;
-            transform.Angle = 0;
-            transform.Offset.x = 0;
-            transform.Offset.y = 0;
-            transform.RealSize.x = 16f * transform.Scale.x;
-            transform.RealSize.y = 16f * transform.Scale.y;
-            transform.Position.x = waypoints[0].x * transform.RealSize.x;
-            transform.Position.y = waypoints[0].y * transform.RealSize.y;
+            Transform = new Transform();
+            Transform.Scale.X = 2.5f;
+            Transform.Scale.Y = 2.5f;
+            Transform.Angle = 0;
+            Transform.Offset.X = 0;
+            Transform.Offset.Y = 0;
+            Transform.RealSize.X = 16f * Transform.Scale.X;
+            Transform.RealSize.Y = 16f * Transform.Scale.Y;
+            Transform.Position.X = waypoints[0].X * Transform.RealSize.X;
+            Transform.Position.Y = waypoints[0].Y * Transform.RealSize.Y;
 
-            transform.gameId = GameId.enemy;
+            Transform.gameId = GameId.enemy;
         }
 
         public void Update(float deltaTime)
         {
-            targetX = waypoints[currentWaypointIndex].x * transform.RealSize.x;
-            targetY = waypoints[currentWaypointIndex].y * transform.RealSize.y;
-            directionX = targetX - transform.Position.x;
-            directionY = targetY - transform.Position.y;
+            targetX = waypoints[currentWaypointIndex].X * Transform.RealSize.X;
+            targetY = waypoints[currentWaypointIndex].Y * Transform.RealSize.Y;
+            directionX = targetX - Transform.Position.X;
+            directionY = targetY - Transform.Position.Y;
             distance = (float)Math.Sqrt((directionX * directionX) +
                 (directionY * directionY));
 
             if (distance < 2.0f)
             {
-                transform.Position.x = targetX;
-                transform.Position.y = targetY;
+                Transform.Position.X = targetX;
+                Transform.Position.Y = targetY;
 
                 currentWaypointIndex++;
                 if (currentWaypointIndex >= waypoints.Count)
@@ -60,13 +59,13 @@ namespace EngineGDI
             {
                 normalizedDirX = directionX / distance;
                 normalizedDirY = directionY / distance;
-                transform.Position.x += normalizedDirX * vel * deltaTime;
-                transform.Position.y += normalizedDirY * vel * deltaTime;
+                Transform.Position.X += normalizedDirX * vel * deltaTime;
+                Transform.Position.Y += normalizedDirY * vel * deltaTime;
             }
         }
         public void Render()
         {
-            Engine.Draw("Textures/Enemy.png", transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            Engine.Draw("Textures/Enemy.png", Transform.Position.X, Transform.Position.Y, Transform.Scale.X, Transform.Scale.Y, Transform.Angle, Transform.Offset.X, Transform.Offset.Y);
         }
     }
 }

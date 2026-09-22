@@ -2,28 +2,26 @@
 {
     public class Background
     {
-        public Transform transform;
-        private string id;
+        public Transform Transform;
         private string texture;
 
         public Background(float initialx, float initialy, string path)
         {
-            id = "Background";
             texture = path;
-            transform = new Transform();
-            transform.Position.x = initialx;
-            transform.Position.y = initialy;
-            transform.Scale.x = 3.24f;
-            transform.Scale.y = 4.35f;
-            transform.Angle = 0;
-            transform.Offset.x = 0;
-            transform.Offset.y = 0;
-            transform.RealSize.x = 16;
-            transform.RealSize.y = 16;
+            Transform = new Transform();
+            Transform.Position.X = initialx;
+            Transform.Position.Y = initialy;
+            Transform.Scale.X = 3.24f;
+            Transform.Scale.Y = 4.35f;
+            Transform.Angle = 0;
+            Transform.Offset.X = 0;
+            Transform.Offset.Y = 0;
+            Transform.RealSize.X = 16;
+            Transform.RealSize.Y = 16;
         }
         public void Render()
         {
-            Engine.Draw(texture, transform.Position.x, transform.Position.y, transform.Scale.x, transform.Scale.y, transform.Angle, transform.Offset.x, transform.Offset.y);
+            Engine.Draw(texture, Transform.Position.X, Transform.Position.Y, Transform.Scale.X, Transform.Scale.Y, Transform.Angle, Transform.Offset.X, Transform.Offset.Y);
         }
     }
 }
