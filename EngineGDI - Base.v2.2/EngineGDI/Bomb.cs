@@ -14,6 +14,9 @@ namespace EngineGDI
             free
         };
 
+        public BombState CurrentState { get; set; }
+        public bool IsDestroyed { get; private set;  }
+
         private Transform transform;
         private float timer;
         private float explosionTimer;
@@ -22,7 +25,7 @@ namespace EngineGDI
         private string texture;
         private int radius;
         private int pixelSize = 16;
-
+        private ExplosionManager explosionManager;
 
         //la bomba va a tener explosiones, y si me das tiempo, una mecha tambien 
         public List<Explosion> explosions = new List<Explosion>();
@@ -50,6 +53,9 @@ namespace EngineGDI
             isActive = true;
             isExplosionActive = false;
             radius = 2;
+
+            CurrentState = BombState.colliding;
+            IsDestroyed = false;
         }
 
         public void Update(float deltaTime)
@@ -65,7 +71,8 @@ namespace EngineGDI
                 explosionTimer -= deltaTime;
                 if (explosionTimer <= 0)
                 {
-                    explosions.Clear();             
+                    explosions.Clear();
+                    IsDestroyed = true;
                 }
                     
             }
@@ -81,27 +88,28 @@ namespace EngineGDI
         }
         public void GenerateExplosion(Transform BoxOrigin)
         {
-            explosions.Add(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y));
+            explosionManager = GameManager.Instance.explosions;
+            explosionManager.AddExplosion(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y));
 
             //for para spawnear explosiones arriba
             for (int i = 1; i < radius; i++)
             {
-                explosions.Add(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y - i * pixelSize * 2.5f));
+                explosionManager.AddExplosion(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y - i * pixelSize * 2.5f));
             }
             //for para spawnear explosiones abajo
             for (int i = 1; i < radius; i++)
             {
-                explosions.Add(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y + i * pixelSize * 2.5f));
+                explosionManager.AddExplosion(new Explosion(BoxOrigin.Position.x, BoxOrigin.Position.y + i * pixelSize * 2.5f));
             }
             //for para spawnear explosiones derecha
             for (int i = 1; i < radius; i++)
             {
-                explosions.Add(new Explosion(BoxOrigin.Position.x + i * pixelSize * 2.5f, BoxOrigin.Position.y));
+                explosionManager.AddExplosion(new Explosion(BoxOrigin.Position.x + i * pixelSize * 2.5f, BoxOrigin.Position.y));
             }
             //for para spawnear explosiones izquierda
             for (int i = 1; i < radius; i++)
             {
-                explosions.Add(new Explosion(BoxOrigin.Position.x - i * pixelSize * 2.5f, BoxOrigin.Position.y));
+                explosionManager.AddExplosion(new Explosion(BoxOrigin.Position.x - i * pixelSize * 2.5f, BoxOrigin.Position.y));
             }
         }
 
@@ -120,6 +128,9 @@ namespace EngineGDI
         public Transform transform;
         private string texture;
         Transform Transform => transform;
+
+        public bool TimeOut { get; private set; }
+        private float timer = 1.0f;
         public Explosion(float initialX, float initialY)
         {
             transform = new Transform();
@@ -134,6 +145,14 @@ namespace EngineGDI
             Transform.RealSize.x = 16 * Transform.Scale.x;
             Transform.RealSize.y = 16 * Transform.Scale.y;
             transform.gameId = GameId.explosion;
+
+            TimeOut = false;
+        }
+
+        public void Update(float deltaTime)
+        {
+            timer -= deltaTime;
+            if (timer <= 0) TimeOut = true;
         }
         public void Render()
         {

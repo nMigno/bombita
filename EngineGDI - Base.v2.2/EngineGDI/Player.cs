@@ -210,6 +210,10 @@ namespace EngineGDI
             }
 
             ActiveBomb?.Update(deltaTime);
+            if (ActiveBomb != null && ActiveBomb.IsDestroyed)
+            {
+                ActiveBomb = null;
+            }
         }
         public void Render() 
         {
