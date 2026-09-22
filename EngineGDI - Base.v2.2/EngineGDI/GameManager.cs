@@ -33,13 +33,13 @@ namespace EngineGDI
 
         private static bool isColliding = false;
 
-        private int SCREEN_WIDTH;
+        private int screenWidth;
         private GameManager(int Width)
         {
-            SCREEN_WIDTH = Width;
+            screenWidth = Width;
             AudioManager = new AudioManager();
-            MainMenuScreen = new MainMenu(SCREEN_WIDTH);
-            GameOverScreen = new GameOver(SCREEN_WIDTH);
+            MainMenuScreen = new MainMenu(screenWidth);
+            GameOverScreen = new GameOver(screenWidth);
 
             RestartGame();
         }

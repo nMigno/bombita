@@ -16,7 +16,7 @@ namespace EngineGDI
         {
             LoadLevel(path);
         }
-        void LoadLevel(string filePath)
+        private void LoadLevel(string filePath)
         {
             LevelLoaderFromJson loader = new LevelLoaderFromJson();
             Level levelData = loader.ReadPathFromJson(filePath);
@@ -33,7 +33,7 @@ namespace EngineGDI
                 BrickWallsInMaze.Add(NewBrickWall);
             }
         }
-        //psoible forma de romber murosdeladrillso cuando la cosita que hace click clack click haga BOOOM
+        //posible forma de romper muros de ladrillos cuando la cosita que hace click clack click haga BOOOM
         public void RemoveBrickWall(Transform ayudaMeVanADestruir)
         {
             for (int i = 0; i < BrickWallsInMaze.Count; i++)

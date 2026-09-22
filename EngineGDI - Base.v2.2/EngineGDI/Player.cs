@@ -5,7 +5,7 @@ namespace EngineGDI
 {    
     public class Player
     {                
-        enum SpriteState
+        private enum SpriteState
         {
             idle,
             left,
