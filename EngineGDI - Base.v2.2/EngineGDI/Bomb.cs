@@ -47,8 +47,8 @@ namespace EngineGDI
             Transform.RealSize.y = pixelSize * Transform.Scale.y;
             IsDestroyed = false;
 
-            timer = 3.0f;
-            explosionTimer = 1.0f;
+            timer = 2.0f;
+            explosionTimer = 0.5f;
             isActive = true;
             isExplosionActive = false;
             radius = 2;
