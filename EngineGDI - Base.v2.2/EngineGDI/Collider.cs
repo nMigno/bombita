@@ -47,7 +47,6 @@ namespace EngineGDI
                 if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
                 {
                     if (boxB != null) OnDestroyEnemy(boxA);
-                    boxB.Position.x += 100;
 
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)
