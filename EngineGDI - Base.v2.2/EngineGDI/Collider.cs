@@ -35,7 +35,7 @@ namespace EngineGDI
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.brickWall)
                 {
-                    PlayerPushOutColision(boxA, boxB);
+                   PlayerPushOutColision(boxA, boxB);
                 }
                 if (boxA.gameId == GameId.brickWall && boxB.gameId == GameId.explosion)
                 {
@@ -47,7 +47,6 @@ namespace EngineGDI
                 if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
                 {
                     if (boxB != null) OnDestroyEnemy(boxA);
-
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)
                 {

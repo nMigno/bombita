@@ -13,7 +13,7 @@ namespace EngineGDI
         public Background Background;
         public Background BackgroundMenu;
         public Maze Maze;
-        public LevelExit Exit;
+        public static LevelExit Exit;
         public EnemyManager Enemies;
         public GameOver GameOverScreen;
         public UIManager UiManager;
@@ -149,7 +149,7 @@ namespace EngineGDI
             {
                 MainMenuScreen.Render();
             }
-        }        
+        }
         public void RestartGame()
         {
             LevelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "level0.json");
@@ -172,6 +172,7 @@ namespace EngineGDI
             Collider.OnDestroyBrickWall += Maze.RemoveBrickWall;
             Collider.OnDestroyEnemy += Enemies.RemoveEnemy;
             GameOverScreen.OnRestartGame += RestartGame;
+            Enemies.OnEnemiesCleared += Exit.OpenExit;
 
             if (CurrentState == GameState.victory ||
                 CurrentState == GameState.defeat)
@@ -185,7 +186,7 @@ namespace EngineGDI
         }
         public static void PlayerExitedLevel()
         {
-           //if (exit.Opened)
+            if (Exit.Opened)
             {
                 CurrentState = GameState.victory;
             }

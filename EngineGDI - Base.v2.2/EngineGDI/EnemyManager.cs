@@ -13,6 +13,7 @@ namespace EngineGDI
         public List<Vector2> Routes;
         public Enemy NewEnemy;
         public List<Enemy> Enemies = new List<Enemy>();
+        public Action OnEnemiesCleared;
         public EnemyManager()
         {
             EnemyPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
@@ -24,7 +25,6 @@ namespace EngineGDI
 
             Pathing = PositionData.ReadPathFromJson(EnemyPath);
             LoadEnemies();
-
         }
         public void LoadEnemies()
         {
@@ -51,6 +51,7 @@ namespace EngineGDI
                     Enemies[i].Transform.Position.Y == ayudaMeVanADestruir.Position.Y)
                 {
                     Enemies.RemoveAt(i);
+                    CheckEnemyCount();
                 }
             }
         }
@@ -65,10 +66,14 @@ namespace EngineGDI
         {
             for (int i = 0; i < Enemies.Count; i++)
             {
-                Enemies[i].Update(deltaTime);
+                Enemies[i].Update(deltaTime);                
             }
         }
 
+        private void CheckEnemyCount()
+        {
+            if (Enemies.Count <= 0) OnEnemiesCleared();
+        }
     }
 }
 
