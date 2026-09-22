@@ -45,7 +45,7 @@ namespace EngineGDI
             directionX = targetX - transform.Position.x;
             directionY = targetY - transform.Position.y;
             distance = (float)Math.Sqrt((directionX * directionX) +
-                (directionY *  directionY));
+                (directionY * directionY));
 
             if (distance < 2.0f)
             {

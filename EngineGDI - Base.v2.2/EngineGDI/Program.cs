@@ -32,7 +32,7 @@ namespace EngineGDI
                 Input();
                 Update();
                 Render();
-
+                
                 #region Engine Window Control
                 Engine.Clear(Color.Black);
                 // mensajes de debug
