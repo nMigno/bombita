@@ -3,11 +3,9 @@
     public class Wall
     {
         public Transform transform;
-        string id;
-        string texture;
+        private string texture;
         public Wall(float initialX, float initialY, string path)
         {
-            id = "Wall";
             texture = path;
             transform = new Transform();
             //escala y angulo
@@ -33,11 +31,9 @@
     public class BrickWall
     {
         public Transform transform;
-        string id;
-        string texture;
+        private string texture;
         public BrickWall(float initialX, float initialY, string path)
         {
-            id = "BrickWall";
             texture = path;
             transform = new Transform();
             //escala y angulo

@@ -1,20 +1,19 @@
 ﻿using System;
-using static EngineGDI.GameManager;
 
 namespace EngineGDI
 {
     public class GameOver
     {
         public int MenuIndex = 0;
-        static string btnPlayAgain = "Assets/Text/BtnPlayAgain.png";
-        static string btnPlayAgainSelect = "Assets/Text/BtnPlayAgain_Selected.png";
-        static string btnTryAgain = "Assets/Text/BtnTryAgain.png";
-        static string btnTryAgainSelect = "Assets/Text/BtnTryAgain_Selected.png";
-        static string btnExit = "Assets/Text/BtnExit.png";
-        static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
-        static string winText = "Assets/Text/WinText.png";
-        static string deadText = "Assets/Text/DeadText.png";
-        static float SCREEN_WIDTH;
+        private static string btnPlayAgain = "Assets/Text/BtnPlayAgain.png";
+        private static string btnPlayAgainSelect = "Assets/Text/BtnPlayAgain_Selected.png";
+        private static string btnTryAgain = "Assets/Text/BtnTryAgain.png";
+        private static string btnTryAgainSelect = "Assets/Text/BtnTryAgain_Selected.png";
+        private static string btnExit = "Assets/Text/BtnExit.png";
+        private static string btnExitSelect = "Assets/Text/BtnExit_Selected.png";
+        private static string winText = "Assets/Text/WinText.png";
+        private static string deadText = "Assets/Text/DeadText.png";
+        private static float SCREEN_WIDTH;
 
         public Action OnRestartGame;
 
@@ -24,7 +23,7 @@ namespace EngineGDI
         }
         public void Update()
         {
-            if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
+            if (GameManager.CurrentState == GameManager.GameState.victory || GameManager.CurrentState == GameManager.GameState.defeat)
             {
                 if (Engine.IsKeyPressed(System.Windows.Forms.Keys.W))
                 {
@@ -52,9 +51,9 @@ namespace EngineGDI
         
         public void Render()
         {
-            if (CurrentState == GameState.victory)
+            if (GameManager.CurrentState == GameManager.GameState.victory)
             {
-                GameManager.Instance.backgroundMenu.Render();
+                GameManager.Instance.BackgroundMenu.Render();
                 Engine.Draw(winText, SCREEN_WIDTH / 2 - 180, 200, 1f, 1f);
 
                 if (MenuIndex == 0)
@@ -68,9 +67,9 @@ namespace EngineGDI
                     Engine.Draw(btnExitSelect, SCREEN_WIDTH / 2 - 80, 600, 1f, 1f);
                 }
             }
-            else if (CurrentState == GameState.defeat)
+            else if (GameManager.CurrentState == GameManager.GameState.defeat)
             {
-                GameManager.Instance.backgroundMenu.Render();
+                GameManager.Instance.BackgroundMenu.Render();
                 Engine.Draw(deadText, SCREEN_WIDTH / 2 - 120, 200, 1f, 1f);
                 
                 if (MenuIndex == 0)

@@ -8,16 +8,16 @@ namespace EngineGDI
         private static GameManager instance;
         public static GameManager Instance => instance;
         public AudioManager audioManager;
-        public Player pacman;
-        public Collider collider;
-        public Background background;
-        public Background backgroundMenu;
-        public Maze maze;
-        public LevelExit exit;
-        public EnemyManager enemies;
-        public GameOver gameOverScreen;
-        public UIManager uiManager;
-        public MainMenu mainMenuScreen;
+        public Player BombitaMan;
+        public Collider Collider;
+        public Background Background;
+        public Background BackgroundMenu;
+        public Maze Maze;
+        public LevelExit Exit;
+        public EnemyManager Enemies;
+        public GameOver GameOverScreen;
+        public UIManager UiManager;
+        public MainMenu MainMenuScreen;
 
         public enum GameState
         {
@@ -29,96 +29,90 @@ namespace EngineGDI
 
         public static GameState CurrentState = GameState.start;
 
-        public static float xf = 100;
-        public static float yf = 100;
-        public static int ActualCorner = 0;
+        public static string LevelPath;
 
-        public static string levelPath;
+        private static bool isColliding = false;
 
-        static bool isColliding = false;
-
-        int SCREEN_HEIGHT;
-        int SCREEN_WIDTH;
-        private GameManager(int Width, int Height)
+        private int SCREEN_WIDTH;
+        private GameManager(int Width)
         {
-            SCREEN_HEIGHT = Height;
             SCREEN_WIDTH = Width;
             audioManager = new AudioManager();
-            mainMenuScreen = new MainMenu(SCREEN_WIDTH);
-            gameOverScreen = new GameOver(SCREEN_WIDTH);
+            MainMenuScreen = new MainMenu(SCREEN_WIDTH);
+            GameOverScreen = new GameOver(SCREEN_WIDTH);
 
             RestartGame();
         }
         public static void Initialize(int width, int height)
         {
-            instance = new GameManager(width, height);
+            instance = new GameManager(width);
         }
         public void Input()
         {
-            if (CurrentState == GameState.playing) pacman.Inputs();
+            if (CurrentState == GameState.playing) BombitaMan.Inputs();
         }
         public void Update(float deltaTime)
         {
             if (CurrentState == GameState.playing)
             {
-                pacman.Update(deltaTime);
-                enemies.Update(deltaTime);
+                BombitaMan.Update(deltaTime);
+                Enemies.Update(deltaTime);
 
-                for (int i = 0; i < maze.WallsInMaze.Count; i++)
+                for (int i = 0; i < Maze.WallsInMaze.Count; i++)
                 {
-                    collider.IsTransformColliding(pacman.transform, maze.WallsInMaze[i].transform);
+                    Collider.IsTransformColliding(BombitaMan.transform, Maze.WallsInMaze[i].transform);
                 }
-                for (int i = 0; i < maze.BrickWallsInMaze.Count; i++)
+                for (int i = 0; i < Maze.BrickWallsInMaze.Count; i++)
                 {
-                    collider.IsTransformColliding(pacman.transform, maze.BrickWallsInMaze[i].transform);
+                    Collider.IsTransformColliding(BombitaMan.transform, Maze.BrickWallsInMaze[i].transform);
                 }
-                if (pacman.ActiveBomb != null)
+                if (BombitaMan.ActiveBomb != null)
                 {
-                    if (pacman.ActiveBomb.CurrentState == Bomb.BombState.colliding)
+                    if (BombitaMan.ActiveBomb.CurrentState == Bomb.BombState.colliding)
                     {
-                        isColliding = collider.IsBoxColliding(pacman.transform.Position, pacman.transform.RealSize,
-                            pacman.ActiveBomb.Transform.Position, pacman.ActiveBomb.Transform.RealSize);
+                        isColliding = Collider.IsBoxColliding(BombitaMan.transform.Position, BombitaMan.transform.RealSize,
+                            BombitaMan.ActiveBomb.Transform.Position, BombitaMan.ActiveBomb.Transform.RealSize);
                         if (!isColliding)
                         {
-                            pacman.ActiveBomb.CurrentState = Bomb.BombState.free;
+                            BombitaMan.ActiveBomb.CurrentState = Bomb.BombState.free;
                         }
                     }
-                    else if (pacman.ActiveBomb.CurrentState == Bomb.BombState.free)
+                    else if (BombitaMan.ActiveBomb.CurrentState == Bomb.BombState.free)
                     {
-                        collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.Transform);
+                        Collider.IsTransformColliding(BombitaMan.transform, BombitaMan.ActiveBomb.Transform);
                     }
 
-                    for (int i = 0; i < pacman.ActiveBomb.explosions.Count; i++)
+                    for (int i = 0; i < BombitaMan.ActiveBomb.explosions.Count; i++)
                     {
-                        collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.explosions[i].Transform);
-                        for (int j = 0; j < maze.BrickWallsInMaze.Count; j++)
+                        Collider.IsTransformColliding(BombitaMan.transform, BombitaMan.ActiveBomb.explosions[i].Transform);
+                        for (int j = 0; j < Maze.BrickWallsInMaze.Count; j++)
                         {
-                            collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, pacman.ActiveBomb.explosions[i].Transform);
+                            Collider.IsTransformColliding(Maze.BrickWallsInMaze[j].transform, BombitaMan.ActiveBomb.explosions[i].Transform);
                         }
-                        for (int j = 0; j < enemies.Enemies.Count; j++)
+                        for (int j = 0; j < Enemies.Enemies.Count; j++)
                         {
-                            collider.IsTransformColliding(enemies.Enemies[j].transform, pacman.ActiveBomb.explosions[i].Transform);
+                            Collider.IsTransformColliding(Enemies.Enemies[j].transform, BombitaMan.ActiveBomb.explosions[i].Transform);
                         }
                     }
 
                 }
 
 
-                collider.IsTransformColliding(pacman.transform, exit.Transform);
+                Collider.IsTransformColliding(BombitaMan.transform, Exit.Transform);
 
-                for (int i = 0; i < enemies.Enemies.Count; i++)
+                for (int i = 0; i < Enemies.Enemies.Count; i++)
                 {
-                    collider.IsTransformColliding(pacman.transform, enemies.Enemies[i].transform);
+                    Collider.IsTransformColliding(BombitaMan.transform, Enemies.Enemies[i].transform);
                 }
 
 
-                if (pacman.Dead)
+                if (BombitaMan.Dead)
                 {
-                    pacman.Lives--;
+                    BombitaMan.Lives--;
 
-                    if (pacman.Lives >= 0)
+                    if (BombitaMan.Lives >= 0)
                     {
-                        pacman.Respawn();
+                        BombitaMan.Respawn();
                     }
                     else
                     {
@@ -128,11 +122,11 @@ namespace EngineGDI
             }
             else if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
             {
-                gameOverScreen.Update();
+                GameOverScreen.Update();
             }
             else if (CurrentState == GameState.start)
             {
-                mainMenuScreen.Update();
+                MainMenuScreen.Update();
             }
 
         }
@@ -140,44 +134,44 @@ namespace EngineGDI
         {
             if (CurrentState == GameState.playing)
             {
-                background.Render();
-                exit.Render();
-                pacman.Render();
-                maze.Render();
-                uiManager.Render();
-                enemies.Render();
+                Background.Render();
+                Exit.Render();
+                BombitaMan.Render();
+                Maze.Render();
+                UiManager.Render();
+                Enemies.Render();
             }
             else if (CurrentState == GameState.victory || CurrentState == GameState.defeat)
             {
-                gameOverScreen.Render();
+                GameOverScreen.Render();
             }
             else if (CurrentState == GameState.start)
             {
-                mainMenuScreen.Render();
+                MainMenuScreen.Render();
             }
         }        
         public void RestartGame()
         {
-            levelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "level0.json");
+            LevelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "level0.json");
 
 
-            exit = new LevelExit(40.0f, 720.0f);
-            pacman = new Player(41.0f, 40.0f);
-            enemies = new EnemyManager();
-            collider = new Collider();
-            background = new Background(0, 0, "Textures/bg-lv0.png");
-            backgroundMenu = new Background(0, 0, "Textures/bg-black.png");
-            maze = new Maze("DataFiles/level0.json");
-            uiManager = new UIManager();
+            Exit = new LevelExit(40.0f, 720.0f);
+            BombitaMan = new Player(41.0f, 40.0f);
+            Enemies = new EnemyManager();
+            Collider = new Collider();
+            Background = new Background(0, 0, "Textures/bg-lv0.png");
+            BackgroundMenu = new Background(0, 0, "Textures/bg-black.png");
+            Maze = new Maze("DataFiles/level0.json");
+            UiManager = new UIManager();
 
 
-            pacman.OnLifeChanged += pacman.Die;
-            pacman.OnLifeChanged += audioManager.PlayPlayerDie;
-            collider.OnPlayerExitColision += PlayerExitedLevel;
-            collider.OnPlayerColisionWithSomethingThatKillsIt += pacman.Die;
-            collider.OnDestroyBrickWall += maze.RemoveBrickWall;
-            collider.OnDestroyEnemy += enemies.RemoveEnemy;
-            gameOverScreen.OnRestartGame += RestartGame;
+            BombitaMan.OnLifeChanged += BombitaMan.Die;
+            BombitaMan.OnLifeChanged += audioManager.PlayPlayerDie;
+            Collider.OnPlayerExitColision += PlayerExitedLevel;
+            Collider.OnPlayerColisionWithSomethingThatKillsIt += BombitaMan.Die;
+            Collider.OnDestroyBrickWall += Maze.RemoveBrickWall;
+            Collider.OnDestroyEnemy += Enemies.RemoveEnemy;
+            GameOverScreen.OnRestartGame += RestartGame;
 
             if (CurrentState == GameState.victory ||
                 CurrentState == GameState.defeat)

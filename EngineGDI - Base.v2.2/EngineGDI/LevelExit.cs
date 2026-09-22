@@ -2,18 +2,17 @@
 {
     public class LevelExit
     {
-        string id;
-        string texture;
-        Transform transform;
-        bool opened = true;
-        int pixelSize = 16;
-        public bool Opened => opened;
+        private string texture;
+        private Transform transform;
+        private bool opened = true;
+        private int pixelSize = 16;
+        public bool Opened => opened; // Si bien no se usa ahora, lo dejamos seteado para cuando hagamos la lógica 
+                                      // de matar a todos los enemigos para abrir la puerta de salida
         public Transform Transform => transform;
 
 
         public LevelExit(float posX, float posY)
         {
-            id = "Exit"; 
             texture = "Assets/Sprites/Icons/Exit.png";
             transform = new Transform();
             Transform.Position.x = posX;

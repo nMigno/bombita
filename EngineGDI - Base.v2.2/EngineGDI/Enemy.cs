@@ -5,23 +5,21 @@ namespace EngineGDI
 {
     public class Enemy
     {
-        string id;
-        float vel;
+        private float vel;
         public Transform transform;
         List<Vector2> waypoints;
-        int currentWaypointIndex = 0;
+        private int currentWaypointIndex = 0;
 
-        float targetX;
-        float targetY;
-        float directionX;
-        float directionY;
-        float distance;
-        float normalizedDirX;
-        float normalizedDirY;
+        private float targetX;
+        private float targetY;
+        private float directionX;
+        private float directionY;
+        private float distance;
+        private float normalizedDirX;
+        private float normalizedDirY;
 
         public Enemy(float speed, List<Vector2> pathNodes)
         {
-            id = "Enemy";
             vel = speed;
             waypoints = pathNodes;
             transform = new Transform();

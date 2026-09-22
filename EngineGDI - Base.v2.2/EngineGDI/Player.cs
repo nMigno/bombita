@@ -15,10 +15,9 @@ namespace EngineGDI
             die,
             placeBomb,
         }
-        string id;
-        float vel;
-        float startX;
-        float startY;
+        private float vel;
+        private float startX;
+        private float startY;
 
         public Bomb ActiveBomb { get; private set; }
         public Transform transform;
@@ -31,9 +30,8 @@ namespace EngineGDI
         //lo mato
         public int Lives = 2;
 
-        Animation sprites;
-        Animation deathSprites;
-        float deathTimer = 0f;
+        private Animation sprites;
+        private Animation deathSprites;
         public bool Dead = false;
 
         //pendiente manejo de carga via json
@@ -66,11 +64,10 @@ namespace EngineGDI
                 "Assets/Sprites/Players/Bombita1/bd5.png" ,
             };
 
-        SpriteState CurrentState = SpriteState.idle;
+        private SpriteState CurrentState = SpriteState.idle;
 
         public Player(float initialx, float initialy, float speed = 200)
         {
-            id = "Player";
             vel = speed;
             startX = initialx;
             startY = initialy;
@@ -88,12 +85,12 @@ namespace EngineGDI
 
             LoadSprites();
         }
-        void LoadSprites()
+        private void LoadSprites()
         {
             sprites = new Animation("wip", upFrames, 0.1f, true, 16, 16);
             deathSprites =new Animation("die", dieFrames, 0.1f, false, 16, 16);
         }
-        void ChangeSpeed(float value)
+        private void ChangeSpeed(float value)
         {
             if (vel <= 500.0f && vel >= 100.0f)
             {

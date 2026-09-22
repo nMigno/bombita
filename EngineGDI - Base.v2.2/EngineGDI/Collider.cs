@@ -41,7 +41,7 @@ namespace EngineGDI
                 {
                     //llamar aca al delegado y mandarle la boxA que son las coordenadas
                     //el delegado es void y recibe un objeto de clase Transform
-                    if(boxA != null) OnDestroyBrickWall(boxA);
+                    if (boxA != null) OnDestroyBrickWall(boxA);
 
                 }
                 if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
@@ -51,17 +51,17 @@ namespace EngineGDI
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.exit)
                 {
-                        // Calculamos el centro de ambos sprites para asegurarnos de que el
-                        // player pise lo suficiente la salida para triggerear la victoria
-                        float pacmanCenterX = boxA.Position.x + (boxA.RealSize.x / 2);
-                        float pacmanCenterY = boxA.Position.y + (boxA.RealSize.y / 2);
-                        float exitCenterX = boxB.Position.x + (boxB.RealSize.x / 2);
-                        float exitCenterY = boxB.Position.y + (boxB.RealSize.y / 2);
-                        float distanceX = pacmanCenterX - exitCenterX;
-                        float distanceY = pacmanCenterY - exitCenterY;
-                        float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
+                    // Calculamos el centro de ambos sprites para asegurarnos de que el
+                    // player pise lo suficiente la salida para triggerear la victoria
+                    float pacmanCenterX = boxA.Position.x + (boxA.RealSize.x / 2);
+                    float pacmanCenterY = boxA.Position.y + (boxA.RealSize.y / 2);
+                    float exitCenterX = boxB.Position.x + (boxB.RealSize.x / 2);
+                    float exitCenterY = boxB.Position.y + (boxB.RealSize.y / 2);
+                    float distanceX = pacmanCenterX - exitCenterX;
+                    float distanceY = pacmanCenterY - exitCenterY;
+                    float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
 
-                        if (distance < 8.0f) OnPlayerExitColision(); 
+                    if (distance < 8.0f) OnPlayerExitColision();
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.enemy)
                 {

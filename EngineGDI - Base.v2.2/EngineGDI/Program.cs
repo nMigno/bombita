@@ -12,10 +12,10 @@ namespace EngineGDI
         public static int SCREEN_WIDTH = 1560;
         public static int SCREEN_HEIGHT = 880;
         public static float deltaTime;
-        static DateTime lastFrameTime = DateTime.Now;
+        private static DateTime lastFrameTime = DateTime.Now;
 
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Engine.Initialize("IERVA ENGINE", SCREEN_WIDTH, SCREEN_HEIGHT, false);
             
@@ -46,22 +46,22 @@ namespace EngineGDI
                 #endregion
             }
         }
-        static void calcDeltatime()
+        private static void calcDeltatime()
         {
             TimeSpan deltaSpan = DateTime.Now - lastFrameTime;
             deltaTime = (float)deltaSpan.TotalSeconds;
             lastFrameTime = DateTime.Now;
         }
-        static void Input()
+        private static void Input()
         {
             GameManager.Instance.Input();
         }
-        static void Update()
+        private static void Update()
         {
             GameManager.Instance.Update(deltaTime);
         }
 
-        static void Render()
+        private static void Render()
         {
             GameManager.Instance.Render();
         }

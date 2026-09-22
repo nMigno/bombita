@@ -3,8 +3,8 @@
     public class Background
     {
         public Transform transform;
-        string id;
-        string texture;
+        private string id;
+        private string texture;
 
         public Background(float initialx, float initialy, string path)
         {
