@@ -15,7 +15,6 @@ namespace EngineGDI
         public Maze maze;
         public LevelExit exit;
         public EnemyManager enemies;
-        public ExplosionManager explosions;
         public GameOver gameOverScreen;
         public UIManager uiManager;
         public MainMenu mainMenuScreen;
@@ -64,7 +63,6 @@ namespace EngineGDI
             {
                 pacman.Update(deltaTime);
                 enemies.Update(deltaTime);
-                explosions.Update(deltaTime);
 
                 for (int i = 0; i < maze.WallsInMaze.Count; i++)
                 {
@@ -90,16 +88,16 @@ namespace EngineGDI
                         collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.Transform);
                     }
 
-                    for (int i = 0; i < explosions.ActiveExplosions.Count; i++)
+                    for (int i = 0; i < pacman.ActiveBomb.explosions.Count; i++)
                     {
-                        collider.IsTransformColliding(pacman.transform, explosions.ActiveExplosions[i].Transform);
+                        collider.IsTransformColliding(pacman.transform, pacman.ActiveBomb.explosions[i].Transform);
                         for (int j = 0; j < maze.BrickWallsInMaze.Count; j++)
                         {
-                            collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, explosions.ActiveExplosions[i].Transform);
+                            collider.IsTransformColliding(maze.BrickWallsInMaze[j].transform, pacman.ActiveBomb.explosions[i].Transform);
                         }
                         for (int j = 0; j < enemies.Enemies.Count; j++)
                         {
-                            collider.IsTransformColliding(enemies.Enemies[j].transform, explosions.ActiveExplosions[i].Transform);
+                            collider.IsTransformColliding(enemies.Enemies[j].transform, pacman.ActiveBomb.explosions[i].Transform);
                         }
                     }
 
@@ -146,7 +144,6 @@ namespace EngineGDI
                 exit.Render();
                 pacman.Render();
                 maze.Render();
-                explosions.Render();
                 uiManager.Render();
                 enemies.Render();
             }
@@ -167,7 +164,6 @@ namespace EngineGDI
             exit = new LevelExit(40.0f, 720.0f);
             pacman = new Player(41.0f, 40.0f);
             enemies = new EnemyManager();
-            explosions = new ExplosionManager();
             collider = new Collider();
             background = new Background(0, 0, "Textures/bg-lv0.png");
             backgroundMenu = new Background(0, 0, "Textures/bg-black.png");
@@ -192,7 +188,6 @@ namespace EngineGDI
             {
                 CurrentState = GameState.start;
             }
-            explosions.Clear();
         }
         public static void PlayerExitedLevel()
         {
