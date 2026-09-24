@@ -41,11 +41,12 @@ namespace EngineGDI
             Transform.Offset.X = 0;
             Transform.Offset.Y = 0;
 
-            Transform.RealSize.X = pixelSize * Transform.Scale.X;
-            Transform.RealSize.Y = pixelSize * Transform.Scale.Y;
+            Transform.RealSize.X = Transform.Scale.X * pixelSize;
+            Transform.RealSize.Y = Transform.Scale.Y * pixelSize;
 
-            Transform.Position.X = Transform.RealSize.X * NormalizeCoord(initialX);
-            Transform.Position.Y = Transform.RealSize.Y * NormalizeCoord(initialY);
+            Transform.Position.X = Transform.RealSize.X * ConvertToRealCoord(initialX);
+            Transform.Position.Y = Transform.RealSize.Y * ConvertToRealCoord(initialY);
+
             IsDestroyed = false;
 
             timer = 2.0f;
@@ -63,11 +64,12 @@ namespace EngineGDI
             if (value <= 1) return 1;
             else return value;
         }
-        private float NormalizeCoord(float value)
+        private int ConvertToRealCoord(float value)
         {
-            double normalizer = Math.Round(value / pixelSize);
-            float normalizeValue = (int)normalizer;
-            return (float)normalizeValue;
+            //para normaliazr el valor de position del player lo dividimos por todo lo que tiene y lo redondeamos
+            //ciertamente habria falta mas logica para atajar casos tipo pero no hace falta
+            double normalizer = Math.Round(value / pixelSize / 2.5f);
+            return (int)normalizer;
         }
         public void Explode()
         {
