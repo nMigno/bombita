@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows.Forms;
 
 namespace EngineGDI
 {
@@ -34,7 +35,7 @@ namespace EngineGDI
                     MenuIndex = 1;
                 }
 
-                if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Enter))
+                if (Engine.IsKeyPressed(System.Windows.Forms.Keys.Enter) || Engine.IsKeyPressed(Keys.Space))
                 {
                     if (MenuIndex == 0)
                     {

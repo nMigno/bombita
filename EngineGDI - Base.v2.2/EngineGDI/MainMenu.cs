@@ -29,7 +29,7 @@ namespace EngineGDI
                     MenuIndex = 1;
                 }
 
-                if (Engine.IsKeyPressed(Keys.Enter))
+                if (Engine.IsKeyPressed(Keys.Enter) || Engine.IsKeyPressed(Keys.Space))
                 {
                     if (MenuIndex == 0)
                     {
