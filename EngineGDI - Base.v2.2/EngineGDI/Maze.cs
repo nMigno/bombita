@@ -43,7 +43,7 @@ namespace EngineGDI
                 {
                     BrickWallsInMaze.RemoveAt(i);
                 }
-            } 
+            }
         }
 
         public void Render()
