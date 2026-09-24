@@ -67,23 +67,28 @@ namespace EngineGDI
 
         private SpriteState currentState = SpriteState.idle;
 
-        public Player(float initialx, float initialy, float speed = 200)
+        public Player(float initialX, float initialY, float speed = 200)
         {
             vel = speed;
-            startX = initialx;
-            startY = initialy;
+            startX = initialX;
+            startY = initialY;
+
             Transform = new Transform();
-            Transform.Position.X = initialx;
-            Transform.Position.Y = initialy;
+
             Transform.Scale.X = 2.5f;
             Transform.Scale.Y = 2.5f;
-            Transform.Angle = 0;
-            Transform.RealSize.X = 16f * Transform.Scale.X;
-            Transform.RealSize.Y = 16f * Transform.Scale.Y;
             Transform.Offset.X = 0;
             Transform.Offset.Y = 0;
+            Transform.Angle = 0;
+
+            Transform.RealSize.X = 16f * Transform.Scale.X;
+            Transform.RealSize.Y = 16f * Transform.Scale.Y;
+
+            Transform.Position.X = Transform.RealSize.X * initialX;
+            Transform.Position.Y = Transform.RealSize.Y * initialY;
+
             Transform.gameId = GameId.player;
-            BombRadius = 2;
+            BombRadius = 1;
             LoadSprites();
         }
         private void LoadSprites()

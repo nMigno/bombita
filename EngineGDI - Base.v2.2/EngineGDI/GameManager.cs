@@ -156,12 +156,12 @@ namespace EngineGDI
 
 
             Exit = new LevelExit(40.0f, 720.0f);
-            BombitaMan = new Player(41.0f, 40.0f);
+            BombitaMan = new Player(3.0f, 3.0f);
             Enemies = new EnemyManager();
             Collider = new Collider();
             Background = new Background(0, 0, "Textures/bg-lv0.png");
             BackgroundMenu = new Background(0, 0, "Textures/bg-black.png");
-            Maze = new Maze("DataFiles/level0.json");
+            Maze = new Maze("DataFiles/level1.json");
             UiManager = new UIManager();
 
 
