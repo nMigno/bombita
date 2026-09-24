@@ -161,7 +161,7 @@ namespace EngineGDI
             Collider = new Collider();
             Background = new Background(0, 0, "Textures/bg-lv0.png");
             BackgroundMenu = new Background(0, 0, "Textures/bg-black.png");
-            Maze = new Maze("DataFiles/level1.json");
+            Maze = new Maze("DataFiles/level0.json");
             UiManager = new UIManager();
 
 
