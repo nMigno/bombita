@@ -33,15 +33,19 @@ namespace EngineGDI
         {
             texture = "Assets/Sprites/Players/Bombita1/bomb1.png";
             transform = new Transform();
-            Transform.Position.X = NormalizeCoord(initialX);
-            Transform.Position.Y = NormalizeCoord(initialY);
+
+
             Transform.Scale.X = 2.5f;
             Transform.Scale.Y = 2.5f;
             Transform.Angle = 0;
             Transform.Offset.X = 0;
             Transform.Offset.Y = 0;
+
             Transform.RealSize.X = pixelSize * Transform.Scale.X;
             Transform.RealSize.Y = pixelSize * Transform.Scale.Y;
+
+            Transform.Position.X = Transform.RealSize.X * NormalizeCoord(initialX);
+            Transform.Position.Y = Transform.RealSize.Y * NormalizeCoord(initialY);
             IsDestroyed = false;
 
             timer = 2.0f;
@@ -49,6 +53,9 @@ namespace EngineGDI
             isActive = true;
             isExplosionActive = false;
             radius = CheckMinimunRadius(newRadius);
+
+
+
         }
         // checkeo minimo para asegurarlos que la bomba explote y no sea solo en el espacio de la bomba
         private int CheckMinimunRadius(int value)
@@ -58,7 +65,8 @@ namespace EngineGDI
         }
         private float NormalizeCoord(float value)
         {
-            double normalizeValue = Math.Round(value / 7.5f) * 7.5f;
+            double normalizer = Math.Round(value / pixelSize);
+            float normalizeValue = (int)normalizer;
             return (float)normalizeValue;
         }
         public void Explode()
