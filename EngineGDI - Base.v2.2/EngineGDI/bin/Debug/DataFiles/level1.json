@@ -1,4 +1,10 @@
 {
+  "BricksInFile": [
+    {
+      "X": 2.0,
+      "Y": 2.0
+    }
+  ],
   "WallsInFile": [
     {
       "X": 0.0,
