@@ -20,8 +20,9 @@ namespace EngineGDI
         private float startY;
 
         public Bomb ActiveBomb { get; private set; }
+        //el radio de la bomba arranca en 1
+        public int BombRadius { get; private set; }
         public Transform Transform;
-        public Transform BombTransform;
 
         //trackeo estado del player
 
@@ -82,7 +83,7 @@ namespace EngineGDI
             Transform.Offset.X = 0;
             Transform.Offset.Y = 0;
             Transform.gameId = GameId.player;
-
+            BombRadius = 2;
             LoadSprites();
         }
         private void LoadSprites()
@@ -157,7 +158,7 @@ namespace EngineGDI
         {
             if (ActiveBomb != null && ActiveBomb.IsActive) return;
 
-            ActiveBomb = new Bomb(Transform.Position.X, Transform.Position.Y);
+            ActiveBomb = new Bomb(Transform.Position.X, Transform.Position.Y, BombRadius);
             //WIP bomb player colision onPlace
             //Bomb.BombState state = Bomb.BombState.free;
         }
