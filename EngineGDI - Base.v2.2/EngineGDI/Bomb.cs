@@ -5,12 +5,6 @@ namespace EngineGDI
 {
     public class Bomb
     {
-        public enum BombState
-        {
-            colliding,
-            free
-        };
-
         private Transform transform;
         private float timer;
         private float explosionTimer;
@@ -19,7 +13,6 @@ namespace EngineGDI
         private string texture;
         private int radius;
         private int pixelSize = 16;
-        public BombState CurrentState;
 
         public bool IsDestroyed;
 
@@ -47,6 +40,8 @@ namespace EngineGDI
             Transform.Position.X = Transform.RealSize.X * ConvertToRealCoord(initialX);
             Transform.Position.Y = Transform.RealSize.Y * ConvertToRealCoord(initialY);
 
+            Transform.gameId = GameId.bombJustPlaced;
+
             IsDestroyed = false;
 
             timer = 2.0f;
@@ -54,9 +49,6 @@ namespace EngineGDI
             isActive = true;
             isExplosionActive = false;
             radius = CheckMinimunRadius(newRadius);
-
-
-
         }
         // checkeo minimo para asegurarlos que la bomba explote y no sea solo en el espacio de la bomba
         private int CheckMinimunRadius(int value)
@@ -71,14 +63,18 @@ namespace EngineGDI
             double normalizer = Math.Round(value / pixelSize / 2.5f);
             return (int)normalizer;
         }
-        public void Explode()
+        public void PlayerStepsOutOfBomb()
+        {
+            Transform.gameId = GameId.bomb;
+        }
+        private void Explode()
         {
             isActive = false;
             GenerateExplosion(transform);
             explosionTimer = 1.0f;
             isExplosionActive = true;
         }
-        public void GenerateExplosion(Transform BoxOrigin)
+        private void GenerateExplosion(Transform BoxOrigin)
         {
             Explosions.Add(new Explosion(BoxOrigin.Position.X, BoxOrigin.Position.Y));
 
