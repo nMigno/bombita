@@ -71,7 +71,6 @@ namespace EngineGDI
         {
             isActive = false;
             GenerateExplosion(transform);
-            explosionTimer = 1.0f;
             isExplosionActive = true;
         }
         private void GenerateExplosion(Transform BoxOrigin)
@@ -150,7 +149,7 @@ namespace EngineGDI
             transform.RealSize.Y = 16 * transform.Scale.Y;
             transform.gameId = GameId.explosion;
         }
-        public void Render()
+        internal void Render()
         {
             Engine.Draw(texture, transform.Position.X, transform.Position.Y, transform.Scale.X, transform.Scale.Y, transform.Angle, transform.Offset.X, transform.Offset.Y);
         }
