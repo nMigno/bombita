@@ -16,6 +16,7 @@
         wall,
         brickWall,
         bomb,
+        bombJustPlaced,
         explosion,
         speedPickUp,
         exit,
