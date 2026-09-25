@@ -8,6 +8,11 @@ namespace EngineGDI
         public Action OnPlayerColisionWithSomethingThatKillsIt;
         public Action<Transform> OnDestroyEnemy;
         public Action OnPlayerExitColision;
+        public Action OnPlayerStepingOutOfABomb;
+        // 32.0f es igual que no hacer nada, subirlo no hace nada, bajarlo achica la caja de colision
+        // esto se debe a que usamos 16 * 2 pixeles de tamaño aproximadamente
+        private float hitBoxForEnemy = 28.0f;
+        private float hitBoxForDoorExit = 8.0f;
         public bool IsBoxColliding(Vector2 positionA, Vector2 sizeA, Vector2 positionB, Vector2 sizeB)
         {
             if (positionA.X + sizeA.X > positionB.X && // El borde DERECHO del PJ colisiona con el borde IZQUIERDO del objeto
@@ -29,20 +34,20 @@ namespace EngineGDI
                 boxA.Position.Y + boxA.RealSize.Y > boxB.Position.Y && // El borde SUPERIOR del PJ colisiona con el borde INFERIOR del objeto
                 boxA.Position.Y < boxB.Position.Y + boxB.RealSize.Y)   // El borde INFERIOR del PJ colisiona con el borde SUPERIOR del objeto
             {
+                // Seccion hacemos algo si detectamos colision
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.wall)
                 {
                     PlayerPushOutColision(boxA, boxB);
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.brickWall)
                 {
-                   PlayerPushOutColision(boxA, boxB);
+                    PlayerPushOutColision(boxA, boxB);
                 }
                 if (boxA.gameId == GameId.brickWall && boxB.gameId == GameId.explosion)
                 {
                     //llamar aca al delegado y mandarle la boxA que son las coordenadas
                     //el delegado es void y recibe un objeto de clase Transform
                     if (boxA != null) OnDestroyBrickWall(boxA);
-
                 }
                 if (boxA.gameId == GameId.enemy && boxB.gameId == GameId.explosion)
                 {
@@ -52,19 +57,11 @@ namespace EngineGDI
                 {
                     // Calculamos el centro de ambos sprites para asegurarnos de que el
                     // player pise lo suficiente la salida para triggerear la victoria
-                    float pacmanCenterX = boxA.Position.X + (boxA.RealSize.X / 2);
-                    float pacmanCenterY = boxA.Position.Y + (boxA.RealSize.Y / 2);
-                    float exitCenterX = boxB.Position.X + (boxB.RealSize.X / 2);
-                    float exitCenterY = boxB.Position.Y + (boxB.RealSize.Y / 2);
-                    float distanceX = pacmanCenterX - exitCenterX;
-                    float distanceY = pacmanCenterY - exitCenterY;
-                    float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
-
-                    if (distance < 8.0f) OnPlayerExitColision();
+                    if (SmallerHitBoxCollisio(boxA, boxB, hitBoxForDoorExit)) OnPlayerExitColision();
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.enemy)
                 {
-                    OnPlayerColisionWithSomethingThatKillsIt();
+                    if (SmallerHitBoxCollisio(boxA, boxB, hitBoxForEnemy)) OnPlayerColisionWithSomethingThatKillsIt();
                 }
                 if (boxA.gameId == GameId.player && boxB.gameId == GameId.explosion)
                 {
@@ -75,9 +72,34 @@ namespace EngineGDI
                     PlayerPushOutColision(boxA, boxB);
                 }
             }
+            // Seccion hacemos algo si NO detectamos colision
+            else
+            {
+                if (boxA.gameId == GameId.player && boxB.gameId == GameId.bombJustPlaced)
+                {
+                    OnPlayerStepingOutOfABomb();
+                }
+            }
+        }
+        private bool SmallerHitBoxCollisio(Transform boxA, Transform boxB, float hitboxValue)
+        {
+            float boxACenterX = boxA.Position.X + (boxA.RealSize.X / 2);
+            float boxACenterY = boxA.Position.Y + (boxA.RealSize.Y / 2);
+            float boxBCenterX = boxB.Position.X + (boxB.RealSize.X / 2);
+            float boxBCenterY = boxB.Position.Y + (boxB.RealSize.Y / 2);
+
+            float distanceX = boxACenterX - boxBCenterX;
+            float distanceY = boxACenterY - boxBCenterY;
+            float distance = (float)Math.Sqrt((distanceX * distanceX) + (distanceY * distanceY));
+
+            if (hitboxValue > distance)
+            {
+                return true;
+            }
+            return false;
         }
         //si primero se detecta colision Player, cualquierotroobjeto, lo empujamos
-        public void PlayerPushOutColision(Transform a, Transform b)
+        private void PlayerPushOutColision(Transform a, Transform b)
         {
             float aPOSx2 = a.Position.X + a.RealSize.X;
             float aPOSy2 = a.Position.Y + a.RealSize.Y;
