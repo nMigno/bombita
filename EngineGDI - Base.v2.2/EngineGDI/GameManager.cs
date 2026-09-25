@@ -34,6 +34,10 @@ namespace EngineGDI
         private static bool isColliding = false;
 
         private int screenWidth;
+        public static void Initialize(int width, int height)
+        {
+            instance = new GameManager(width);
+        }
         private GameManager(int Width)
         {
             screenWidth = Width;
@@ -43,9 +47,48 @@ namespace EngineGDI
 
             RestartGame();
         }
-        public static void Initialize(int width, int height)
+        public void RestartGame()
         {
-            instance = new GameManager(width);
+            LevelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "level0.json");
+
+
+            Exit = new LevelExit(40.0f, 720.0f);
+            BombitaMan = new Player(3.0f, 3.0f);
+            Enemies = new EnemyManager();
+            Collider = new Collider();
+            Background = new Background(0, 0, "Textures/bg-lv0.png");
+            BackgroundMenu = new Background(0, 0, "Textures/bg-black.png");
+            Maze = new Maze("DataFiles/level0.json");
+            UiManager = new UIManager();
+
+
+            BombitaMan.OnLifeChanged += BombitaMan.Die;
+            BombitaMan.OnLifeChanged += AudioManager.PlayPlayerDie;
+            Collider.OnPlayerExitColision += PlayerExitedLevel;
+            Collider.OnPlayerColisionWithSomethingThatKillsIt += BombitaMan.Die;
+            Collider.OnDestroyBrickWall += Maze.RemoveBrickWall;
+            Collider.OnDestroyEnemy += Enemies.RemoveEnemy;
+            GameOverScreen.OnRestartGame += RestartGame;
+            Enemies.OnEnemiesCleared += Exit.OpenExit;
+            //revisar como soluciona esto
+            Collider.OnPlayerStepingOutOfABomb += BombitaMan.ActiveBomb.PlayerStepsOutOfBomb;
+
+            if (CurrentState == GameState.victory ||
+                CurrentState == GameState.defeat)
+            {
+                CurrentState = GameState.playing;
+            }
+            else
+            {
+                CurrentState = GameState.start;
+            }
+        }
+        public static void PlayerExitedLevel()
+        {
+            if (Exit.Opened)
+            {
+                CurrentState = GameState.victory;
+            }
         }
         public void Input()
         {
@@ -68,19 +111,7 @@ namespace EngineGDI
                 }
                 if (BombitaMan.ActiveBomb != null)
                 {
-                    if (BombitaMan.ActiveBomb.CurrentState == Bomb.BombState.colliding)
-                    {
-                        isColliding = Collider.IsBoxColliding(BombitaMan.Transform.Position, BombitaMan.Transform.RealSize,
-                            BombitaMan.ActiveBomb.Transform.Position, BombitaMan.ActiveBomb.Transform.RealSize);
-                        if (!isColliding)
-                        {
-                            BombitaMan.ActiveBomb.CurrentState = Bomb.BombState.free;
-                        }
-                    }
-                    else if (BombitaMan.ActiveBomb.CurrentState == Bomb.BombState.free)
-                    {
-                        Collider.IsTransformColliding(BombitaMan.Transform, BombitaMan.ActiveBomb.Transform);
-                    }
+                    Collider.IsTransformColliding(BombitaMan.Transform, BombitaMan.ActiveBomb.Transform);
 
                     for (int i = 0; i < BombitaMan.ActiveBomb.Explosions.Count; i++)
                     {
@@ -148,47 +179,6 @@ namespace EngineGDI
             else if (CurrentState == GameState.start)
             {
                 MainMenuScreen.Render();
-            }
-        }
-        public void RestartGame()
-        {
-            LevelPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataFiles", "level0.json");
-
-
-            Exit = new LevelExit(40.0f, 720.0f);
-            BombitaMan = new Player(3.0f, 3.0f);
-            Enemies = new EnemyManager();
-            Collider = new Collider();
-            Background = new Background(0, 0, "Textures/bg-lv0.png");
-            BackgroundMenu = new Background(0, 0, "Textures/bg-black.png");
-            Maze = new Maze("DataFiles/level0.json");
-            UiManager = new UIManager();
-
-
-            BombitaMan.OnLifeChanged += BombitaMan.Die;
-            BombitaMan.OnLifeChanged += AudioManager.PlayPlayerDie;
-            Collider.OnPlayerExitColision += PlayerExitedLevel;
-            Collider.OnPlayerColisionWithSomethingThatKillsIt += BombitaMan.Die;
-            Collider.OnDestroyBrickWall += Maze.RemoveBrickWall;
-            Collider.OnDestroyEnemy += Enemies.RemoveEnemy;
-            GameOverScreen.OnRestartGame += RestartGame;
-            Enemies.OnEnemiesCleared += Exit.OpenExit;
-
-            if (CurrentState == GameState.victory ||
-                CurrentState == GameState.defeat)
-            {
-                CurrentState = GameState.playing;
-            }
-            else
-            {
-                CurrentState = GameState.start;
-            }
-        }
-        public static void PlayerExitedLevel()
-        {
-            if (Exit.Opened)
-            {
-                CurrentState = GameState.victory;
             }
         }
     }
